@@ -783,16 +783,16 @@ For more information, please refer to:
 
 ## Roadmap
 
-See the [open issues](https://github.com/TierMobility/tile38/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/TierMobility/tile38-ts/issues) for a list of proposed features (and known issues).
 
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch (`git checkout -b feat/amazing-feature`)
+3. Commit your Changes (`git commit -m 'fix: add some amazing feature'`)
+4. Push to the Branch (`git push origin feat/amazing-feature`)
 5. Open a Pull Request
 
 ## License
@@ -801,7 +801,7 @@ MIT
 
 ## Maintainer
 Vincent Priem - [@vpriem](https://github.com/vpriem)  
-Benjamin Ramser - [@iwpnd](https://github.com/iwpnd)
+Benjamin Ramser - [@iwpnd](https://github.com/iwpnd)  
 Juliana Schwarz - [@julschwarz](https://github.com/julschwarz)
 
 Project Link: [https://github.com/TierMobility/tile38-ts](https://github.com/TierMobility/tile38-ts)
