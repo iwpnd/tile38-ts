@@ -59,7 +59,7 @@
         "@typescript-eslint/parser": "5.25.0",
         "coveralls": "3.1.1",
         "devmoji": "2.3.0",
-        "eslint": "8.15.0",
+        "eslint": "8.17.0",
         "eslint-config-airbnb-base": "15.0.0",
         "eslint-config-prettier": "8.5.0",
         "eslint-import-resolver-typescript": "2.7.1",
