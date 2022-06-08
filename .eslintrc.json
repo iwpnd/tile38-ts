@@ -1,0 +1,61 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json"
+  },
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "globals": {
+    "afterAll": true,
+    "afterEach": true,
+    "beforeAll": true,
+    "beforeEach": true,
+    "describe": true,
+    "expect": true,
+    "it": true,
+    "xit": true,
+    "jest": true
+  },
+  "rules": {
+    "import/prefer-default-export": "off",
+    "import/extensions": ["error", { "js": "never", "ts": "never" }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.ts"] }],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", ["index", "sibling", "parent", "object"]],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "pathGroups": [{ "pattern": "~/**", "group": "external", "position": "after" }],
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "sort-imports": ["error", {
+      "ignoreCase": false,
+      "ignoreDeclarationSort": true,
+      "ignoreMemberSort": false,
+      "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+      "allowSeparatedGroups": false
+  }],
+    "no-shadow": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-shadow": ["error"]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}

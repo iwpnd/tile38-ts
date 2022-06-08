@@ -1,0 +1,77 @@
+{
+    "name": "@tiermobility/tile38-ts",
+    "version": "1.0.0-alpha.0",
+    "description": "A Node.js Tile38 client written in TypeScript",
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "typings": "dist/index.d.ts",
+    "repository": "git@github.com:TierMobility/tile38-ts.git",
+    "author": "V. Priem <vinzent.priem@gmail.com>",
+    "contributors": [
+        "B. Ramser <b.ramser@posteo.net>"
+    ],
+    "license": "MIT",
+    "keywords": [
+        "tile38",
+        "geofence",
+        "geo-spatial",
+        "database"
+    ],
+    "engines": {
+        "node": ">=14.x",
+        "yarn": "^1.22.x"
+    },
+    "private": false,
+    "scripts": {
+        "postinstall": "yarn husky install",
+        "prepublishOnly": "pinst --disable && yarn run build",
+        "postpublish": "pinst --enable",
+        "build": "tsc",
+        "build:watch": "tsc --watch",
+        "clean": "rimraf {dist,tsconfig.tsbuildinfo,yarn-error.log,coverage}",
+        "lint": "eslint --ext .ts ./src",
+        "test": "jest --runInBand",
+        "format": "prettier --write src/{*.ts,**/*.ts}",
+        "u": "yarn upgrade-interactive --latest",
+        "up": "docker-compose up tile38",
+        "down": "docker-compose down",
+        "release": "standard-version --prerelease alpha"
+    },
+    "dependencies": {
+        "@types/node": "17.0.34",
+        "@vpriem/geojson": "1.0.1",
+        "redis": "4.1.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "17.0.0",
+        "@commitlint/config-conventional": "17.0.0",
+        "@types/jest": "27.4.1",
+        "@typescript-eslint/eslint-plugin": "5.25.0",
+        "@typescript-eslint/parser": "5.25.0",
+        "coveralls": "3.1.1",
+        "devmoji": "2.3.0",
+        "eslint": "8.15.0",
+        "eslint-config-airbnb-base": "15.0.0",
+        "eslint-config-prettier": "8.5.0",
+        "eslint-import-resolver-typescript": "2.7.1",
+        "eslint-plugin-import": "2.26.0",
+        "eslint-plugin-prettier": "4.0.0",
+        "husky": "8.0.1",
+        "jest": "27.5.1",
+        "lint-staged": "12.4.1",
+        "pinst": "3.0.0",
+        "prettier": "2.6.2",
+        "rimraf": "3.0.2",
+        "standard-version": "9.5.0",
+        "ts-jest": "27.1.4",
+        "typescript": "4.6.4"
+    },
+    "lint-staged": {
+        "*.ts": [
+            "eslint --fix",
+            "prettier --write"
+        ]
+    }
+}
