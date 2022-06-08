@@ -41,8 +41,6 @@ jobs:
       - name: lint
         run: yarn lint
       - name: test
-        env:
-          TILE38_URI: 'redis://tile38:9851'
         run: yarn test
       - name: build
         run: yarn build
