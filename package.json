@@ -55,7 +55,7 @@
         "@semantic-release/changelog": "6.0.1",
         "@semantic-release/git": "10.0.1",
         "@types/jest": "27.4.1",
-        "@typescript-eslint/eslint-plugin": "5.25.0",
+        "@typescript-eslint/eslint-plugin": "5.27.1",
         "@typescript-eslint/parser": "5.25.0",
         "coveralls": "3.1.1",
         "devmoji": "2.3.0",
