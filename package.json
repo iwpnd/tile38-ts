@@ -11,6 +11,9 @@
         "type": "git",
         "url": "https://github.com/TierMobility/tile38-ts.git"
     },
+    "publishConfig": {
+        "access": "public"
+    },
     "author": "V. Priem <vinzent.priem@gmail.com>",
     "contributors": [
         "B. Ramser <b.ramser@posteo.net>"
