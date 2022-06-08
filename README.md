@@ -1,8 +1,9 @@
 <br  />
-<p align="center">
+<!-- <p align="center"> -->
 <!-- <a  href="tile38-ts.png">
 <img  src="tile38-ts.png"  alt="Logo"  width="487"  height="281">
 </a> -->
+<h1 align="center">Tile38-ts</h1>
 <p align="center">
 <a  href="https://tier.engineering">tier.engineering</a> · <a  href="https://github.com/TierMobility/tile38-ts/issues">Report Bug</a>
 · <a  href="https://github.com/TierMobility/tile38-ts/issues">Request Feature</a>
