@@ -11,8 +11,12 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
         node-version: [14.x, 16.x]
+
+    services:
+      tile38:
+        image: tile38/tile38:1.28.0
 
     steps:
       - uses: actions/checkout@v2
@@ -37,6 +41,8 @@ jobs:
       - name: lint
         run: yarn lint
       - name: test
+        env:
+          TILE38_URI: 'redis://tile38:9851'
         run: yarn test
       - name: build
         run: yarn build
