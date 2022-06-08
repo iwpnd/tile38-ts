@@ -8,11 +8,12 @@ jobs:
       CI: true
     runs-on: ${{ matrix.os }}
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    container: node:14.19.3-alpine3.16
 
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [14.x, 16.x]
+        node-version: [14.x]
 
     services:
       tile38:
