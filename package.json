@@ -50,7 +50,7 @@
         "down": "docker-compose down"
     },
     "dependencies": {
-        "@types/node": "17.0.41",
+        "@types/node": "17.0.42",
         "@vpriem/geojson": "1.0.1",
         "redis": "4.1.0"
     },
