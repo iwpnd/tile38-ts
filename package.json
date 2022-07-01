@@ -29,11 +29,6 @@
         "node": ">=14.x",
         "yarn": "^1.22.x"
     },
-    "release": {
-        "branches": [
-            "main"
-        ]
-    },
     "private": false,
     "scripts": {
         "postinstall": "yarn husky install",
