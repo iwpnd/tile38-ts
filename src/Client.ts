@@ -110,6 +110,9 @@ export class Client extends EventEmitter {
         super();
 
         this.redis = createClient({ url })
+            .on('ready', () => {
+                this.format = Format.RESP;
+            })
             .on('error', (error) => {
                 /* istanbul ignore next */
                 this.emit('error', error);
