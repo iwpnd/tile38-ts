@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/TierMobility/tile38-ts/compare/v1.0.3...v1.0.4) (2022-07-07)
+
+
+### Documentation
+
+* 📚️ fix readme setchan section ([a967c4c](https://github.com/TierMobility/tile38-ts/commit/a967c4c19f3912760197dcc65967a5ad681999db))
+
 ## [1.0.3](https://github.com/TierMobility/tile38-ts/compare/v1.0.2...v1.0.3) (2022-07-01)
 
 
