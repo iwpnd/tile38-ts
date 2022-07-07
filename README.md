@@ -727,9 +727,9 @@ Now that channel can:
 
 ```typescript
 // be subscribed to
-await tile38.subscribe('warehouse');
+await channel.subscribe('warehouse');
 // or pattern subscribed to
-await tile38.pSubscribe('ware*');
+await channel.pSubscribe('ware*');
 ```
 
 Every set `.set()` results in:
@@ -752,7 +752,7 @@ await tile38.set('fleet', 'bus').point(33.5123001, -112.2693001).exec();
 
 ```typescript
 // to unsubscribed
-await tile38.unsubscribe();
+await channel.unsubscribe();
 
 // to delete
 await tile38.delChan('warehouse');
