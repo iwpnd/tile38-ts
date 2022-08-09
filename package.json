@@ -45,7 +45,7 @@
         "down": "docker-compose down"
     },
     "dependencies": {
-        "@types/node": "18.6.4",
+        "@types/node": "18.6.5",
         "@vpriem/geojson": "1.0.1",
         "redis": "4.2.0"
     },
