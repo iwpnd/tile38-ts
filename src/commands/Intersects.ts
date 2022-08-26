@@ -348,8 +348,8 @@ export class Intersects extends Executable implements IntersectsInterface {
             [
                 this._key,
                 ...this.compileOptions(),
-                ...this.compileWhere(),
                 ...this.compileFence(),
+                ...this.compileWhere(),
                 ...(this._output || []),
                 ...(this._query || []),
             ],

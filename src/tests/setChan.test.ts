@@ -20,6 +20,7 @@ describe('setChan', () => {
             tile38
                 .setChan('parking')
                 .intersects('fleet')
+                .where('type', 1, 1)
                 .circle(1, 2, 100)
                 .exec()
         ).resolves.toEqual({
@@ -32,6 +33,10 @@ describe('setChan', () => {
             'INTERSECTS',
             'fleet',
             'FENCE',
+            'WHERE',
+            'type',
+            1,
+            1,
             'CIRCLE',
             1,
             2,

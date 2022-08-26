@@ -22,6 +22,7 @@ describe('setHook', () => {
                 .setHook('warehouse', 'http://10.0.20.78/endpoint')
                 .nearby('fleet')
                 .point(33.5123, -112.2693, 500)
+                .where('type', 1, 1)
                 .exec()
         ).resolves.toEqual({
             elapsed: expect.any(String) as string,
@@ -34,6 +35,10 @@ describe('setHook', () => {
             'NEARBY',
             'fleet',
             'FENCE',
+            'WHERE',
+            'type',
+            1,
+            1,
             'POINT',
             33.5123,
             -112.2693,
