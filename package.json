@@ -51,7 +51,7 @@
     },
     "devDependencies": {
         "@commitlint/cli": "17.1.1",
-        "@commitlint/config-conventional": "17.0.3",
+        "@commitlint/config-conventional": "17.1.0",
         "@semantic-release/changelog": "6.0.1",
         "@semantic-release/git": "10.0.1",
         "@semantic-release/github": "8.0.5",
@@ -63,7 +63,7 @@
         "conventional-changelog-conventionalcommits": "5.0.0",
         "coveralls": "3.1.1",
         "devmoji": "2.3.0",
-        "eslint": "8.22.0",
+        "eslint": "8.23.0",
         "eslint-config-airbnb-base": "15.0.0",
         "eslint-config-prettier": "8.5.0",
         "eslint-import-resolver-typescript": "3.5.0",
