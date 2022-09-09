@@ -63,6 +63,7 @@ This is a Typescript client for Tile38 that allows for a type-safe interaction w
 
 ```sh
 "node": ">=14.x"
+"redis" ">=4.3.0"
 ```
 ### Installation
 
