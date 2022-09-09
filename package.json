@@ -59,7 +59,7 @@
         "@semantic-release/release-notes-generator": "10.0.3",
         "@types/jest": "27.4.1",
         "@typescript-eslint/eslint-plugin": "5.36.2",
-        "@typescript-eslint/parser": "5.36.1",
+        "@typescript-eslint/parser": "5.36.2",
         "conventional-changelog-conventionalcommits": "5.0.0",
         "coveralls": "3.1.1",
         "devmoji": "2.3.0",
