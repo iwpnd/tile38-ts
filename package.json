@@ -47,7 +47,7 @@
     "dependencies": {
         "@types/node": "18.11.9",
         "@vpriem/geojson": "1.0.1",
-        "redis": "4.4.0"
+        "redis": "4.5.0"
     },
     "devDependencies": {
         "@commitlint/cli": "17.2.0",
