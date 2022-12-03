@@ -16,6 +16,16 @@ describe('Set', () => {
             'SET',
             [key, id, 'FIELD', 'speed', 10, 'FIELD', 'weight', 100],
         ]);
+        expect(
+            query.fields({ city: 'Berlin', country: 'Germany' }).compile()
+        ).toEqual([
+            'SET',
+            [key, id, 'FIELD', 'city', 'Berlin', 'FIELD', 'country', 'Germany'],
+        ]);
+        expect(query.fields({ city: 'Berlin', speed: 100 }).compile()).toEqual([
+            'SET',
+            [key, id, 'FIELD', 'city', 'Berlin', 'FIELD', 'speed', 100],
+        ]);
         expect(query.fields({ speed: 1 }).compile()).toEqual([
             'SET',
             [key, id, 'FIELD', 'speed', 1],

@@ -11,7 +11,7 @@ export interface Bounds {
     sw: LatLon;
 }
 
-export type Fields = Record<string, number>;
+export type Fields = Record<string, number | string>;
 
 export type Meta = Record<string, string>;
 

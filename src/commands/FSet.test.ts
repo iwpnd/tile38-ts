@@ -30,5 +30,9 @@ describe('FSet', () => {
             'FSET',
             [key, id, 'height', 20],
         ]);
+        expect(query.fields({ city: 'Berlin' }).compile()).toEqual([
+            'FSET',
+            [key, id, 'city', 'Berlin'],
+        ]);
     });
 });
