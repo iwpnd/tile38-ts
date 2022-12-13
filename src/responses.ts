@@ -118,7 +118,7 @@ export type StringObjectsResponse = ExtendResponse<{
 
 // IDS
 export type IdsResponse = ExtendResponse<{
-    ids: string[];
+    ids: (string | { id: string; distance: number })[];
     count: number;
     cursor: number;
 }>;

@@ -65,6 +65,7 @@ This is a Typescript client for Tile38 that allows for a type-safe interaction w
 "node": ">=14.x"
 "redis" ">=4.3.0"
 ```
+
 ### Installation
 
 ```sh
@@ -446,16 +447,21 @@ await tile38.intersects('fleet').get('warehouses', 'Berlin').asIds();
 #### Nearby
 
 ```typescript
-await tile38.set('fleet', 'truck1')
-		.point(33.5123, -112.2693)
-		.exec();
+await tile38.set('fleet', 'truck1').point(33.5123, -112.2693).exec();
 
-await  tile38.nearby('fleet').point(33.5124, -112.2694);
+await  tile38.nearby('fleet').point(33.5124, -112.2694).asCount();
 > {"ok":true,"count":1,"cursor":0,"elapsed":"42.8µs"}
 
-await  tile38.nearby('fleet').point(33.5124, -112.2694, 10);
+await  tile38.nearby('fleet').point(33.5124, -112.2694, 10).asCount();
 // because truck1 is further away than 10m
 > {"ok":true,"count":0,"cursor":0,"elapsed":"36µs"}
+
+// asIds request
+await  tile38.nearby('fleet').point(33.5124, -112.2694).asIds();
+> {"ok":true,"ids":['truck1'],"cursor":0,"elapsed":"36µs"}
+// asIds with distance
+await  tile38.nearby('fleet').distance().point(33.5124, -112.2694).asIds();
+> {"ok":true,"ids":[{ "id":"truck1", "distance": 1 }],"cursor":0,"elapsed":"36µs"}
 ```
 
 **Options**
@@ -801,6 +807,7 @@ Contributions are what make the open source community such an amazing place to b
 MIT
 
 ## Maintainer
+
 Vincent Priem - [@vpriem](https://github.com/vpriem)  
 Benjamin Ramser - [@iwpnd](https://github.com/iwpnd)  
 Juliana Schwarz - [@julschwarz](https://github.com/julschwarz)

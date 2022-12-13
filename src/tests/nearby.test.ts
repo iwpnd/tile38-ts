@@ -122,6 +122,34 @@ describe('nearby', () => {
         ]);
     });
 
+    it('should return ids with distance', async () => {
+        const expected: IdsResponse = {
+            elapsed: expect.any(String) as string,
+            ok: true,
+            ids: [{ id: 'truck1', distance: expect.any(Number) as number }],
+            count: 1,
+            cursor: 0,
+        };
+
+        await expect(
+            tile38
+                .nearby('fleet')
+                .distance()
+                .point(33.5123, -112.2693, 100)
+                .asIds()
+        ).resolves.toEqual(expected);
+
+        expect(command).toHaveBeenCalledWith('NEARBY', [
+            'fleet',
+            'DISTANCE',
+            'IDS',
+            'POINT',
+            33.5123,
+            -112.2693,
+            100,
+        ]);
+    });
+
     it('should return count', async () => {
         const expected: CountResponse = {
             elapsed: expect.any(String) as string,
