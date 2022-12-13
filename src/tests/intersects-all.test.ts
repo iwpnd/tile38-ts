@@ -1,11 +1,15 @@
 import { Feature } from '@vpriem/geojson';
 import {
     Bounds,
+    BoundsBase,
     BoundsNeSwResponses,
+    HashBase,
     HashesResponse,
     IdsResponse,
     LatLon,
+    ObjectBase,
     ObjectsResponse,
+    PointBase,
     PointsResponse,
     Tile38,
 } from '..';
@@ -43,11 +47,11 @@ describe('intersects all', () => {
         const expected: ObjectsResponse = {
             elapsed: expect.any(String) as string,
             ok: true,
-            objects: [
+            objects: expect.arrayContaining([
                 { id: 'truck1', object: feature },
                 { id: 'truck2', object: feature },
                 { id: 'truck3', object: feature },
-            ],
+            ]) as ObjectBase[],
             count: 3,
             cursor: 0,
         };
@@ -111,11 +115,11 @@ describe('intersects all', () => {
         const expected: ObjectsResponse = {
             elapsed: expect.any(String) as string,
             ok: true,
-            objects: [
+            objects: expect.arrayContaining([
                 { id: 'truck1', object: feature },
                 { id: 'truck2', object: feature },
                 { id: 'truck3', object: feature },
-            ],
+            ]) as ObjectBase[],
             count: 3,
             cursor: 0,
         };
@@ -152,11 +156,11 @@ describe('intersects all', () => {
         const expected: HashesResponse = {
             elapsed: expect.any(String) as string,
             ok: true,
-            hashes: [
+            hashes: expect.arrayContaining([
                 { id: 'truck1', hash: expect.any(String) as string },
                 { id: 'truck2', hash: expect.any(String) as string },
                 { id: 'truck3', hash: expect.any(String) as string },
-            ],
+            ]) as HashBase[],
             count: 3,
             cursor: 0,
         };
@@ -226,11 +230,11 @@ describe('intersects all', () => {
         const expected: PointsResponse = {
             elapsed: expect.any(String) as string,
             ok: true,
-            points: [
+            points: expect.arrayContaining([
                 { id: 'truck1', point: expect.any(Object) as LatLon },
                 { id: 'truck2', point: expect.any(Object) as LatLon },
                 { id: 'truck3', point: expect.any(Object) as LatLon },
-            ],
+            ]) as PointBase[],
             count: 3,
             cursor: 0,
         };
@@ -297,11 +301,11 @@ describe('intersects all', () => {
         const expected: BoundsNeSwResponses = {
             elapsed: expect.any(String) as string,
             ok: true,
-            bounds: [
+            bounds: expect.arrayContaining([
                 { id: 'truck1', bounds: expect.any(Object) as Bounds },
                 { id: 'truck2', bounds: expect.any(Object) as Bounds },
                 { id: 'truck3', bounds: expect.any(Object) as Bounds },
-            ],
+            ]) as BoundsBase[],
             count: 3,
             cursor: 0,
         };
@@ -364,11 +368,15 @@ describe('intersects all', () => {
         ]);
     });
 
-    it('should return all ids  in 3 requests', async () => {
+    it('should return all ids in 3 requests', async () => {
         const expected: IdsResponse = {
             elapsed: expect.any(String) as string,
             ok: true,
-            ids: ['truck1', 'truck2', 'truck3'],
+            ids: expect.arrayContaining([
+                'truck1',
+                'truck2',
+                'truck3',
+            ]) as Array<string>,
             count: 3,
             cursor: 0,
         };

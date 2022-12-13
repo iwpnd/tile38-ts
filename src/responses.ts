@@ -1,20 +1,6 @@
 /* eslint-disable camelcase */
 import { GeoJSON, Polygon } from '@vpriem/geojson';
 
-export type LatLon = {
-    lat: number;
-    lon: number;
-};
-
-export interface Bounds {
-    ne: LatLon;
-    sw: LatLon;
-}
-
-export type Fields = Record<string, number>;
-
-export type Meta = Record<string, string>;
-
 export type JSONResponse = {
     ok: boolean;
     elapsed: string;
@@ -22,6 +8,86 @@ export type JSONResponse = {
 };
 
 type ExtendResponse<E extends object> = JSONResponse & E;
+
+export type LatLon = {
+    lat: number;
+    lon: number;
+};
+
+export type Fields = Record<string, number>;
+
+export type Meta = Record<string, string>;
+
+interface Base {
+    id: string | number;
+    distance?: number;
+    fields?: number[];
+}
+
+// BOUNDS
+export interface Bounds {
+    ne: LatLon;
+    sw: LatLon;
+}
+
+export interface BoundsBase extends Base {
+    bounds: Bounds;
+}
+
+export type BoundsNeSwResponse<F extends Fields = Fields> = ExtendResponse<{
+    bounds: Bounds;
+    fields?: F;
+}>;
+
+export type BoundsNeSwResponses = ExtendResponse<{
+    bounds: BoundsBase[];
+    count: number;
+    cursor: number;
+    fields?: string[];
+}>;
+
+export type BoundsResponse = ExtendResponse<{
+    bounds: Polygon;
+}>;
+
+// HASH
+export interface HashBase extends Base {
+    hash: string;
+}
+
+export type HashResponse<F = Fields> = ExtendResponse<{
+    hash: string;
+    fields?: F;
+}>;
+
+export type HashesResponse = ExtendResponse<{
+    hashes: HashBase[];
+    count: number;
+    cursor: number;
+    fields?: string[];
+}>;
+
+// POINT
+export interface PointBase extends Base {
+    point: LatLon;
+}
+
+export type PointResponse<F extends Fields = Fields> = ExtendResponse<{
+    point: LatLon;
+    fields?: F;
+}>;
+
+export type PointsResponse = ExtendResponse<{
+    points: PointBase[];
+    count: number;
+    cursor: number;
+    fields?: string[];
+}>;
+
+// OBJECT
+export interface ObjectBase<O extends GeoJSON = GeoJSON> extends Base {
+    object: O;
+}
 
 export type ObjectResponse<
     O extends GeoJSON = GeoJSON,
@@ -32,17 +98,13 @@ export type ObjectResponse<
 }>;
 
 export type ObjectsResponse<O extends GeoJSON = GeoJSON> = ExtendResponse<{
-    objects: {
-        object: O;
-        id: string | number;
-        distance?: number;
-        fields?: number[];
-    }[];
+    objects: ObjectBase<O>[];
     count: number;
     cursor: number;
     fields?: string[];
 }>;
 
+// STRING
 export type StringObjectResponse<F extends Fields = Fields> = ExtendResponse<{
     object: string;
     fields?: F;
@@ -54,84 +116,35 @@ export type StringObjectsResponse = ExtendResponse<{
     cursor: number;
 }>;
 
+// IDS
 export type IdsResponse = ExtendResponse<{
     ids: string[];
     count: number;
     cursor: number;
 }>;
 
+// COUNT
 export type CountResponse = ExtendResponse<{
     count: number;
     cursor: number;
 }>;
 
-export type PointResponse<F extends Fields = Fields> = ExtendResponse<{
-    point: LatLon;
-    fields?: F;
-}>;
-
-export type HashResponse<F = Fields> = ExtendResponse<{
-    hash: string;
-    fields?: F;
-}>;
-
-export type PointsResponse = ExtendResponse<{
-    points: {
-        point: LatLon;
-        id: string | number;
-        distance?: number;
-        fields?: number[];
-    }[];
-    count: number;
-    cursor: number;
-    fields?: string[];
-}>;
-
-export type HashesResponse = ExtendResponse<{
-    hashes: {
-        hash: string;
-        id: string | number;
-        distance?: number;
-        fields?: number[];
-    }[];
-    count: number;
-    cursor: number;
-    fields?: string[];
-}>;
-
-export type BoundsNeSwResponse<F extends Fields = Fields> = ExtendResponse<{
-    bounds: Bounds;
-    fields?: F;
-}>;
-
-export type BoundsNeSwResponses = ExtendResponse<{
-    bounds: {
-        bounds: Bounds;
-        id: string | number;
-        distance?: number;
-        fields?: number[];
-    }[];
-    count: number;
-    cursor: number;
-    fields?: string[];
-}>;
-
-export type BoundsResponse = ExtendResponse<{
-    bounds: Polygon;
-}>;
-
+// KEYS
 export type KeysResponse = ExtendResponse<{
     keys: string[];
 }>;
 
+// PING
 export type PingResponse = ExtendResponse<{
     ping: 'pong';
 }>;
 
+// TTL
 export type TTLResponse = ExtendResponse<{
     ttl: number;
 }>;
 
+// STATS
 export type StatsResponse = ExtendResponse<{
     stats: Array<{
         in_memory_size: number;
@@ -141,6 +154,7 @@ export type StatsResponse = ExtendResponse<{
     } | null>;
 }>;
 
+// SERVER
 export type ServerResponse = ExtendResponse<{
     stats: {
         aof_size: number;
@@ -238,6 +252,7 @@ export interface ServerFollowerResponse extends ServerResponse {
     };
 }
 
+// INFO
 export type InfoResponse = ExtendResponse<{
     info: {
         aof_current_rewrite_time_sec: number;
@@ -276,6 +291,7 @@ export interface InfoLeaderResponse extends InfoResponse {
     } & { [key: string]: string | number };
 }
 
+// CONFIG
 export type ConfigKeys =
     | 'requirepass'
     | 'leaderauth'
@@ -292,6 +308,7 @@ export type JsonGetResponse = ExtendResponse<{
     value: string | number;
 }>;
 
+// HOOKS
 export type HooksResponse = ExtendResponse<{
     hooks: {
         name: string;
@@ -303,6 +320,7 @@ export type HooksResponse = ExtendResponse<{
     }[];
 }>;
 
+// CHANS
 export type ChansResponse = ExtendResponse<{
     chans: {
         name: string;
@@ -313,6 +331,7 @@ export type ChansResponse = ExtendResponse<{
     }[];
 }>;
 
+// GEOFENCE
 export type Detect = 'inside' | 'outside' | 'enter' | 'exit' | 'cross';
 
 export type Commands = 'set' | 'del';
