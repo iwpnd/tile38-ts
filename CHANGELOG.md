@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/TierMobility/tile38-ts/compare/v1.0.7...v1.0.8) (2022-12-13)
+
+
+### Bug Fixes
+
+* 🐛 nearby asIds response with distance ([a6d9fef](https://github.com/TierMobility/tile38-ts/commit/a6d9fefa3defa49bfc1cfe5d6bed6c77cc19be95))
+
 ## [1.0.7](https://github.com/TierMobility/tile38-ts/compare/v1.0.6...v1.0.7) (2022-12-13)
 
 
