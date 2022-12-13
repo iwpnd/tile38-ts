@@ -16,6 +16,24 @@ describe('Set', () => {
             'SET',
             [key, id, 'FIELD', 'speed', 10, 'FIELD', 'weight', 100],
         ]);
+        expect(
+            query
+                .fields({ motor: { maxSpeed: 100, petrol: 'super' } })
+                .compile()
+        ).toEqual([
+            'SET',
+            [
+                key,
+                id,
+                'FIELD',
+                'motor',
+                JSON.stringify({ maxSpeed: 100, petrol: 'super' }),
+            ],
+        ]);
+        expect(query.fields({ driver: 'Vincent' }).compile()).toEqual([
+            'SET',
+            [key, id, 'FIELD', 'driver', 'Vincent'],
+        ]);
         expect(query.fields({ speed: 1 }).compile()).toEqual([
             'SET',
             [key, id, 'FIELD', 'speed', 1],

@@ -83,7 +83,7 @@ export enum SubCommand {
     SECTOR = 'SECTOR',
 }
 
-export type CommandArgs = Array<SubCommand | string | number>;
+export type CommandArgs = Array<SubCommand | string | number | object>;
 
 enum Format {
     RESP = 'resp',

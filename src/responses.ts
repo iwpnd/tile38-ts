@@ -14,7 +14,7 @@ export type LatLon = {
     lon: number;
 };
 
-export type Fields = Record<string, number>;
+export type Fields<O extends object = {}> = Record<string, string | number | O>;
 
 export type Meta = Record<string, string>;
 

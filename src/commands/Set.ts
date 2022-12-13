@@ -96,11 +96,15 @@ export class Set extends Executable implements SetInterface {
                 this._id,
                 ...(this._fields
                     ? Object.entries(this._fields)
-                          .map(([name, value]) => [
-                              SubCommand.FIELD,
-                              name,
-                              value,
-                          ])
+                          .map(([name, value]) =>
+                              typeof value === 'object'
+                                  ? [
+                                        SubCommand.FIELD,
+                                        name,
+                                        JSON.stringify(value),
+                                    ]
+                                  : [SubCommand.FIELD, name, value]
+                          )
                           .flat()
                     : []),
                 ...(typeof this._ex === 'number'

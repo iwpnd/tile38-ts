@@ -23,6 +23,61 @@ describe('set', () => {
         ]);
     });
 
+    it.each([
+        {
+            fields: { test: 'string' },
+            expected: [
+                'fleet',
+                'truck1',
+                'FIELD',
+                'test',
+                'string',
+                'POINT',
+                33.5123,
+                -112.2693,
+            ],
+        },
+        {
+            fields: { test: 1 },
+            expected: [
+                'fleet',
+                'truck1',
+                'FIELD',
+                'test',
+                1,
+                'POINT',
+                33.5123,
+                -112.2693,
+            ],
+        },
+        {
+            fields: { test: { test: 1 } },
+            expected: [
+                'fleet',
+                'truck1',
+                'FIELD',
+                'test',
+                JSON.stringify({ test: 1 }),
+                'POINT',
+                33.5123,
+                -112.2693,
+            ],
+        },
+    ])('should set point with fields', async ({ fields, expected }) => {
+        await expect(
+            tile38
+                .set('fleet', 'truck1')
+                .fields(fields)
+                .point(33.5123, -112.2693)
+                .exec()
+        ).resolves.toEqual({
+            elapsed: expect.any(String) as string,
+            ok: true,
+        });
+
+        expect(command).toHaveBeenCalledWith('SET', expected);
+    });
+
     it('should set object', async () => {
         await expect(
             tile38

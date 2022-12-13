@@ -43,6 +43,45 @@ describe('get', () => {
         expect(command).toHaveBeenCalledWith('GET', ['fleet', 'truck1']);
     });
 
+    it.each([{ test: 'test' }, { test: 1 }, { test: { test: 1 } }])(
+        'should get as object with fields',
+        async (fields) => {
+            await expect(
+                tile38
+                    .set('fleet', 'truck2')
+                    .fields(fields)
+                    .point(33.5123, -112.2693)
+                    .exec()
+            ).resolves.toEqual({
+                elapsed: expect.any(String) as string,
+                ok: true,
+            });
+
+            const expected: ObjectResponse<Point> = {
+                elapsed: expect.any(String) as string,
+                ok: true,
+                object: {
+                    type: 'Point',
+                    coordinates: [
+                        expect.any(Number) as number,
+                        expect.any(Number) as number,
+                    ],
+                },
+                fields,
+            };
+
+            await expect(
+                tile38.get('fleet', 'truck2').withFields().asObject()
+            ).resolves.toEqual(expected);
+
+            expect(command).toHaveBeenNthCalledWith(2, 'GET', [
+                'fleet',
+                'truck2',
+                'WITHFIELDS',
+            ]);
+        }
+    );
+
     it('should get as string object', async () => {
         const expected: StringObjectResponse = {
             elapsed: expect.any(String) as string,
