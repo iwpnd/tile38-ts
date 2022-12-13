@@ -3,5 +3,35 @@
   "tabWidth": 4,
   "semi": true,
   "singleQuote": true,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "overrides": [
+    {
+      "files": ".prettierrc",
+      "options": {
+        "tabWidth": 2,
+        "parser": "json"
+      }
+    },
+    {
+      "files": "**/*.json",
+      "options": {
+        "tabWidth": 2,
+        "parser": "json"
+      }
+    },
+    {
+      "files": "**/*.yml",
+      "options": {
+        "tabWidth": 2,
+        "parser": "yaml"
+      }
+    },
+    {
+      "files": "**/*.yaml",
+      "options": {
+        "tabWidth": 2,
+        "parser": "yaml"
+      }
+    }
+  ]
 }
