@@ -32,6 +32,7 @@ describe('server', () => {
                 read_only: expect.any(Boolean) as boolean,
                 threads: expect.any(Number) as number,
                 version: expect.any(String) as string,
+                pending_events: expect.any(Number) as number,
             },
         };
 

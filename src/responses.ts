@@ -163,6 +163,7 @@ export type ServerResponse = ExtendResponse<{
         read_only: boolean;
         threads: number;
         version: string;
+        pending_events: number;
     };
 }>;
 
