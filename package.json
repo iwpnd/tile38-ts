@@ -46,7 +46,7 @@
     },
     "dependencies": {
         "@types/node": "18.11.18",
-        "@vpriem/geojson": "1.0.1",
+        "@vpriem/geojson": "1.1.0",
         "redis": "4.5.1"
     },
     "devDependencies": {
