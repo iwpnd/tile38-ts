@@ -1,10 +1,10 @@
 name: Node CI
 
-on: 
+on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: start tile38
-        run: docker compose up tile38 -d
+        run: docker compose up -d
 
       - name: yarn cache
         id: yarn-cache
