@@ -1,3 +1,33 @@
+## [1.1.0](https://github.com/TierMobility/tile38-ts/compare/v1.0.8...v1.1.0) (2023-03-23)
+
+
+### Features
+
+* ✨ update SET to allow any FIELD value ([116da95](https://github.com/TierMobility/tile38-ts/commit/116da955adcca6aa2fc1278de5fbeaaaef5cd83a))
+
+
+### Other
+
+* 🔧 bump tile38 image ([b965dfc](https://github.com/TierMobility/tile38-ts/commit/b965dfc023fdb6e6893a90e7e787172a1a3a845b))
+* **deps-dev:** bump @commitlint/cli from 17.3.0 to 17.4.2 ([1998240](https://github.com/TierMobility/tile38-ts/commit/1998240eb1110aeb0c1b1bad4baba492c8112633))
+* **deps-dev:** bump @commitlint/cli from 17.4.2 to 17.4.4 ([00f1e0d](https://github.com/TierMobility/tile38-ts/commit/00f1e0d796cfd137bb9b96cc52d2d1a0a7b60758))
+* **deps-dev:** bump @commitlint/config-conventional ([5bb066a](https://github.com/TierMobility/tile38-ts/commit/5bb066a2d9852be91a7aa233d37c385781e53a84))
+* **deps-dev:** bump @semantic-release/npm from 9.0.1 to 9.0.2 ([54af5a1](https://github.com/TierMobility/tile38-ts/commit/54af5a13c96e3e7687c289e0d307fc58d41839e4))
+* **deps-dev:** bump @typescript-eslint/eslint-plugin ([98662ab](https://github.com/TierMobility/tile38-ts/commit/98662ab7c190d9648eb263719d3e68902a6b328e))
+* **deps-dev:** bump @typescript-eslint/eslint-plugin ([fe31435](https://github.com/TierMobility/tile38-ts/commit/fe31435f1c62ac7d2763a6ace811adaec1be779d))
+* **deps-dev:** bump @typescript-eslint/parser from 5.46.1 to 5.48.0 ([4bcbaee](https://github.com/TierMobility/tile38-ts/commit/4bcbaee7e11cf14838ef1d03fd4657d578f0e3c9))
+* **deps-dev:** bump @typescript-eslint/parser from 5.48.0 to 5.48.1 ([8e68dd8](https://github.com/TierMobility/tile38-ts/commit/8e68dd8f119898bb6daba09f10897f809dbed6fe))
+* **deps-dev:** bump @typescript-eslint/parser from 5.48.1 to 5.52.0 ([505e570](https://github.com/TierMobility/tile38-ts/commit/505e570a288ef3b2e6229057e19b075192fc9287))
+* **deps-dev:** bump eslint from 8.29.0 to 8.32.0 ([145bc3c](https://github.com/TierMobility/tile38-ts/commit/145bc3cbfb263c43e75bfa7cc67d9580c357d0a4))
+* **deps-dev:** bump eslint-config-prettier from 8.5.0 to 8.6.0 ([d92f485](https://github.com/TierMobility/tile38-ts/commit/d92f4852007b53d4ff7561cf884e51c11f86ff77))
+* **deps-dev:** bump eslint-import-resolver-typescript ([adb34bf](https://github.com/TierMobility/tile38-ts/commit/adb34bf6bf81a6743efaddc186797c870be03338))
+* **deps-dev:** bump prettier from 2.8.1 to 2.8.3 ([da60d1b](https://github.com/TierMobility/tile38-ts/commit/da60d1b206927b1595268cfa90cdb537055776d9))
+* **deps-dev:** bump prettier from 2.8.3 to 2.8.4 ([aed32d2](https://github.com/TierMobility/tile38-ts/commit/aed32d28a04949cbe7f5d3710ef46d7aafb54ad3))
+* **deps-dev:** bump rimraf from 3.0.2 to 4.1.2 ([43951a0](https://github.com/TierMobility/tile38-ts/commit/43951a0a6447b5b7f5d163821dabe8ce8da27b2c))
+* **deps:** bump @types/node from 18.11.13 to 18.11.18 ([f1ee23a](https://github.com/TierMobility/tile38-ts/commit/f1ee23a61918119741751f17962f0cc4f521b238))
+* **deps:** bump @types/node from 18.11.18 to 18.15.3 ([74f2f6f](https://github.com/TierMobility/tile38-ts/commit/74f2f6f29f29a6a182a2263a0dbc200e35aa4c40))
+* **deps:** bump @vpriem/geojson from 1.0.1 to 1.1.0 ([b2181e5](https://github.com/TierMobility/tile38-ts/commit/b2181e57849818bd0bdbb534c7051beadcbb0e35))
+
 ## [1.0.8](https://github.com/TierMobility/tile38-ts/compare/v1.0.7...v1.0.8) (2022-12-13)
 
 
