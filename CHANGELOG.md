@@ -1,3 +1,15 @@
+## [1.2.0](https://github.com/TierMobility/tile38-ts/compare/v1.1.0...v1.2.0) (2023-03-23)
+
+
+### Features
+
+* ✨ enable set and get with string and object values ([88763e8](https://github.com/TierMobility/tile38-ts/commit/88763e83221b45b020231e01988c56bbc88b7373))
+
+
+### Other
+
+* 👷 fix docker compose up ([5b999af](https://github.com/TierMobility/tile38-ts/commit/5b999af498474b5fe17af6ea6549ba48f46e8d34))
+
 ## [1.1.0](https://github.com/TierMobility/tile38-ts/compare/v1.0.8...v1.1.0) (2023-03-23)
 
 
