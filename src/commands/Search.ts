@@ -7,11 +7,11 @@ import {
     StringObjectsResponse,
 } from '../responses';
 import { SearchInterface } from '../specs';
-import { Executable } from './Executable';
+import { Whereable } from './Whereable';
 
 type Output = SubCommand.OBJECTS | SubCommand.COUNT | SubCommand.IDS;
 
-export class Search extends Executable implements SearchInterface {
+export class Search extends Whereable implements SearchInterface {
     protected readonly command: Command.SEARCH | Command.SCAN = Command.SEARCH;
 
     private _key: string;
@@ -33,14 +33,13 @@ export class Search extends Executable implements SearchInterface {
         | [SubCommand.OBJECTS]
         | [SubCommand.POINTS];
 
-    private _where: [SubCommand.WHERE, string, number, number][] = [];
-
     protected _all = false;
 
     constructor(client: Client, key: string) {
         super(client);
 
         this.key(key);
+        super.resetWhere();
     }
 
     key(value: string): this {
@@ -81,11 +80,6 @@ export class Search extends Executable implements SearchInterface {
         if (flag) {
             this._options.asc = false;
         }
-        return this;
-    }
-
-    where(field: string, min: number, max: number): this {
-        this._where.push([SubCommand.WHERE, field, min, max]);
         return this;
     }
 
@@ -149,17 +143,13 @@ export class Search extends Executable implements SearchInterface {
         return args;
     }
 
-    private compileWhere(): CommandArgs {
-        return this._where.length ? [...this._where.flat()] : [];
-    }
-
     compile(): [Command, CommandArgs] {
         return [
             this.command,
             [
                 this._key,
                 ...this.compileOptions(),
-                ...this.compileWhere(),
+                ...super.compileWhere(),
                 ...(this._output || []),
             ],
         ];

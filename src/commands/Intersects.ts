@@ -13,7 +13,8 @@ import {
     PointsResponse,
 } from '../responses';
 import { IntersectsInterface } from '../specs';
-import { Compilable, Executable } from './Executable';
+import { Compilable } from './Executable';
+import { Whereable } from './Whereable';
 
 type Output =
     | SubCommand.BOUNDS
@@ -23,7 +24,7 @@ type Output =
     | SubCommand.OBJECTS
     | SubCommand.POINTS;
 
-export class Intersects extends Executable implements IntersectsInterface {
+export class Intersects extends Whereable implements IntersectsInterface {
     protected readonly command:
         | Command.INTERSECTS
         | Command.NEARBY
@@ -45,8 +46,6 @@ export class Intersects extends Executable implements IntersectsInterface {
         clip?: boolean;
         distance?: boolean;
     } = {};
-
-    private _where: [SubCommand.WHERE, string, number, number][] = [];
 
     private _fence = false;
 
@@ -81,6 +80,7 @@ export class Intersects extends Executable implements IntersectsInterface {
 
         this.key(key);
         this.hook = hook;
+        super.resetWhere();
     }
 
     key(value: string): this {
@@ -202,11 +202,6 @@ export class Intersects extends Executable implements IntersectsInterface {
 
     get(key: string, id: string): this {
         this._query = [SubCommand.GET, key, id];
-        return this;
-    }
-
-    where(field: string, min: number, max: number): this {
-        this._where.push([SubCommand.WHERE, field, min, max]);
         return this;
     }
 
@@ -338,10 +333,6 @@ export class Intersects extends Executable implements IntersectsInterface {
             : [];
     }
 
-    private compileWhere(): CommandArgs {
-        return this._where.length ? [...this._where.flat()] : [];
-    }
-
     compile(): [Command, CommandArgs] {
         const compiled: [Command, CommandArgs] = [
             this.command,
@@ -349,7 +340,7 @@ export class Intersects extends Executable implements IntersectsInterface {
                 this._key,
                 ...this.compileOptions(),
                 ...this.compileFence(),
-                ...this.compileWhere(),
+                ...super.compileWhere(),
                 ...(this._output || []),
                 ...(this._query || []),
             ],

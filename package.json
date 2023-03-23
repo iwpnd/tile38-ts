@@ -42,7 +42,8 @@
         "format": "prettier --write src/{*.ts,**/*.ts}",
         "u": "yarn upgrade-interactive --latest",
         "up": "docker-compose up tile38",
-        "down": "docker-compose down"
+        "down": "docker-compose down",
+        "coverage": "FILE=./coverage/lcov-report/index.html; test -f $FILE && open $FILE || echo 'no coverage yet, run yarn test'"
     },
     "dependencies": {
         "@types/node": "18.15.3",

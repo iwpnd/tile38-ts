@@ -14,14 +14,17 @@ export type LatLon = {
     lon: number;
 };
 
-export type Fields<O extends object = {}> = Record<string, string | number | O>;
+export type Fields<O extends object = {}> = Record<
+    string,
+    string | number | object | O
+>;
 
 export type Meta = Record<string, string>;
 
 interface Base {
     id: string | number;
     distance?: number;
-    fields?: number[];
+    fields?: (number | string | object)[];
 }
 
 // BOUNDS

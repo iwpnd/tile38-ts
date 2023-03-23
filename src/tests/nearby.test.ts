@@ -16,14 +16,23 @@ describe('nearby', () => {
 
     beforeAll(async () => {
         await tile38.flushDb();
-        await tile38.set('fleet', 'truck1').point(33.5123, -112.2693).exec();
-        await tile38.set('fleet', 'truck2').point(52.25, 13.37).exec();
+        await tile38
+            .set('fleet', 'truck1')
+            .fields({ speed: 100, driver: { name: 'John' } })
+            .point(33.5123, -112.2693)
+            .exec();
+        await tile38
+            .set('fleet', 'truck2')
+            .fields({ speed: 50, driver: { name: 'Bob' } })
+            .point(52.25, 13.37)
+            .exec();
     });
 
     it('should return object', async () => {
         const expected: ObjectsResponse = {
             elapsed: expect.any(String) as string,
             ok: true,
+            fields: ['driver', 'speed'],
             objects: [
                 {
                     id: 'truck1',
@@ -32,6 +41,7 @@ describe('nearby', () => {
                         type: 'Point',
                         coordinates: [-112.2693, 33.5123],
                     },
+                    fields: [{ name: 'John' }, 100],
                 },
             ],
             count: 1,
@@ -60,6 +70,7 @@ describe('nearby', () => {
         const expected: ObjectsResponse = {
             elapsed: expect.any(String) as string,
             ok: true,
+            fields: ['driver', 'speed'],
             objects: [
                 {
                     id: 'truck1',
@@ -68,6 +79,7 @@ describe('nearby', () => {
                         type: 'Point',
                         coordinates: [-112.2693, 33.5123],
                     },
+                    fields: [{ name: 'John' }, 100],
                 },
                 {
                     id: 'truck2',
@@ -76,6 +88,7 @@ describe('nearby', () => {
                         type: 'Point',
                         coordinates: [13.37, 52.25],
                     },
+                    fields: [{ name: 'Bob' }, 50],
                 },
             ],
             count: 2,
@@ -176,10 +189,12 @@ describe('nearby', () => {
         const expected: HashesResponse = {
             elapsed: expect.any(String) as string,
             ok: true,
+            fields: ['driver', 'speed'],
             hashes: [
                 {
                     id: 'truck1',
                     hash: expect.any(String) as string,
+                    fields: [{ name: 'John' }, 100],
                 },
             ],
             count: 1,
@@ -205,7 +220,14 @@ describe('nearby', () => {
         const expected: PointsResponse = {
             elapsed: expect.any(String) as string,
             ok: true,
-            points: [{ id: 'truck1', point: { lat: 33.5123, lon: -112.2693 } }],
+            fields: ['driver', 'speed'],
+            points: [
+                {
+                    id: 'truck1',
+                    point: { lat: 33.5123, lon: -112.2693 },
+                    fields: [{ name: 'John' }, 100],
+                },
+            ],
             count: 1,
             cursor: 0,
         };
@@ -228,6 +250,7 @@ describe('nearby', () => {
         const expected: BoundsNeSwResponses = {
             elapsed: expect.any(String) as string,
             ok: true,
+            fields: ['driver', 'speed'],
             bounds: [
                 {
                     id: 'truck1',
@@ -241,6 +264,7 @@ describe('nearby', () => {
                             lon: expect.any(Number) as number,
                         },
                     },
+                    fields: [{ name: 'John' }, 100],
                 },
             ],
             count: 1,

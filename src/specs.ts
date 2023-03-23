@@ -103,6 +103,7 @@ interface IntersectsBaseInterface {
     tile(x: number, y: number, z: number): this;
     object<O extends GeoJSON = GeoJSON>(value: O): this;
     where(field: string, min: number, max: number): this;
+    whereExpr(expr: string): this;
 }
 
 export interface IntersectsFenceInterface extends IntersectsBaseInterface {
@@ -135,6 +136,7 @@ interface NearbyBaseInterface {
     distance(flag?: boolean): this;
     point(lat: number, lon: number, radius?: number): this;
     where(field: string, min: number, max: number): this;
+    whereExpr(expr: string): this;
 }
 
 export interface NearbyFenceInterface extends NearbyBaseInterface {
@@ -175,6 +177,7 @@ export interface ScanInterface {
     asPoints(): Promise<PointsResponse>;
     exec<R extends JSONResponse = ObjectResponse>(): Promise<R>;
     where(field: string, min: number, max: number): this;
+    whereExpr(expr: string): this;
 }
 
 export interface SearchInterface {
@@ -192,6 +195,7 @@ export interface SearchInterface {
     asStringObjects(): Promise<StringObjectsResponse>;
     exec<R extends JSONResponse = StringObjectsResponse>(): Promise<R>;
     where(field: string, min: number, max: number): this;
+    whereExpr(expr: string): this;
 }
 
 export interface SetInterface {
@@ -241,6 +245,7 @@ interface WithinBaseInterface {
     tile(x: number, y: number, z: number): this;
     object<O extends GeoJSON = GeoJSON>(value: O): this;
     where(field: string, min: number, max: number): this;
+    whereExpr(expr: string): this;
 }
 
 export interface WithinFenceInterface extends WithinBaseInterface {

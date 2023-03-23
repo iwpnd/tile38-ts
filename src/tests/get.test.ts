@@ -14,14 +14,15 @@ describe('get', () => {
 
     afterAll(() => tile38.quit());
 
-    beforeAll(() =>
-        expect(
+    beforeAll(async () => {
+        await tile38.flushDb();
+        await expect(
             tile38.set('fleet', 'truck1').point(33.5123, -112.2693).exec()
         ).resolves.toEqual({
             elapsed: expect.any(String) as string,
             ok: true,
-        })
-    );
+        });
+    });
 
     it('should get as object', async () => {
         const expected: ObjectResponse<Point> = {

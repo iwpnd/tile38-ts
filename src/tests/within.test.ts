@@ -17,13 +17,18 @@ describe('within', () => {
 
     beforeAll(async () => {
         await tile38.flushDb();
-        await tile38.set('fleet', 'truck1').point(33.5123, -112.2693).exec();
+        await tile38
+            .set('fleet', 'truck1')
+            .fields({ speed: 100, driver: { name: 'John' } })
+            .point(33.5123, -112.2693)
+            .exec();
     });
 
     it('should return objects', async () => {
         const expected: ObjectsResponse = {
             elapsed: expect.any(String) as string,
             ok: true,
+            fields: ['driver', 'speed'],
             objects: [
                 {
                     id: 'truck1',
@@ -31,6 +36,7 @@ describe('within', () => {
                         type: 'Point',
                         coordinates: [-112.2693, 33.5123],
                     },
+                    fields: [{ name: 'John' }, 100],
                 },
             ],
             count: 1,
@@ -99,7 +105,14 @@ describe('within', () => {
         const expected: HashesResponse = {
             elapsed: expect.any(String) as string,
             ok: true,
-            hashes: [{ id: 'truck1', hash: expect.any(String) as string }],
+            fields: ['driver', 'speed'],
+            hashes: [
+                {
+                    id: 'truck1',
+                    hash: expect.any(String) as string,
+                    fields: [{ name: 'John' }, 100],
+                },
+            ],
             count: 1,
             cursor: 0,
         };
@@ -122,7 +135,15 @@ describe('within', () => {
     it('should return points', async () => {
         const expected: PointsResponse = {
             elapsed: expect.any(String) as string,
-            points: [{ id: 'truck1', point: { lat: 33.5123, lon: -112.2693 } }],
+            fields: ['driver', 'speed'],
+            points: [
+                {
+                    id: 'truck1',
+                    point: { lat: 33.5123, lon: -112.2693 },
+
+                    fields: [{ name: 'John' }, 100],
+                },
+            ],
             ok: true,
             count: 1,
             cursor: 0,
@@ -146,6 +167,7 @@ describe('within', () => {
         const expected: BoundsNeSwResponses = {
             elapsed: expect.any(String) as string,
             ok: true,
+            fields: ['driver', 'speed'],
             bounds: [
                 {
                     id: 'truck1',
@@ -159,6 +181,7 @@ describe('within', () => {
                             lon: expect.any(Number) as number,
                         },
                     },
+                    fields: [{ name: 'John' }, 100],
                 },
             ],
             count: 1,
@@ -189,10 +212,12 @@ describe('within', () => {
         const expected: ObjectsResponse = {
             elapsed: expect.any(String) as string,
             ok: true,
+            fields: ['driver', 'speed'],
             objects: [
                 {
                     id: 'truck1',
                     object: truck,
+                    fields: [{ name: 'John' }, 100],
                 },
             ],
             count: 1,

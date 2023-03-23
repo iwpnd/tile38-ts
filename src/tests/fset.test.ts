@@ -72,5 +72,82 @@ describe('fset', () => {
         await expect(
             tile38.within('fleet').circle(33.5123, -112.2693, 100).asObjects()
         ).resolves.toEqual(expected);
+
+        await expect(
+            tile38.set('stock', 'baguette').point(33.5123, -112.2693).exec()
+        ).resolves.toEqual({
+            elapsed: expect.any(String) as string,
+            ok: true,
+        });
+
+        await expect(
+            tile38
+                .fSet('stock', 'baguette', { driver: { name: 'John' } })
+                .exec()
+        ).resolves.toEqual({
+            elapsed: expect.any(String) as string,
+            ok: true,
+        });
+
+        await expect(
+            tile38.within('stock').circle(33.5123, -112.2693, 100).asObjects()
+        ).resolves.toEqual({
+            elapsed: expect.any(String) as string,
+            ok: true,
+            cursor: 0,
+            count: 1,
+            fields: ['driver'],
+            objects: [
+                {
+                    object: {
+                        type: 'Point',
+                        coordinates: [-112.2693, 33.5123],
+                    },
+                    id: 'baguette',
+                    fields: [{ name: 'John' }],
+                },
+            ],
+        });
+    });
+
+    it('should return with object fields', async () => {
+        const key = 'fleet';
+        const id = 'bus';
+        const fields = { driver: { name: 'John' } };
+        const { driver } = fields;
+
+        const expected: ObjectsResponse = {
+            elapsed: expect.any(String) as string,
+            ok: true,
+            cursor: 0,
+            count: 1,
+            fields: ['driver'],
+            objects: [
+                {
+                    object: {
+                        type: 'Point',
+                        coordinates: [-112.2693, 33.5123],
+                    },
+                    id,
+                    fields: [driver],
+                },
+            ],
+        };
+
+        await expect(
+            tile38.set(key, id).point(33.5123, -112.2693).exec()
+        ).resolves.toEqual({
+            elapsed: expect.any(String) as string,
+            ok: true,
+        });
+
+        await expect(tile38.fSet(key, id, fields).exec()).resolves.toEqual({
+            elapsed: expect.any(String) as string,
+            ok: true,
+        });
+
+        await expect(
+            tile38.within(key).circle(33.5123, -112.2693, 100).asObjects()
+        ).resolves.toEqual(expected);
     });
 });

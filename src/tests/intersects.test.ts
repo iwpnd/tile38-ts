@@ -45,6 +45,86 @@ describe('intersects', () => {
             .exec();
     });
 
+    it('should return objects considering whereExpr statement', async () => {
+        const expected: ObjectsResponse = {
+            elapsed: expect.any(String) as string,
+            ok: true,
+            objects: [
+                {
+                    id: 'scooter1',
+                    object: feature,
+                },
+            ],
+            count: 1,
+            cursor: 0,
+        };
+
+        await expect(
+            tile38
+                .intersects('devices')
+                .circle(0, 0, 100)
+                .whereExpr('maxSpeed == 10 && maxWeight == 1000')
+                .noFields()
+                .asObjects()
+        ).resolves.toEqual({ ...expected, count: 0, objects: [] });
+
+        expect(command).toHaveBeenCalledWith('INTERSECTS', [
+            'devices',
+            'NOFIELDS',
+            'WHERE',
+            'maxSpeed == 10 && maxWeight == 1000',
+            'CIRCLE',
+            0,
+            0,
+            100,
+        ]);
+
+        await expect(
+            tile38
+                .intersects('devices')
+                .circle(0, 0, 100)
+                .whereExpr('maxSpeed == 120')
+                .noFields()
+                .asObjects()
+        ).resolves.toEqual(expected);
+
+        expect(command).toHaveBeenCalledWith('INTERSECTS', [
+            'devices',
+            'NOFIELDS',
+            'WHERE',
+            'maxSpeed == 120',
+            'CIRCLE',
+            0,
+            0,
+            100,
+        ]);
+
+        await expect(
+            tile38
+                .intersects('devices')
+                .circle(0, 0, 100)
+                .whereExpr(
+                    'maxSpeed >= 100 && maxSpeed <= 130 && maxWeight === 1000'
+                )
+                .noFields()
+                .asObjects()
+        ).resolves.toEqual({
+            ...expected,
+            objects: [{ id: 'scooter2', object: feature }],
+        });
+
+        expect(command).toHaveBeenCalledWith('INTERSECTS', [
+            'devices',
+            'NOFIELDS',
+            'WHERE',
+            'maxSpeed >= 100 && maxSpeed <= 130 && maxWeight === 1000',
+            'CIRCLE',
+            0,
+            0,
+            100,
+        ]);
+    });
+
     it('should return objects considering where statement', async () => {
         const expected: ObjectsResponse = {
             elapsed: expect.any(String) as string,

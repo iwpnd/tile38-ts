@@ -22,6 +22,7 @@ describe('info', () => {
                 expired_keys: expect.any(Number) as number,
                 redis_version: expect.any(String) as string,
                 tile38_version: expect.any(String) as string,
+                slave0: expect.any(String) as string,
                 total_messages_sent: expect.any(Number) as number,
                 total_connections_received: expect.any(Number) as number,
                 total_commands_processed: expect.any(Number) as number,

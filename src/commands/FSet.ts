@@ -45,7 +45,16 @@ export class FSet extends Executable implements FSetInterface {
                 this._key,
                 this._id,
                 ...(this._xx ? [this._xx] : []),
-                ...Object.entries(this._fields).flat(),
+                // ...Object.entries(this._fields).flat(),
+                ...(this._fields
+                    ? Object.entries(this._fields)
+                          .map(([name, value]) =>
+                              typeof value === 'object'
+                                  ? [name, JSON.stringify(value)]
+                                  : [name, value]
+                          )
+                          .flat()
+                    : []),
             ],
         ];
     }
