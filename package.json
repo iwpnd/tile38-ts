@@ -60,7 +60,7 @@
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "27.4.1",
     "@typescript-eslint/eslint-plugin": "5.51.0",
-    "@typescript-eslint/parser": "5.52.0",
+    "@typescript-eslint/parser": "5.56.0",
     "conventional-changelog-conventionalcommits": "5.0.0",
     "coveralls": "3.1.1",
     "devmoji": "2.3.0",
