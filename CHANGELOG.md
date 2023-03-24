@@ -1,3 +1,17 @@
+## [1.3.0](https://github.com/TierMobility/tile38-ts/compare/v1.2.0...v1.3.0) (2023-03-24)
+
+
+### Features
+
+* ✨ bump to nodejs 18 ([1bd0532](https://github.com/TierMobility/tile38-ts/commit/1bd053259c544c5619c525f593fc26acfb84ee02))
+
+
+### Other
+
+* 👷 use node18 in github actions ([804f951](https://github.com/TierMobility/tile38-ts/commit/804f9517fa8ea729bba54b8514150be1b81dc014))
+* **deps-dev:** bump eslint from 8.32.0 to 8.36.0 ([7986ef9](https://github.com/TierMobility/tile38-ts/commit/7986ef9c132635f01ca06fd5080a3e47e3a9b986))
+* **deps-dev:** bump lint-staged from 13.1.0 to 13.2.0 ([6df6ee3](https://github.com/TierMobility/tile38-ts/commit/6df6ee3926704ed9796f558b17018931aff4fa69))
+
 ## [1.2.0](https://github.com/TierMobility/tile38-ts/compare/v1.1.0...v1.2.0) (2023-03-23)
 
 
