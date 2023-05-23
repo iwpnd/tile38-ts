@@ -46,7 +46,7 @@
     "coverage": "FILE=./coverage/lcov-report/index.html; test -f $FILE && open $FILE || echo 'no coverage yet, run yarn test'"
   },
   "dependencies": {
-    "@types/node": "18.15.11",
+    "@types/node": "20.2.3",
     "@vpriem/geojson": "1.1.0",
     "redis": "4.5.1"
   },
