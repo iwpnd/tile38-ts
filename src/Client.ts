@@ -1,5 +1,5 @@
 import EventEmitter from 'events';
-import { createClient } from 'redis';
+import { RedisClientOptions, createClient } from 'redis';
 import { parseResponse } from './parseResponse';
 import { JSONResponse } from './responses';
 
@@ -106,10 +106,10 @@ export class Client extends EventEmitter {
 
     private format: `${Format}` = Format.RESP;
 
-    constructor(url: string) {
+    constructor(url: string, options?: RedisClientOptions) {
         super();
 
-        this.redis = createClient({ url })
+        this.redis = createClient({ ...options, url })
             .on('ready', () => {
                 this.format = Format.RESP;
             })

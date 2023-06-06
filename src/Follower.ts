@@ -1,4 +1,5 @@
 import EventEmitter from 'events';
+import { RedisClientOptions } from 'redis';
 import { Client, Command, SubCommand } from './Client';
 import { Get, Intersects, Nearby, Scan, Search, Within } from './commands';
 import {
@@ -29,10 +30,10 @@ import {
 export class Follower extends EventEmitter implements FollowerInterface {
     readonly client: Client;
 
-    constructor(url: string) {
+    constructor(url: string, options?: RedisClientOptions) {
         super();
 
-        this.client = new Client(url).on('error', (error) => {
+        this.client = new Client(url, options).on('error', (error) => {
             /* istanbul ignore next */
             this.emit('error', error);
         });
