@@ -1,3 +1,22 @@
+## [1.3.1](https://github.com/TierMobility/tile38-ts/compare/v1.3.0...v1.3.1) (2023-06-06)
+
+
+### Bug Fixes
+
+* 🐛 add optional RedisClientOptions ([af2fb5f](https://github.com/TierMobility/tile38-ts/commit/af2fb5fbe6efff8ee32fca2e1e8dc05cc16989df))
+
+
+### Other
+
+* **deps-dev:** bump @commitlint/cli from 17.4.4 to 17.5.1 ([9f51b17](https://github.com/TierMobility/tile38-ts/commit/9f51b17f624a22f7c5569857c9d7003e231d3ce5))
+* **deps-dev:** bump @commitlint/cli from 17.5.1 to 17.6.3 ([056274c](https://github.com/TierMobility/tile38-ts/commit/056274c076b1ecf8d960dce4ea0681d42be62bd4))
+* **deps-dev:** bump @typescript-eslint/parser from 5.52.0 to 5.56.0 ([4591a2b](https://github.com/TierMobility/tile38-ts/commit/4591a2b3c323f41f4d124f6fa8835b1d8325293b))
+* **deps-dev:** bump eslint-config-prettier from 8.6.0 to 8.8.0 ([a54b2f5](https://github.com/TierMobility/tile38-ts/commit/a54b2f5770b468f256f7351ce5161ccf96a026ab))
+* **deps-dev:** bump prettier from 2.8.4 to 2.8.7 ([20312a5](https://github.com/TierMobility/tile38-ts/commit/20312a5217ea2dec391b27c438188106be98d070))
+* **deps-dev:** bump rimraf from 4.1.2 to 4.4.1 ([ae17ddc](https://github.com/TierMobility/tile38-ts/commit/ae17ddcfc7da03302f3ccd114689a160d6489eb2))
+* **deps-dev:** bump semantic-release from 19.0.5 to 21.0.2 ([87d6059](https://github.com/TierMobility/tile38-ts/commit/87d6059044cc3520a1a1914c31feec243532dab5))
+* **deps:** bump @types/node from 18.15.3 to 18.15.11 ([0219764](https://github.com/TierMobility/tile38-ts/commit/0219764259586eaa1c3d4e139f74dfa7003e3f8e))
+
 ## [1.3.0](https://github.com/TierMobility/tile38-ts/compare/v1.2.0...v1.3.0) (2023-03-24)
 
 
