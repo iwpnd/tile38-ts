@@ -5,6 +5,7 @@ describe('follower', () => {
     const tile38 = new Tile38({
         url: process.env.TILE38_URI,
         followerUrl: process.env.TILE38_FOLLOWER_URI,
+        redisOptions: { retryStrategy: (times) => Math.min(times * 50, 2000) },
     });
     const command = jest.spyOn(tile38.client, 'command');
 
