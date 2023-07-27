@@ -2,9 +2,9 @@ name: Node CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, beta]
   pull_request:
-    branches: [main]
+    branches: [main, beta]
   workflow_dispatch:
 
 jobs:
@@ -57,7 +57,6 @@ jobs:
         run: docker compose down
 
   release:
-    if: github.ref == 'refs/heads/main'
     needs: build-lint-test
     name: release
     runs-on: ubuntu-latest

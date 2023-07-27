@@ -1,4 +1,5 @@
 import { GeoJSON } from '@vpriem/geojson';
+import { RedisOptions } from 'ioredis';
 import {
     BoundsNeSwResponse,
     BoundsNeSwResponses,
@@ -281,8 +282,16 @@ export interface SetHookInterface extends SetChanInterface {
     endpoint(value: string): this;
 }
 
+export type Tile38Options = RedisOptions;
+
 interface Tile38BaseInterface {
+    on(event: 'connect', listener: () => void): this;
+    on(event: 'ready', listener: () => void): this;
     on(event: 'error', listener: (error: Error) => void): this;
+    on(event: 'close', listener: () => void): this;
+    on(event: 'reconnecting', listener: () => void): this;
+    on(event: 'end', listener: () => void): this;
+    on(event: 'wait', listener: () => void): this;
     bounds(key: string): Promise<BoundsResponse>;
     chans(pattern?: string): Promise<ChansResponse>;
     configGet(name: ConfigKeys): Promise<ConfigGetResponse>;

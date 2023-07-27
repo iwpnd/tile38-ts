@@ -29,8 +29,9 @@ export class Channel extends EventEmitter implements ChannelInterface {
 
     async unsubscribe(): Promise<void> {
         await Promise.all([
-            this.channels.length && this.client.unsubscribe(this.channels),
-            this.pChannels.length && this.client.pUnsubscribe(this.pChannels),
+            this.channels.length && this.client.unsubscribe(...this.channels),
+            this.pChannels.length &&
+                this.client.pUnsubscribe(...this.pChannels),
         ]);
 
         this.channels = [];

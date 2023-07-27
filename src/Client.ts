@@ -1,5 +1,6 @@
 import EventEmitter from 'events';
-import { RedisClientOptions, createClient } from 'redis';
+import { Redis, RedisOptions } from 'ioredis';
+import { forwardEvents } from './events';
 import { parseResponse } from './parseResponse';
 import { JSONResponse } from './responses';
 
@@ -83,6 +84,8 @@ export enum SubCommand {
     SECTOR = 'SECTOR',
 }
 
+export type ConstructorArgs = (string | number | RedisOptions | undefined)[];
+
 export type CommandArgs = Array<SubCommand | string | number | object>;
 
 enum Format {
@@ -90,66 +93,65 @@ enum Format {
     JSON = 'json',
 }
 
-type RedisClient = ReturnType<typeof createClient>;
-
 const toString = (s: string | number): string =>
     typeof s === 'string' ? s : `${s}`;
 
+const applyDefaults = (args: ConstructorArgs) => {
+    const options = args.find((arg) => typeof arg === 'object');
+    if (!options) return [...args, { port: 9851, lazyConnect: true }];
+    return args.map((arg) =>
+        typeof arg === 'object'
+            ? { port: 9851, ...arg, lazyConnect: true }
+            : arg
+    );
+};
+
+const catchConnectionClosed = (error: Error) => {
+    if (error.message !== 'Connection is closed.') throw error;
+};
+
 export class Client extends EventEmitter {
-    private redis: RedisClient;
+    private redis: Redis;
 
-    private redisConnecting?: Promise<void>;
-
-    private subscriber: RedisClient;
-
-    private subscriberConnecting?: Promise<void>;
+    private subscriber: Redis;
 
     private format: `${Format}` = Format.RESP;
 
-    constructor(url: string, options?: RedisClientOptions) {
+    constructor(...args: ConstructorArgs) {
         super();
 
-        this.redis = createClient({ ...options, url })
+        this.redis = new Redis(...(applyDefaults(args) as [string]))
             .on('ready', () => {
                 this.format = Format.RESP;
-            })
-            .on('error', (error) => {
-                /* istanbul ignore next */
-                this.emit('error', error);
             })
             .on('end', () => {
                 this.format = Format.RESP;
             });
 
-        this.subscriber = this.redis.duplicate().on('error', (error) => {
-            /* istanbul ignore next */
-            this.emit('error', error);
-        });
-    }
+        forwardEvents(this.redis, this);
 
-    private connect(): Promise<void> {
-        if (typeof this.redisConnecting === 'undefined') {
-            this.redisConnecting = this.redis.connect();
-        }
-
-        return this.redisConnecting;
-    }
-
-    private connectSubscriber(): Promise<void> {
-        if (typeof this.subscriberConnecting === 'undefined') {
-            this.subscriberConnecting = this.subscriber.connect();
-        }
-
-        return this.subscriberConnecting;
+        this.subscriber = this.redis
+            .duplicate()
+            .on('error', (error) =>
+                /* istanbul ignore next */
+                this.emit('error', error)
+            )
+            .on('message', (channel, message) =>
+                this.emit('message', JSON.parse(message), channel)
+            )
+            .on('pmessage', (pattern, channel, message) =>
+                this.emit('message', JSON.parse(message), channel, pattern)
+            );
     }
 
     private async rawCommand(
         command: string,
         args?: CommandArgs
     ): Promise<string> {
-        await this.connect();
-
-        return this.redis.sendCommand([command, ...(args || []).map(toString)]);
+        return this.redis.call(
+            command,
+            ...(args || []).map(toString)
+        ) as Promise<string>;
     }
 
     async command<R extends JSONResponse = JSONResponse>(
@@ -176,51 +178,29 @@ export class Client extends EventEmitter {
     }
 
     async subscribe(channels: string | string[]): Promise<void> {
-        await this.connectSubscriber();
-
-        return this.subscriber.subscribe(channels, (message, channel) =>
-            this.emit('message', JSON.parse(message), channel)
-        );
+        await this.subscriber.subscribe(...channels);
     }
 
     async pSubscribe(patterns: string | string[]): Promise<void> {
-        await this.connectSubscriber();
-
-        return this.subscriber.pSubscribe(patterns, (message, channel) =>
-            this.emit('message', JSON.parse(message), channel)
-        );
+        await this.subscriber.psubscribe(...patterns);
     }
 
-    unsubscribe(channels: string | string[] = []): Promise<void> {
-        return this.subscriber.unsubscribe(channels);
+    async unsubscribe(...channels: string[]): Promise<void> {
+        await this.subscriber.unsubscribe(...channels);
     }
 
-    pUnsubscribe(patterns: string | string[] = []): Promise<void> {
-        return this.subscriber.unsubscribe(patterns);
+    async pUnsubscribe(...patterns: string[]): Promise<void> {
+        await this.subscriber.punsubscribe(...patterns);
     }
 
     async quit(force = false): Promise<void> {
-        await Promise.all([this.redisConnecting, this.subscriberConnecting]);
-
-        if (force) {
-            await Promise.all([
-                this.redis.isOpen && this.redis.disconnect(),
-                this.subscriber.isOpen && this.subscriber.disconnect(),
-            ]);
-        } else {
-            /**
-             * Issue with node-redis v4
-             * We have to put back output to resp otherwise quit will take forever
-             */
-            await (this.redis.isOpen && this.output('resp'));
-
-            await Promise.all([
-                this.redis.isOpen && this.redis.quit(),
-                this.subscriber.isOpen && this.subscriber.quit(),
-            ]);
-        }
-
-        delete this.redisConnecting;
-        delete this.subscriberConnecting;
+        await Promise.all(
+            force
+                ? [this.redis.disconnect(), this.subscriber.disconnect()]
+                : [
+                      this.redis.quit().catch(catchConnectionClosed),
+                      this.subscriber.quit().catch(catchConnectionClosed),
+                  ]
+        );
     }
 }
