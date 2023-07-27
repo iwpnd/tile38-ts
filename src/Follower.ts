@@ -1,7 +1,7 @@
 import EventEmitter from 'events';
-import { RedisClientOptions } from 'redis';
-import { Client, Command, SubCommand } from './Client';
+import { Client, Command, ConstructorArgs, SubCommand } from './Client';
 import { Get, Intersects, Nearby, Scan, Search, Within } from './commands';
+import { forwardEvents } from './events';
 import {
     BoundsResponse,
     ChansResponse,
@@ -24,19 +24,27 @@ import {
     NearbyInterface,
     ScanInterface,
     SearchInterface,
+    Tile38Options,
     WithinInterface,
 } from './specs';
 
 export class Follower extends EventEmitter implements FollowerInterface {
     readonly client: Client;
 
-    constructor(url: string, options?: RedisClientOptions) {
+    constructor(port: number, options?: Tile38Options);
+
+    constructor(port: number, host: string, options?: Tile38Options);
+
+    constructor(path: string, options?: Tile38Options);
+
+    constructor(options?: Tile38Options);
+
+    constructor(...args: ConstructorArgs) {
         super();
 
-        this.client = new Client(url, options).on('error', (error) => {
-            /* istanbul ignore next */
-            this.emit('error', error);
-        });
+        this.client = new Client(...(args as [string]));
+
+        forwardEvents(this.client, this);
     }
 
     bounds(key: string): Promise<BoundsResponse> {

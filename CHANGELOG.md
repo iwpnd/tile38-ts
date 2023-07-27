@@ -1,3 +1,42 @@
+## [2.0.0-beta.5](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2023-08-16)
+
+
+### Bug Fixes
+
+* 🐛 fix client defaults ([039fce9](https://github.com/TierMobility/tile38-ts/commit/039fce9ea19c9bd8762e4ce9f765a488655174d9))
+
+## [2.0.0-beta.4](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2023-08-16)
+
+
+### Documentation
+
+* 📚️ document constructor ([9896edd](https://github.com/TierMobility/tile38-ts/commit/9896edd4113776e6a2322a79d0ac7ab3ac47e67c))
+
+## [2.0.0-beta.3](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2023-08-16)
+
+
+### Bug Fixes
+
+* 🐛 handle ioredis quit better ([4809ffe](https://github.com/TierMobility/tile38-ts/commit/4809ffe4b84018463f907665e6d1942059a95bdb))
+
+## [2.0.0-beta.2](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2023-08-15)
+
+
+### Bug Fixes
+
+* 🐛 align constructor with ioredis ([f62a4e6](https://github.com/TierMobility/tile38-ts/commit/f62a4e610f05dfaf6842c18e0dc4c1deb193904a))
+
+## [2.0.0-beta.1](https://github.com/TierMobility/tile38-ts/compare/v1.3.2...v2.0.0-beta.1) (2023-08-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* node-redis -> ioredis
+
+### Features
+
+* ♻️ change redis client to use ioredis instead of node-redis ([38904b4](https://github.com/TierMobility/tile38-ts/commit/38904b470623482afb29aeefc7005c0bbcc1705e))
+
 ## [1.3.2](https://github.com/TierMobility/tile38-ts/compare/v1.3.1...v1.3.2) (2023-08-11)
 
 
