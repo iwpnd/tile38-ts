@@ -2,10 +2,16 @@ import { Position } from '@vpriem/geojson';
 import { ServerExtendedResponse, Tile38 } from '..';
 
 describe('follower', () => {
-    const tile38 = new Tile38(undefined, process.env.TILE38_URI);
+    const tile38 = new Tile38({
+        url: process.env.TILE38_URI,
+        followerUrl: process.env.TILE38_FOLLOWER_URI,
+    });
     const command = jest.spyOn(tile38.client, 'command');
 
-    afterAll(() => tile38.quit());
+    afterAll(async () => {
+        await tile38.flushDb();
+        await tile38.quit();
+    });
 
     beforeAll(() =>
         expect(

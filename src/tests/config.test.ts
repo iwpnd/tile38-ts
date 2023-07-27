@@ -12,24 +12,28 @@ describe('config', () => {
             elapsed: expect.any(String) as string,
             ok: true,
             properties: {
-                autogc: expect.any(String) as string,
+                keepalive: expect.any(String) as string,
             },
         };
 
-        await expect(tile38.configSet('autogc', 1)).resolves.toEqual({
+        await expect(tile38.configSet('keepalive', 10)).resolves.toEqual({
             elapsed: expect.any(String) as string,
             ok: true,
         });
 
-        await expect(tile38.configGet('autogc')).resolves.toEqual(expected);
+        await expect(tile38.configGet('keepalive')).resolves.toEqual(expected);
 
         await expect(tile38.configRewrite()).resolves.toEqual({
             elapsed: expect.any(String) as string,
             ok: true,
         });
 
-        expect(command).toHaveBeenCalledWith('CONFIG', ['SET', 'autogc', 1]);
-        expect(command).toHaveBeenCalledWith('CONFIG', ['GET', 'autogc']);
+        expect(command).toHaveBeenCalledWith('CONFIG', [
+            'SET',
+            'keepalive',
+            10,
+        ]);
+        expect(command).toHaveBeenCalledWith('CONFIG', ['GET', 'keepalive']);
         expect(command).toHaveBeenCalledWith('CONFIG', ['REWRITE']);
     });
 });

@@ -12,7 +12,10 @@ interface CustomerFields extends Fields {
 describe('channel', () => {
     const tile38 = new Tile38();
 
-    afterAll(() => tile38.quit());
+    afterAll(async () => {
+        await tile38.flushDb();
+        await tile38.quit();
+    });
 
     beforeAll(async () => {
         await tile38.pDelChan('*');

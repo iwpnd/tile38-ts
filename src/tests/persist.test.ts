@@ -3,7 +3,10 @@ import { Tile38 } from '..';
 describe('persist', () => {
     const tile38 = new Tile38();
 
-    afterAll(() => tile38.quit());
+    afterAll(async () => {
+        await tile38.flushDb();
+        await tile38.quit();
+    });
 
     it('should send PERSIST command', async () => {
         const command = jest.spyOn(tile38.client, 'command');

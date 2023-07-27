@@ -1,5 +1,5 @@
 import EventEmitter from 'events';
-import { RedisClientOptions } from 'redis';
+import { RedisOptions } from 'ioredis';
 import { Client, Command, SubCommand } from './Client';
 import { Get, Intersects, Nearby, Scan, Search, Within } from './commands';
 import {
@@ -30,7 +30,7 @@ import {
 export class Follower extends EventEmitter implements FollowerInterface {
     readonly client: Client;
 
-    constructor(url: string, options?: RedisClientOptions) {
+    constructor(url: string, options?: RedisOptions) {
         super();
 
         this.client = new Client(url, options).on('error', (error) => {
@@ -133,7 +133,7 @@ export class Follower extends EventEmitter implements FollowerInterface {
         return new Within(this.client, key);
     }
 
-    async quit(force = false): Promise<void> {
-        return this.client.quit(force);
+    async quit(): Promise<void> {
+        return this.client.quit();
     }
 }

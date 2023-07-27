@@ -28,7 +28,10 @@ describe('intersects', () => {
         },
     };
 
-    afterAll(() => tile38.quit());
+    afterAll(async () => {
+        await tile38.flushDb();
+        await tile38.quit();
+    });
 
     beforeAll(async () => {
         await tile38.flushDb();
