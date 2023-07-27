@@ -55,7 +55,7 @@ This is a Typescript client for Tile38 that allows for a type-safe interaction w
 
 ### Built With
 
--   [redis](https://www.npmjs.com/package/redis)
+-   [ioredis](https://www.npmjs.com/package/ioredis)
 
 ## Getting Started
 
@@ -76,7 +76,7 @@ yarn add @tiermobility/tile38-ts
 
 ```typescript
 import { Tile38 } from '@tiermobility/tile38-ts';
-const tile38 = new Tile38('leader:9851');
+const tile38 = new Tile38({ url: 'leader:9851' });
 ```
 
 ### Leader / Follower
@@ -89,13 +89,32 @@ For now we allow for one follower `URI` to bet set alongside the leader `URI`.
 
 ```typescript
 import { Tile38 } from '@tiermobility/tile38-ts';
-const tile38 = new Tile38('leader:9851', 'follower:9851');
+const tile38 = new Tile38({ url: 'leader:9851', followerUrl: 'follower:9851' });
 ```
 
-Once the client is instantiated with a follower, commands can be explicitly send to the follower, but adding `.follower()` to your command chaining.
+Once the client is instantiated with a follower, commands can be explicitly send
+to the follower, but adding `.follower()` to your command chaining.
 
 ```typescript
 await tile38.follower().get('fleet', 'truck1').asObjects();
+```
+
+### Options
+
+We expose `ioredis` [RedisOptions](https://redis.github.io/ioredis/index.html#RedisOptions).
+
+```typescript
+import { Tile38 } from '@tiermobility/tile38-ts';
+const tile38 = new Tile38({
+    url: 'leader:9851',
+    followerUrl: 'follower:9851',
+    // e.g. to set a retry strategy
+    redisOptions: {
+        retryStrategy: (times) => {
+            return Math.min(times * 50, 2000);
+        },
+    },
+});
 ```
 
 ### Pagination
