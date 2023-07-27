@@ -1,5 +1,5 @@
 import EventEmitter from 'events';
-import { RedisClientOptions, createClient } from 'redis';
+import { Redis, RedisOptions } from 'ioredis';
 import { parseResponse } from './parseResponse';
 import { JSONResponse } from './responses';
 
@@ -90,26 +90,20 @@ enum Format {
     JSON = 'json',
 }
 
-type RedisClient = ReturnType<typeof createClient>;
-
 const toString = (s: string | number): string =>
     typeof s === 'string' ? s : `${s}`;
 
 export class Client extends EventEmitter {
-    private redis: RedisClient;
+    private redis: Redis;
 
-    private redisConnecting?: Promise<void>;
-
-    private subscriber: RedisClient;
-
-    private subscriberConnecting?: Promise<void>;
+    private subscriber: Redis;
 
     private format: `${Format}` = Format.RESP;
 
-    constructor(url: string, options?: RedisClientOptions) {
+    constructor(url: string, options?: RedisOptions) {
         super();
 
-        this.redis = createClient({ ...options, url })
+        this.redis = new Redis(url, { ...options, lazyConnect: true })
             .on('ready', () => {
                 this.format = Format.RESP;
             })
@@ -127,29 +121,14 @@ export class Client extends EventEmitter {
         });
     }
 
-    private connect(): Promise<void> {
-        if (typeof this.redisConnecting === 'undefined') {
-            this.redisConnecting = this.redis.connect();
-        }
-
-        return this.redisConnecting;
-    }
-
-    private connectSubscriber(): Promise<void> {
-        if (typeof this.subscriberConnecting === 'undefined') {
-            this.subscriberConnecting = this.subscriber.connect();
-        }
-
-        return this.subscriberConnecting;
-    }
-
     private async rawCommand(
         command: string,
         args?: CommandArgs
     ): Promise<string> {
-        await this.connect();
-
-        return this.redis.sendCommand([command, ...(args || []).map(toString)]);
+        return this.redis.call(
+            command,
+            ...(args || []).map(toString)
+        ) as Promise<string>;
     }
 
     async command<R extends JSONResponse = JSONResponse>(
@@ -176,51 +155,62 @@ export class Client extends EventEmitter {
     }
 
     async subscribe(channels: string | string[]): Promise<void> {
-        await this.connectSubscriber();
+        await this.subscriber.subscribe(...channels, (error) => {
+            if (error) {
+                this.emit('error', error);
+            }
+        });
 
-        return this.subscriber.subscribe(channels, (message, channel) =>
+        this.subscriber.on('message', (channel, message) =>
             this.emit('message', JSON.parse(message), channel)
         );
     }
 
     async pSubscribe(patterns: string | string[]): Promise<void> {
-        await this.connectSubscriber();
+        await this.subscriber.psubscribe(...patterns, (error) => {
+            if (error) {
+                this.emit('error', error);
+            }
+        });
 
-        return this.subscriber.pSubscribe(patterns, (message, channel) =>
+        this.subscriber.on('pmessage', (pattern, channel, message) =>
             this.emit('message', JSON.parse(message), channel)
         );
     }
 
-    unsubscribe(channels: string | string[] = []): Promise<void> {
-        return this.subscriber.unsubscribe(channels);
+    async unsubscribe(channels: string | string[]): Promise<void> {
+        const unsubscribeFrom =
+            typeof channels === 'string' ? [channels] : channels;
+        await this.subscriber.unsubscribe(...unsubscribeFrom);
     }
 
-    pUnsubscribe(patterns: string | string[] = []): Promise<void> {
-        return this.subscriber.unsubscribe(patterns);
+    async pUnsubscribe(patterns: string | string[]): Promise<void> {
+        const unsubscribeFrom =
+            typeof patterns === 'string' ? [patterns] : patterns;
+        await this.subscriber.punsubscribe(...unsubscribeFrom);
     }
 
-    async quit(force = false): Promise<void> {
-        await Promise.all([this.redisConnecting, this.subscriberConnecting]);
-
-        if (force) {
-            await Promise.all([
-                this.redis.isOpen && this.redis.disconnect(),
-                this.subscriber.isOpen && this.subscriber.disconnect(),
-            ]);
-        } else {
-            /**
-             * Issue with node-redis v4
-             * We have to put back output to resp otherwise quit will take forever
-             */
-            await (this.redis.isOpen && this.output('resp'));
-
-            await Promise.all([
-                this.redis.isOpen && this.redis.quit(),
-                this.subscriber.isOpen && this.subscriber.quit(),
-            ]);
+    async quit(): Promise<void> {
+        if (this.redis.status === 'ready') {
+            await this.output('resp');
+            await this.redis.quit();
+            await new Promise((resolve) => {
+                this.redis.disconnect();
+                setTimeout(() => {
+                    resolve(null);
+                }, 100);
+            });
         }
 
-        delete this.redisConnecting;
-        delete this.subscriberConnecting;
+        if (this.subscriber.status === 'ready') {
+            await this.output('resp');
+            await this.subscriber.quit();
+            await new Promise((resolve) => {
+                this.subscriber.disconnect();
+                setTimeout(() => {
+                    resolve(null);
+                }, 100);
+            });
+        }
     }
 }

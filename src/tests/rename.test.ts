@@ -6,7 +6,10 @@ describe('rename', () => {
 
     beforeAll(() => tile38.flushDb());
 
-    afterAll(() => tile38.quit());
+    afterAll(async () => {
+        await tile38.flushDb();
+        await tile38.quit();
+    });
 
     it('should send RENAME command', async () => {
         await expect(

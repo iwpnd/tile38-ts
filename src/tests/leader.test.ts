@@ -1,7 +1,10 @@
 import { Tile38 } from '..';
 
 describe('leader', () => {
-    const tile38 = new Tile38();
+    const tile38 = new Tile38({
+        url: process.env.TILE38_URI,
+        followerUrl: undefined,
+    });
 
     afterAll(() => tile38.quit());
 

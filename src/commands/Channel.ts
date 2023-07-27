@@ -15,6 +15,9 @@ export class Channel extends EventEmitter implements ChannelInterface {
         this.client = client.on('message', (message, channel, pattern) =>
             this.emit('message', message, channel, pattern)
         );
+
+        this.channels = [];
+        this.pChannels = [];
     }
 
     async subscribe(...channels: string[]): Promise<void> {

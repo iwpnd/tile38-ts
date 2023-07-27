@@ -4,7 +4,10 @@ describe('set', () => {
     const tile38 = new Tile38();
     const command = jest.spyOn(tile38.client, 'command');
 
-    afterAll(() => tile38.quit());
+    afterAll(async () => {
+        await tile38.flushDb();
+        await tile38.quit();
+    });
 
     it('should set point', async () => {
         await expect(

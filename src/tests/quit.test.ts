@@ -7,11 +7,4 @@ describe('quit', () => {
         await expect(tile38.quit()).resolves.toBeUndefined();
         await expect(tile38.quit()).resolves.toBeUndefined();
     });
-
-    it('should force quit', async () => {
-        const tile38 = new Tile38();
-        await expect(tile38.ping()).resolves.toBeDefined();
-        await expect(tile38.quit(true)).resolves.toBeUndefined();
-        await expect(tile38.quit(true)).resolves.toBeUndefined();
-    });
 });
