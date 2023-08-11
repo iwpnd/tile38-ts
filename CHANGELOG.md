@@ -1,3 +1,15 @@
+## [1.3.2](https://github.com/TierMobility/tile38-ts/compare/v1.3.1...v1.3.2) (2023-08-11)
+
+
+### Bug Fixes
+
+* 🐛 bump redis from 4.5.1 to 4.6.7 ([d7702fa](https://github.com/TierMobility/tile38-ts/commit/d7702fac1a2de888fd6fb8d65ce2a7de2cfc7125))
+
+
+### Other
+
+* **deps-dev:** 🔧 bump typescript from 4.8.4 to 5.1.6 ([53b849a](https://github.com/TierMobility/tile38-ts/commit/53b849a037a9302425eab83a9f1e2fd3dcb2aac5))
+
 ## [1.3.1](https://github.com/TierMobility/tile38-ts/compare/v1.3.0...v1.3.1) (2023-06-06)
 
 
