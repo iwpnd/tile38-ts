@@ -1,6 +1,6 @@
 {
   "name": "@tiermobility/tile38-ts",
-  "version": "1.3.2",
+  "version": "2.0.0-beta.1",
   "description": "A Node.js Tile38 client written in TypeScript",
   "main": "dist/index.js",
   "files": [
