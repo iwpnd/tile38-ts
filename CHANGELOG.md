@@ -1,3 +1,10 @@
+## [2.0.0-beta.2](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2023-08-15)
+
+
+### Bug Fixes
+
+* 🐛 align constructor with ioredis ([f62a4e6](https://github.com/TierMobility/tile38-ts/commit/f62a4e610f05dfaf6842c18e0dc4c1deb193904a))
+
 ## [2.0.0-beta.1](https://github.com/TierMobility/tile38-ts/compare/v1.3.2...v2.0.0-beta.1) (2023-08-15)
 
 
