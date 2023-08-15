@@ -83,6 +83,8 @@ export enum SubCommand {
     SECTOR = 'SECTOR',
 }
 
+export type ConstructorArgs = (string | number | RedisOptions | undefined)[];
+
 export type CommandArgs = Array<SubCommand | string | number | object>;
 
 enum Format {
@@ -93,6 +95,13 @@ enum Format {
 const toString = (s: string | number): string =>
     typeof s === 'string' ? s : `${s}`;
 
+const applyDefaults = (args: ConstructorArgs) => {
+    if (!args.length) return [{ port: 9851, lazyConnect: true }];
+    if (typeof args[0] === 'object')
+        return [{ port: 9851, ...args[0], lazyConnect: true }];
+    return args;
+};
+
 export class Client extends EventEmitter {
     private redis: Redis;
 
@@ -100,10 +109,10 @@ export class Client extends EventEmitter {
 
     private format: `${Format}` = Format.RESP;
 
-    constructor(url: string, options?: RedisOptions) {
+    constructor(...args: ConstructorArgs) {
         super();
 
-        this.redis = new Redis(url, { ...options, lazyConnect: true })
+        this.redis = new Redis(...(applyDefaults(args) as [string]))
             .on('ready', () => {
                 this.format = Format.RESP;
             })

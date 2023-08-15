@@ -1,4 +1,5 @@
 import { GeoJSON } from '@vpriem/geojson';
+import { RedisOptions } from 'ioredis';
 import {
     BoundsNeSwResponse,
     BoundsNeSwResponses,
@@ -280,6 +281,8 @@ export interface SetChanInterface {
 export interface SetHookInterface extends SetChanInterface {
     endpoint(value: string): this;
 }
+
+export type Tile38Options = RedisOptions;
 
 interface Tile38BaseInterface {
     on(event: 'error', listener: (error: Error) => void): this;

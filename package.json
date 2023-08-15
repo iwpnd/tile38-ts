@@ -41,7 +41,7 @@
     "test": "jest --runInBand",
     "format": "prettier --write src/{*.ts,**/*.ts}",
     "u": "yarn upgrade-interactive --latest",
-    "up": "docker-compose up tile38",
+    "up": "docker-compose up",
     "down": "docker-compose down",
     "coverage": "FILE=./coverage/lcov-report/index.html; test -f $FILE && open $FILE || echo 'no coverage yet, run yarn test'"
   },

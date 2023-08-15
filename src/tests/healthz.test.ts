@@ -2,10 +2,10 @@ import { JSONResponse, Tile38 } from '..';
 
 describe('healthz', () => {
     describe('healthz leader', () => {
-        const tile38 = new Tile38({
-            url: process.env.TILE38_URI,
-            followerUrl: process.env.TILE38_FOLLOWER_URI,
-        });
+        const tile38 = new Tile38(
+            'redis://localhost:9851/',
+            'redis://localhost:9852/'
+        );
 
         afterAll(() => tile38.quit());
 
@@ -24,10 +24,10 @@ describe('healthz', () => {
     });
 
     describe('healthz follower', () => {
-        const tile38 = new Tile38({
-            url: process.env.TILE38_URI,
-            followerUrl: process.env.TILE38_FOLLOWER_URI,
-        });
+        const tile38 = new Tile38(
+            'redis://localhost:9851/',
+            'redis://localhost:9852/'
+        );
 
         afterAll(() => tile38.quit());
 

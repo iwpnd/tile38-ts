@@ -1,31 +1,27 @@
-import { RedisOptions } from 'ioredis';
+import { ConstructorArgs } from './Client';
 import { Tile38Error } from './errors';
 import { Follower } from './Follower';
 import { Leader } from './Leader';
-import { FollowerInterface } from './specs';
-
-export interface Tile38ClientOptions {
-    url?: string;
-    followerUrl?: string;
-    redisOptions?: RedisOptions;
-}
-
-export const Tile38DefaultClientOptions = {
-    url: process.env.TILE38_LEADER_URI || process.env.TILE38_URI,
-    followerUrl: process.env.TILE38_FOLLOWER_URI,
-};
+import { FollowerInterface, Tile38Options } from './specs';
 
 export class Tile38 extends Leader {
     readonly _follower?: Follower;
 
-    constructor(options: Tile38ClientOptions = Tile38DefaultClientOptions) {
-        const opts = { Tile38DefaultClientOptions, ...options };
-        const { url, followerUrl, redisOptions } = opts;
+    constructor(port: number, options?: Tile38Options);
 
-        super(url as string, redisOptions);
+    constructor(port: number, host: string, options?: Tile38Options);
 
-        if (followerUrl) {
-            this._follower = new Follower(followerUrl, redisOptions).on(
+    constructor(path: string, options?: Tile38Options);
+
+    constructor(path?: string, followerPath?: string, options?: Tile38Options);
+
+    constructor(options?: Tile38Options);
+
+    constructor(...args: ConstructorArgs) {
+        super(...(args as [string]));
+
+        if (typeof args[0] === 'string' && typeof args[1] === 'string') {
+            this._follower = new Follower(args[1], args[2] as Tile38Options).on(
                 'error',
                 (error) => {
                     /* istanbul ignore next */
