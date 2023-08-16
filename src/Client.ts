@@ -96,10 +96,13 @@ const toString = (s: string | number): string =>
     typeof s === 'string' ? s : `${s}`;
 
 const applyDefaults = (args: ConstructorArgs) => {
-    if (!args.length) return [{ port: 9851, lazyConnect: true }];
-    if (typeof args[0] === 'object')
-        return [{ port: 9851, ...args[0], lazyConnect: true }];
-    return args;
+    const options = args.find((arg) => typeof arg === 'object');
+    if (!options) return [...args, { port: 9851, lazyConnect: true }];
+    return args.map((arg) =>
+        typeof arg === 'object'
+            ? { port: 9851, ...arg, lazyConnect: true }
+            : arg
+    );
 };
 
 const catchConnectionClosed = (error: Error) => {
