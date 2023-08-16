@@ -1,3 +1,10 @@
+## [2.0.0-beta.6](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2023-08-16)
+
+
+### Bug Fixes
+
+* 🐛 forward ioredis events ([02608b6](https://github.com/TierMobility/tile38-ts/commit/02608b69686ed1bf7a984de911f70f583ae8487b))
+
 ## [2.0.0-beta.5](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2023-08-16)
 
 
