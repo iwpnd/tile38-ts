@@ -1,6 +1,7 @@
 import EventEmitter from 'events';
 import { Client, Command, ConstructorArgs, SubCommand } from './Client';
 import { Get, Intersects, Nearby, Scan, Search, Within } from './commands';
+import { forwardEvents } from './events';
 import {
     BoundsResponse,
     ChansResponse,
@@ -41,10 +42,9 @@ export class Follower extends EventEmitter implements FollowerInterface {
     constructor(...args: ConstructorArgs) {
         super();
 
-        this.client = new Client(...(args as [string])).on('error', (error) => {
-            /* istanbul ignore next */
-            this.emit('error', error);
-        });
+        this.client = new Client(...(args as [string]));
+
+        forwardEvents(this.client, this);
     }
 
     bounds(key: string): Promise<BoundsResponse> {

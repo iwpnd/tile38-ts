@@ -112,8 +112,18 @@ new Tile38(
         retryStrategy: (times) => {
             return Math.min(times * 50, 2000);
         },
-    },
+    }
 );
+```
+
+### Events
+
+We expose `ioredis` [Events](https://github.com/redis/ioredis#events).
+
+```typescript
+new Tile38()
+    .on('connect', () => console.log('connected'))
+    .on('error', console.error);
 ```
 
 ### Pagination

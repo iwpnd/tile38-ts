@@ -21,13 +21,12 @@ export class Tile38 extends Leader {
         super(...(args as [string]));
 
         if (typeof args[0] === 'string' && typeof args[1] === 'string') {
-            this._follower = new Follower(args[1], args[2] as Tile38Options).on(
-                'error',
-                (error) => {
+            this._follower = new Follower(args[1], args[2] as Tile38Options)
+                // forwarding follower errors
+                .on('error', (error) =>
                     /* istanbul ignore next */
-                    this.emit('error', error);
-                }
-            );
+                    this.emit('error', error)
+                );
         }
     }
 

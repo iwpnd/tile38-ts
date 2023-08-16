@@ -1,5 +1,6 @@
 import EventEmitter from 'events';
 import { Redis, RedisOptions } from 'ioredis';
+import { forwardEvents } from './events';
 import { parseResponse } from './parseResponse';
 import { JSONResponse } from './responses';
 
@@ -123,20 +124,18 @@ export class Client extends EventEmitter {
             .on('ready', () => {
                 this.format = Format.RESP;
             })
-            .on('error', (error) => {
-                /* istanbul ignore next */
-                this.emit('error', error);
-            })
             .on('end', () => {
                 this.format = Format.RESP;
             });
 
+        forwardEvents(this.redis, this);
+
         this.subscriber = this.redis
             .duplicate()
-            .on('error', (error) => {
+            .on('error', (error) =>
                 /* istanbul ignore next */
-                this.emit('error', error);
-            })
+                this.emit('error', error)
+            )
             .on('message', (channel, message) =>
                 this.emit('message', JSON.parse(message), channel)
             )
