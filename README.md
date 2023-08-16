@@ -76,7 +76,8 @@ yarn add @tiermobility/tile38-ts
 
 ```typescript
 import { Tile38 } from '@tiermobility/tile38-ts';
-const tile38 = new Tile38({ url: 'leader:9851' });
+
+const tile38 = new Tile38('leader:9851');
 ```
 
 ### Leader / Follower
@@ -88,8 +89,7 @@ This client is not meant to setup a replication, because this should happen in y
 For now we allow for one follower `URI` to bet set alongside the leader `URI`.
 
 ```typescript
-import { Tile38 } from '@tiermobility/tile38-ts';
-const tile38 = new Tile38({ url: 'leader:9851', followerUrl: 'follower:9851' });
+const tile38 = new Tile38('leader:9851', 'follower:9851');
 ```
 
 Once the client is instantiated with a follower, commands can be explicitly send
@@ -104,17 +104,16 @@ await tile38.follower().get('fleet', 'truck1').asObjects();
 We expose `ioredis` [RedisOptions](https://redis.github.io/ioredis/index.html#RedisOptions).
 
 ```typescript
-import { Tile38 } from '@tiermobility/tile38-ts';
-const tile38 = new Tile38({
-    url: 'leader:9851',
-    followerUrl: 'follower:9851',
+new Tile38(
+    'leader:9851',
+    'follower:9851',
     // e.g. to set a retry strategy
-    redisOptions: {
+    {
         retryStrategy: (times) => {
             return Math.min(times * 50, 2000);
         },
     },
-});
+);
 ```
 
 ### Pagination
