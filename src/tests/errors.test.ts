@@ -8,10 +8,7 @@ import {
 describe('errors', () => {
     const tile38 = new Tile38();
 
-    afterAll(async () => {
-        await tile38.flushDb();
-        await tile38.quit();
-    });
+    afterAll(() => tile38.quit());
 
     it('should throw Tile38Error', () =>
         expect(tile38.set('fleet', 'truck1').exec()).rejects.toBeInstanceOf(

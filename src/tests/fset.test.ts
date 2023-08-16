@@ -4,10 +4,7 @@ import { ObjectsResponse } from '../responses';
 describe('fset', () => {
     const tile38 = new Tile38();
 
-    afterAll(async () => {
-        await tile38.flushDb();
-        await tile38.quit();
-    });
+    afterAll(() => tile38.quit());
 
     beforeEach(() => tile38.flushDb());
 

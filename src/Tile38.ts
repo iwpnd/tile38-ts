@@ -39,7 +39,7 @@ export class Tile38 extends Leader {
         return this._follower;
     }
 
-    async quit(): Promise<void> {
-        await Promise.all([super.quit(), this._follower?.quit()]);
+    async quit(force = false): Promise<void> {
+        await Promise.all([super.quit(force), this._follower?.quit(force)]);
     }
 }

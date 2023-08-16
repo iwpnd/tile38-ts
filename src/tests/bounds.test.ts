@@ -4,10 +4,7 @@ import { BoundsResponse, Tile38 } from '..';
 describe('bounds', () => {
     const tile38 = new Tile38();
 
-    afterAll(async () => {
-        await tile38.flushDb();
-        await tile38.quit();
-    });
+    afterAll(() => tile38.quit());
 
     it('should send BOUNDS command', async () => {
         const command = jest.spyOn(tile38.client, 'command');

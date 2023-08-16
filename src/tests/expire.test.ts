@@ -3,10 +3,7 @@ import { Tile38 } from '..';
 describe('expire', () => {
     const tile38 = new Tile38();
 
-    afterAll(async () => {
-        await tile38.flushDb();
-        await tile38.quit();
-    });
+    afterAll(() => tile38.quit());
 
     it('should send EXPIRE command', async () => {
         const command = jest.spyOn(tile38.client, 'command');

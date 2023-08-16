@@ -141,7 +141,7 @@ export class Follower extends EventEmitter implements FollowerInterface {
         return new Within(this.client, key);
     }
 
-    async quit(): Promise<void> {
-        return this.client.quit();
+    async quit(force = false): Promise<void> {
+        return this.client.quit(force);
     }
 }

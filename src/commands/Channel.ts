@@ -15,9 +15,6 @@ export class Channel extends EventEmitter implements ChannelInterface {
         this.client = client.on('message', (message, channel, pattern) =>
             this.emit('message', message, channel, pattern)
         );
-
-        this.channels = [];
-        this.pChannels = [];
     }
 
     async subscribe(...channels: string[]): Promise<void> {
@@ -32,8 +29,9 @@ export class Channel extends EventEmitter implements ChannelInterface {
 
     async unsubscribe(): Promise<void> {
         await Promise.all([
-            this.channels.length && this.client.unsubscribe(this.channels),
-            this.pChannels.length && this.client.pUnsubscribe(this.pChannels),
+            this.channels.length && this.client.unsubscribe(...this.channels),
+            this.pChannels.length &&
+                this.client.pUnsubscribe(...this.pChannels),
         ]);
 
         this.channels = [];

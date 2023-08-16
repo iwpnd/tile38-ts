@@ -102,6 +102,10 @@ const applyDefaults = (args: ConstructorArgs) => {
     return args;
 };
 
+const catchConnectionClosed = (error: Error) => {
+    if (error.message !== 'Connection is closed.') throw error;
+};
+
 export class Client extends EventEmitter {
     private redis: Redis;
 
@@ -124,10 +128,18 @@ export class Client extends EventEmitter {
                 this.format = Format.RESP;
             });
 
-        this.subscriber = this.redis.duplicate().on('error', (error) => {
-            /* istanbul ignore next */
-            this.emit('error', error);
-        });
+        this.subscriber = this.redis
+            .duplicate()
+            .on('error', (error) => {
+                /* istanbul ignore next */
+                this.emit('error', error);
+            })
+            .on('message', (channel, message) =>
+                this.emit('message', JSON.parse(message), channel)
+            )
+            .on('pmessage', (pattern, channel, message) =>
+                this.emit('message', JSON.parse(message), channel, pattern)
+            );
     }
 
     private async rawCommand(
@@ -164,62 +176,29 @@ export class Client extends EventEmitter {
     }
 
     async subscribe(channels: string | string[]): Promise<void> {
-        await this.subscriber.subscribe(...channels, (error) => {
-            if (error) {
-                this.emit('error', error);
-            }
-        });
-
-        this.subscriber.on('message', (channel, message) =>
-            this.emit('message', JSON.parse(message), channel)
-        );
+        await this.subscriber.subscribe(...channels);
     }
 
     async pSubscribe(patterns: string | string[]): Promise<void> {
-        await this.subscriber.psubscribe(...patterns, (error) => {
-            if (error) {
-                this.emit('error', error);
-            }
-        });
+        await this.subscriber.psubscribe(...patterns);
+    }
 
-        this.subscriber.on('pmessage', (pattern, channel, message) =>
-            this.emit('message', JSON.parse(message), channel)
+    async unsubscribe(...channels: string[]): Promise<void> {
+        await this.subscriber.unsubscribe(...channels);
+    }
+
+    async pUnsubscribe(...patterns: string[]): Promise<void> {
+        await this.subscriber.punsubscribe(...patterns);
+    }
+
+    async quit(force = false): Promise<void> {
+        await Promise.all(
+            force
+                ? [this.redis.disconnect(), this.subscriber.disconnect()]
+                : [
+                      this.redis.quit().catch(catchConnectionClosed),
+                      this.subscriber.quit().catch(catchConnectionClosed),
+                  ]
         );
-    }
-
-    async unsubscribe(channels: string | string[]): Promise<void> {
-        const unsubscribeFrom =
-            typeof channels === 'string' ? [channels] : channels;
-        await this.subscriber.unsubscribe(...unsubscribeFrom);
-    }
-
-    async pUnsubscribe(patterns: string | string[]): Promise<void> {
-        const unsubscribeFrom =
-            typeof patterns === 'string' ? [patterns] : patterns;
-        await this.subscriber.punsubscribe(...unsubscribeFrom);
-    }
-
-    async quit(): Promise<void> {
-        if (this.redis.status === 'ready') {
-            await this.output('resp');
-            await this.redis.quit();
-            await new Promise((resolve) => {
-                this.redis.disconnect();
-                setTimeout(() => {
-                    resolve(null);
-                }, 100);
-            });
-        }
-
-        if (this.subscriber.status === 'ready') {
-            await this.output('resp');
-            await this.subscriber.quit();
-            await new Promise((resolve) => {
-                this.subscriber.disconnect();
-                setTimeout(() => {
-                    resolve(null);
-                }, 100);
-            });
-        }
     }
 }

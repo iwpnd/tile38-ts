@@ -3,10 +3,7 @@ import { ChansResponse, Tile38 } from '..';
 describe('chans', () => {
     const tile38 = new Tile38();
 
-    afterAll(async () => {
-        await tile38.flushDb();
-        await tile38.quit();
-    });
+    afterAll(() => tile38.quit());
 
     beforeAll(async () => {
         await tile38.pDelChan('*');
