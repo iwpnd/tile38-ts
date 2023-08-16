@@ -1,3 +1,10 @@
+## [2.0.0-beta.3](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2023-08-16)
+
+
+### Bug Fixes
+
+* 🐛 handle ioredis quit better ([4809ffe](https://github.com/TierMobility/tile38-ts/commit/4809ffe4b84018463f907665e6d1942059a95bdb))
+
 ## [2.0.0-beta.2](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2023-08-15)
 
 
