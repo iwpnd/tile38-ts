@@ -1,3 +1,10 @@
+## [2.0.0-beta.5](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2023-08-16)
+
+
+### Bug Fixes
+
+* 🐛 fix client defaults ([039fce9](https://github.com/TierMobility/tile38-ts/commit/039fce9ea19c9bd8762e4ce9f765a488655174d9))
+
 ## [2.0.0-beta.4](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2023-08-16)
 
 
