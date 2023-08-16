@@ -1,3 +1,10 @@
+## [2.0.0-beta.4](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2023-08-16)
+
+
+### Documentation
+
+* 📚️ document constructor ([9896edd](https://github.com/TierMobility/tile38-ts/commit/9896edd4113776e6a2322a79d0ac7ab3ac47e67c))
+
 ## [2.0.0-beta.3](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2023-08-16)
 
 
