@@ -66,7 +66,7 @@
     "devmoji": "2.3.0",
     "eslint": "8.36.0",
     "eslint-config-airbnb-base": "15.0.0",
-    "eslint-config-prettier": "8.8.0",
+    "eslint-config-prettier": "9.0.0",
     "eslint-import-resolver-typescript": "3.5.3",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-prettier": "4.2.1",
