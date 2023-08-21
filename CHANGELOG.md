@@ -1,3 +1,14 @@
+## [2.0.0-beta.1](https://github.com/TierMobility/tile38-ts/compare/v1.3.2...v2.0.0-beta.1) (2023-08-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* node-redis -> ioredis
+
+### Features
+
+* ♻️ change redis client to use ioredis instead of node-redis ([8606515](https://github.com/TierMobility/tile38-ts/commit/8606515a7c4812931515b5039ec6bf549074b48a))
+
 ## [2.0.0-beta.5](https://github.com/TierMobility/tile38-ts/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2023-08-16)
 
 
