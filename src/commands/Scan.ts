@@ -1,4 +1,5 @@
 import { GeoJSON } from '@vpriem/geojson';
+import { Search } from './Search';
 import { Command, SubCommand } from '../Client';
 import {
     BoundsNeSwResponses,
@@ -7,7 +8,6 @@ import {
     PointsResponse,
 } from '../responses';
 import { ScanInterface } from '../specs';
-import { Search } from './Search';
 
 type Output =
     | SubCommand.BOUNDS

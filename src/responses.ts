@@ -94,7 +94,7 @@ export interface ObjectBase<O extends GeoJSON = GeoJSON> extends Base {
 
 export type ObjectResponse<
     O extends GeoJSON = GeoJSON,
-    F extends Fields = Fields
+    F extends Fields = Fields,
 > = ExtendResponse<{
     object: O;
     fields?: F;
@@ -342,7 +342,7 @@ export type Commands = 'set' | 'del';
 export interface GeofenceSet<
     O extends GeoJSON = GeoJSON,
     F extends Fields | undefined = undefined,
-    M extends Meta | undefined = undefined
+    M extends Meta | undefined = undefined,
 > {
     command: 'set';
     group: string;
@@ -376,5 +376,5 @@ export interface GeofenceDrop<M extends Meta | undefined = undefined> {
 export type Geofence<
     O extends GeoJSON = GeoJSON,
     F extends Fields | undefined = undefined,
-    M extends Meta | undefined = undefined
+    M extends Meta | undefined = undefined,
 > = GeofenceSet<O, F, M> | GeofenceDel<M> | GeofenceDrop<M>;

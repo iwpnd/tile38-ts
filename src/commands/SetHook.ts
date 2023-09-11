@@ -1,6 +1,6 @@
+import { SetChan } from './SetChan';
 import { Client, Command } from '../Client';
 import { SetHookInterface } from '../specs';
-import { SetChan } from './SetChan';
 
 export class SetHook extends SetChan implements SetHookInterface {
     protected readonly command = Command.SETHOOK;

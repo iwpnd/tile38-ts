@@ -1,6 +1,6 @@
+import { WithClient } from './WithClient';
 import { Command, CommandArgs } from '../Client';
 import { JSONResponse } from '../responses';
-import { WithClient } from './WithClient';
 
 export interface Compilable {
     compile(): [Command, CommandArgs];

@@ -40,7 +40,7 @@ export interface ChannelInterface {
     on<
         O extends GeoJSON = GeoJSON,
         F extends Fields | undefined = undefined,
-        M extends Meta | undefined = undefined
+        M extends Meta | undefined = undefined,
     >(
         event: 'message',
         listener: (message: Geofence<O, F, M>, channel: string) => void

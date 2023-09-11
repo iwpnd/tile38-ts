@@ -1,7 +1,7 @@
+import { Executable } from './Executable';
 import { Client, Command, CommandArgs } from '../Client';
 import { Fields } from '../responses';
 import { FSetInterface } from '../specs';
-import { Executable } from './Executable';
 
 export class FSet extends Executable implements FSetInterface {
     private _key: string;

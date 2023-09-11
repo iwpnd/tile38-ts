@@ -1,5 +1,5 @@
-import { CommandArgs, SubCommand } from '../Client';
 import { Executable } from './Executable';
+import { CommandArgs, SubCommand } from '../Client';
 
 export interface Where {
     where(field: string, min: number, max: number): this;

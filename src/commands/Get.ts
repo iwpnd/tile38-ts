@@ -1,4 +1,5 @@
 import { GeoJSON } from '@vpriem/geojson';
+import { Executable } from './Executable';
 import { Client, Command, CommandArgs, SubCommand } from '../Client';
 import {
     BoundsNeSwResponse,
@@ -9,7 +10,6 @@ import {
     StringObjectResponse,
 } from '../responses';
 import { GetInterface } from '../specs';
-import { Executable } from './Executable';
 
 type Output =
     | SubCommand.BOUNDS

@@ -1,3 +1,4 @@
+import { Whereable } from './Whereable';
 import { Client, Command, CommandArgs, SubCommand } from '../Client';
 import { range } from '../range';
 import {
@@ -7,7 +8,6 @@ import {
     StringObjectsResponse,
 } from '../responses';
 import { SearchInterface } from '../specs';
-import { Whereable } from './Whereable';
 
 type Output = SubCommand.OBJECTS | SubCommand.COUNT | SubCommand.IDS;
 

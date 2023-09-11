@@ -1,4 +1,6 @@
 import { GeoJSON } from '@vpriem/geojson';
+import { Compilable } from './Executable';
+import { Whereable } from './Whereable';
 import { Client, Command, CommandArgs, SubCommand } from '../Client';
 import { range } from '../range';
 import {
@@ -13,8 +15,6 @@ import {
     PointsResponse,
 } from '../responses';
 import { IntersectsInterface } from '../specs';
-import { Compilable } from './Executable';
-import { Whereable } from './Whereable';
 
 type Output =
     | SubCommand.BOUNDS

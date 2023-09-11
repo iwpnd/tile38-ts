@@ -1,6 +1,6 @@
+import { Get } from './Get';
 import { Tile38 } from '..';
 import { SubCommand } from '../Client';
-import { Get } from './Get';
 
 describe('GetQuery', () => {
     const tile38 = new Tile38();

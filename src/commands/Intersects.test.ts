@@ -1,6 +1,6 @@
 import { Feature, Polygon } from '@vpriem/geojson';
-import { Tile38 } from '..';
 import { Intersects } from './Intersects';
+import { Tile38 } from '..';
 
 describe('Intersects', () => {
     const feature: Feature<Polygon> = {

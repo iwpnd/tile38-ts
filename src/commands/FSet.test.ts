@@ -1,5 +1,5 @@
-import { Tile38 } from '..';
 import { FSet } from './FSet';
+import { Tile38 } from '..';
 
 describe('FSet', () => {
     const tile38 = new Tile38();

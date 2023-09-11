@@ -1,5 +1,5 @@
-import { Tile38 } from '..';
 import { Set } from './Set';
+import { Tile38 } from '..';
 
 describe('Set', () => {
     const tile38 = new Tile38();

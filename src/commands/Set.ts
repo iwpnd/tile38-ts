@@ -1,8 +1,8 @@
 import { GeoJSON } from '@vpriem/geojson';
+import { Executable } from './Executable';
 import { Client, Command, CommandArgs, SubCommand } from '../Client';
 import { Fields } from '../responses';
 import { SetInterface } from '../specs';
-import { Executable } from './Executable';
 
 export class Set extends Executable implements SetInterface {
     private _key: string;

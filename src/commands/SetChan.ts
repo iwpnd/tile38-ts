@@ -1,3 +1,8 @@
+import { Compilable } from './Executable';
+import { Intersects } from './Intersects';
+import { Nearby } from './Nearby';
+import { WithClient } from './WithClient';
+import { Within } from './Within';
 import { Client, Command, CommandArgs, SubCommand } from '../Client';
 import { Meta } from '../responses';
 import {
@@ -6,11 +11,6 @@ import {
     SetChanInterface,
     WithinFenceInterface,
 } from '../specs';
-import { Compilable } from './Executable';
-import { Intersects } from './Intersects';
-import { Nearby } from './Nearby';
-import { WithClient } from './WithClient';
-import { Within } from './Within';
 
 export class SetChan
     extends WithClient
