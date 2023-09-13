@@ -4,6 +4,34 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    groups:
+      linter:
+        dependency-type: "development"
+        patterns:
+          - "eslint*"
+          - "@typescript-eslint/*"
+        update-types:
+          - "major"
+          - "minor"
+          - "patch"
+      commitlint:
+        dependency-type: "development"
+        patterns:
+          - "@commitlint/*"
+        update-types:
+          - "major"
+          - "minor"
+          - "patch"
+      release:
+        dependency-type: "development"
+        patterns:
+          - "semantic-release"
+          - "@semantic-release/*"
+          - "conventional-changelog-conventionalcommits"
+        update-types:
+          - "major"
+          - "minor"
+          - "patch"
 
   - package-ecosystem: 'docker'
     directory: '/'
