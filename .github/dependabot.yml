@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: 'daily'
     groups:
-      linter:
+      eslint:
         dependency-type: "development"
         patterns:
           - "eslint*"
@@ -22,7 +22,7 @@ updates:
           - "major"
           - "minor"
           - "patch"
-      release:
+      semantic-release:
         dependency-type: "development"
         patterns:
           - "semantic-release"
