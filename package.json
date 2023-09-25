@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@types/node": "18.15.11",
-    "@vpriem/geojson": "1.1.0",
+    "@vpriem/geojson": "1.2.0",
     "ioredis": "5.3.2"
   },
   "devDependencies": {

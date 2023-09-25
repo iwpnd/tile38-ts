@@ -1510,10 +1510,10 @@
     "@typescript-eslint/types" "6.6.0"
     eslint-visitor-keys "^3.4.1"
 
-"@vpriem/geojson@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/@vpriem/geojson/-/geojson-1.1.0.tgz#3ae43a74f683a0ed804e3c1cbf1033f5edf0d9d1"
-  integrity sha512-82VGLg5ovzmQTvvKEw12BYYoVJZug23dy3A0yBZtdISrKEErFJy3V/iItEEz4eCXSQ6OCR5keqVJs0ftV004MA==
+"@vpriem/geojson@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@vpriem/geojson/-/geojson-1.2.0.tgz#cbe506e04f140b472318778fcc546906cae8ac57"
+  integrity sha512-rxrB6NTx8zs4qQN+ugkcrmqGlIoxe/coyj27gLjx7NeUsL8Sj8xBgNAG8PFCLubUJFSMyh7zj8rW2DJvgY64HA==
   dependencies:
     "@types/geojson" "7946.0.10"
 
