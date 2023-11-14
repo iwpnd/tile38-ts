@@ -1324,10 +1324,10 @@
   dependencies:
     "@babel/types" "^7.20.7"
 
-"@types/geojson@7946.0.10":
-  version "7946.0.10"
-  resolved "https://registry.npmjs.org/@types/geojson/-/geojson-7946.0.10.tgz#6dfbf5ea17142f7f9a043809f1cd4c448cb68249"
-  integrity sha512-Nmh0K3iWQJzniTuPRcJn5hxXkfB1T1pgB89SBig5PlJQU5yocazeu4jATJlaA0GYFKWMqDdvYemoSnF2pXgLVA==
+"@types/geojson@7946.0.11":
+  version "7946.0.11"
+  resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.11.tgz#012c17cb2256ad8de78560da851ab914a7b9b40e"
+  integrity sha512-L7A0AINMXQpVwxHJ4jxD6/XjZ4NDufaRlUJHjNIFKYUFBH1SvOW+neaqb0VTRSLW5suSrSu19ObFEFnfNcr+qg==
 
 "@types/graceful-fs@^4.1.2":
   version "4.1.6"
@@ -1515,12 +1515,12 @@
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
-"@vpriem/geojson@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@vpriem/geojson/-/geojson-1.2.0.tgz#cbe506e04f140b472318778fcc546906cae8ac57"
-  integrity sha512-rxrB6NTx8zs4qQN+ugkcrmqGlIoxe/coyj27gLjx7NeUsL8Sj8xBgNAG8PFCLubUJFSMyh7zj8rW2DJvgY64HA==
+"@vpriem/geojson@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@vpriem/geojson/-/geojson-1.3.0.tgz#26b195bd4e7b79def276afda553cadf1c8071f2b"
+  integrity sha512-qzRtT1YM/89QSQz1TsjrU9o/tcrGoRcWJY+jFEbYx1eGqTDg4aAPOEDraZi8JqNKtEIR5+hZV6ULUEbac21Rgw==
   dependencies:
-    "@types/geojson" "7946.0.10"
+    "@types/geojson" "7946.0.11"
 
 JSONStream@^1.3.5:
   version "1.3.5"
