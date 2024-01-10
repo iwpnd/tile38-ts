@@ -1,3 +1,40 @@
+## [2.0.1](https://github.com/iwpnd/tile38-ts/compare/v2.0.0...v2.0.1) (2024-01-10)
+
+
+### Bug Fixes
+
+* 🐛 transfer ownership ([ad61b3d](https://github.com/iwpnd/tile38-ts/commit/ad61b3d35360e070b9b3fce3d661e831ed2b39e2))
+
+
+### Other
+
+* 🎨 bump linter/prettier dependencies and run --fix ([fac7f0d](https://github.com/iwpnd/tile38-ts/commit/fac7f0d44b2ff43959c8870437b6e7273bbab7d8))
+* 🔧 dependabot group dependencies ([feaa77b](https://github.com/iwpnd/tile38-ts/commit/feaa77bbab011b1d03e3a7d08075da1d8d943633))
+* 🔧 dependabot rename group dependencies ([a1d9552](https://github.com/iwpnd/tile38-ts/commit/a1d955222fadb7b1652a9500b5b04f9f627eccfb))
+* **deps-dev:** bump @commitlint/config-conventional ([dafdcc2](https://github.com/iwpnd/tile38-ts/commit/dafdcc204bad2abf3dc812bddbdb0bc5b1bc37ad))
+* **deps-dev:** bump @semantic-release/changelog from 6.0.2 to 6.0.3 ([877722b](https://github.com/iwpnd/tile38-ts/commit/877722b2870070aea1c457f839787ccf7476c2c9))
+* **deps-dev:** bump @semantic-release/github from 8.0.7 to 9.0.5 ([bed8db1](https://github.com/iwpnd/tile38-ts/commit/bed8db1456f0da75da8a013c90999c23130023bc))
+* **deps-dev:** bump husky from 8.0.2 to 8.0.3 ([bbfa422](https://github.com/iwpnd/tile38-ts/commit/bbfa422ba8547ef82e4d97796139523c876f2360))
+* **deps-dev:** bump lint-staged from 13.2.0 to 14.0.1 ([9b084c9](https://github.com/iwpnd/tile38-ts/commit/9b084c92599fc91f1fcd463f81567a369f632116))
+* **deps-dev:** bump lint-staged from 14.0.1 to 15.1.0 ([69fa480](https://github.com/iwpnd/tile38-ts/commit/69fa480d6c28132c8770d4e5083525ab497277a3))
+* **deps-dev:** bump prettier from 3.0.3 to 3.1.0 ([697a4ed](https://github.com/iwpnd/tile38-ts/commit/697a4ed8175973f96660c25803f4eb996520e834))
+* **deps-dev:** bump rimraf from 4.4.1 to 5.0.5 ([ca0dc1e](https://github.com/iwpnd/tile38-ts/commit/ca0dc1e272259d3668f3c83e050abbb83a142da7))
+* **deps-dev:** bump the eslint group with 3 updates ([aafcba2](https://github.com/iwpnd/tile38-ts/commit/aafcba21a0e3280ffddca3255680818b38eaa011))
+* **deps-dev:** bump the eslint group with 6 updates ([01eaa56](https://github.com/iwpnd/tile38-ts/commit/01eaa5692505a15788131011e13896623912b2a4))
+* **deps-dev:** bump the semantic-release group with 1 update ([e445b22](https://github.com/iwpnd/tile38-ts/commit/e445b22d60c140d6d6e4c6ac32debb8002da8cdc))
+* **deps-dev:** bump the semantic-release group with 1 update ([8819a0c](https://github.com/iwpnd/tile38-ts/commit/8819a0cdb2dbea27394bc4de75a38241e3cb6b75))
+* **deps-dev:** bump the semantic-release group with 4 updates ([4eb0fa5](https://github.com/iwpnd/tile38-ts/commit/4eb0fa59350e6830a0b39fa0d01a7065e240b08f))
+* **deps-dev:** bump the semantic-release group with 4 updates ([421bc86](https://github.com/iwpnd/tile38-ts/commit/421bc866c97deefc81a597624609afdb1ccc0c93))
+* **deps-dev:** bump the semantic-release group with 4 updates ([6f2171d](https://github.com/iwpnd/tile38-ts/commit/6f2171d3d845e7b83a46f7edfd2091e83f30acc3))
+* **deps-dev:** bump typescript from 5.1.6 to 5.2.2 ([9ff40b4](https://github.com/iwpnd/tile38-ts/commit/9ff40b4c1d4e22c35055388ac5faaf0241601fb2))
+* **deps:** bump @vpriem/geojson from 1.1.0 to 1.2.0 ([fae88ec](https://github.com/iwpnd/tile38-ts/commit/fae88ec027b590529756a6e7f37f4a679ebba6b2))
+* **deps:** bump @vpriem/geojson from 1.2.0 to 1.3.0 ([6b819b0](https://github.com/iwpnd/tile38-ts/commit/6b819b0e3dfad86b07939a5d67c74d2d3d18b31c))
+
+
+### Documentation
+
+* update readme ([4b0e57b](https://github.com/iwpnd/tile38-ts/commit/4b0e57b2c2d63b07826ffe0843e8123d611939d1))
+
 ## [2.0.0](https://github.com/TierMobility/tile38-ts/compare/v1.3.2...v2.0.0) (2023-08-21)
 
 
