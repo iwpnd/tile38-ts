@@ -5,8 +5,8 @@
 </a> -->
 <h1 align="center">Tile38-ts</h1>
 <p align="center">
-<a  href="https://tier.engineering">tier.engineering</a> · <a  href="https://github.com/TierMobility/tile38-ts/issues">Report Bug</a>
-· <a  href="https://github.com/TierMobility/tile38-ts/issues">Request Feature</a>
+<a  href="https://github.com/iwpnd/tile38-ts/issues">Report Bug</a>
+· <a  href="https://github.com/iwpnd/tile38-ts/issues">Request Feature</a>
 </p>
 </p>
 <details  open="open">
@@ -69,13 +69,13 @@ This is a Typescript client for Tile38 that allows for a type-safe interaction w
 ### Installation
 
 ```sh
-yarn add @tiermobility/tile38-ts
+yarn add @iwpnd/tile38-ts
 ```
 
 ### Import
 
 ```typescript
-import { Tile38 } from '@tiermobility/tile38-ts';
+import { Tile38 } from '@iwpnd/tile38-ts';
 
 const tile38 = new Tile38('leader:9851');
 ```
@@ -818,7 +818,7 @@ For more information, please refer to:
 
 ## Roadmap
 
-See the [open issues](https://github.com/TierMobility/tile38-ts/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/iwpnd/tile38-ts/issues) for a list of proposed features (and known issues).
 
 ## Contributing
 
@@ -838,9 +838,8 @@ MIT
 
 Vincent Priem - [@vpriem](https://github.com/vpriem)  
 Benjamin Ramser - [@iwpnd](https://github.com/iwpnd)  
-Juliana Schwarz - [@julschwarz](https://github.com/julschwarz)
 
-Project Link: [https://github.com/TierMobility/tile38-ts](https://github.com/TierMobility/tile38-ts)
+Project Link: [https://github.com/iwpnd/tile38-ts](https://github.com/iwpnd/tile38-ts)
 
 ## Acknowledgements
 
