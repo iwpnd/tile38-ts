@@ -1,3 +1,18 @@
+## [2.1.0](https://github.com/iwpnd/tile38-ts/compare/v2.0.1...v2.1.0) (2024-01-16)
+
+
+### Features
+
+* ✨ drop nodejs v18 support ([b10c25e](https://github.com/iwpnd/tile38-ts/commit/b10c25e6bf87b453510f9ac385fa4d7b75e917e9))
+
+
+### Other
+
+* 👷 node20 runner ([c64777a](https://github.com/iwpnd/tile38-ts/commit/c64777a0619d1bc68791cd4b43f0175f4665c210))
+* 🔧 bump tile38 to 1.32.1 ([de2d6a5](https://github.com/iwpnd/tile38-ts/commit/de2d6a5699b6f672181b82b79bd0d24fc13047a2))
+* **deps-dev:** bump lint-staged from 15.1.0 to 15.2.0 ([b03172d](https://github.com/iwpnd/tile38-ts/commit/b03172d223f4f10ba11a6f46284346d7744c3cf1))
+* **deps-dev:** bump prettier from 3.1.0 to 3.2.2 ([688688a](https://github.com/iwpnd/tile38-ts/commit/688688a43ef3dd2b65667de2087d3640bbb6ede8))
+
 ## [2.0.1](https://github.com/iwpnd/tile38-ts/compare/v2.0.0...v2.0.1) (2024-01-10)
 
 
