@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/iwpnd/tile38-ts/compare/v2.1.0...v2.1.1) (2024-01-16)
+
+
+### Documentation
+
+* update readme ([3fc61e1](https://github.com/iwpnd/tile38-ts/commit/3fc61e18d656275cb2c8fd7cb74a7b28e7fa70e2))
+
 ## [2.1.0](https://github.com/iwpnd/tile38-ts/compare/v2.0.1...v2.1.0) (2024-01-16)
 
 
