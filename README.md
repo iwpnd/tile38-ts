@@ -62,7 +62,7 @@ This is a Typescript client for Tile38 that allows for a type-safe interaction w
 ### Requirements
 
 ```sh
-"node": ">=14.x"
+"node": ">=20.x"
 "ioredis" ">=5.0.0"
 ```
 
