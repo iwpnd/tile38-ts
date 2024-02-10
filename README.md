@@ -745,7 +745,7 @@ Similar to `setHook()`, but opens a PUB/SUB channel.
 // enters the area of a 500m radius around
 // latitude 33.5123 and longitude -112.2693
 await tile38
-    .setChan('warehouse', 'http://10.0.20.78/endpoint')
+    .setChan('warehouse')
     .nearby('fleet')
     .point(33.5123, -112.2693, 500)
     .exec();
@@ -798,9 +798,9 @@ await tile38.pDelChan('ware*');
 **Geosearch**
 | | |
 |--|--|
-| `.nearby(name, endpoint)` | |
-| `.within(name, endpoint)` | |
-| `.intersects(name, endpoint)` | |
+| `.nearby(name)` | |
+| `.within(name)` | |
+| `.intersects(name)` | |
 
 **Options**
 | | |
