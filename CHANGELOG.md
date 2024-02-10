@@ -1,3 +1,21 @@
+## [2.1.2](https://github.com/iwpnd/tile38-ts/compare/v2.1.1...v2.1.2) (2024-02-10)
+
+
+### Other
+
+* 🔧 if chore(deps) release patch ([7d71f71](https://github.com/iwpnd/tile38-ts/commit/7d71f7127f2646e2b5de4dbfff7c244744d4f9cc))
+* **deps-dev:** 🔧 update ([dc1fce7](https://github.com/iwpnd/tile38-ts/commit/dc1fce79b4b45c61015bc5c5f1323d0339509480))
+* **deps-dev:** 🔧 update ([dded893](https://github.com/iwpnd/tile38-ts/commit/dded8933fbc887091a9f351472e84baa10fb135d))
+* **deps-dev:** 🔧 update ([1ab00b9](https://github.com/iwpnd/tile38-ts/commit/1ab00b9d1222c7d8c2fec07431e23376d312be09))
+* **deps-dev:** 🔧 update dev dependencies ([7ff7e60](https://github.com/iwpnd/tile38-ts/commit/7ff7e60c04fe365b1c7d74391bfdf92f85b6225e))
+* **deps-dev:** bump prettier from 3.2.2 to 3.2.3 ([c7a2da3](https://github.com/iwpnd/tile38-ts/commit/c7a2da35f494e9f03bb19ff8014cdcda7291f239))
+* **deps-dev:** bump prettier from 3.2.3 to 3.2.4 ([5eb8e6a](https://github.com/iwpnd/tile38-ts/commit/5eb8e6aa2e9fbc53abcaf173046c4d79c38fb838))
+
+
+### Documentation
+
+* fix setChan examples ([79871e3](https://github.com/iwpnd/tile38-ts/commit/79871e3a30e7e18a79fa25b5aacb920d531f4971))
+
 ## [2.1.1](https://github.com/iwpnd/tile38-ts/compare/v2.1.0...v2.1.1) (2024-01-16)
 
 
