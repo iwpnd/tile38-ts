@@ -22,7 +22,7 @@ export type Fields<O extends object = {}> = Record<
 export type Meta = Record<string, string>;
 
 interface Base {
-    id: string | number;
+    id: string;
     distance?: number;
     fields?: (number | string | object)[];
 }
