@@ -1,3 +1,25 @@
+## [2.1.3](https://github.com/iwpnd/tile38-ts/compare/v2.1.2...v2.1.3) (2024-03-11)
+
+
+### Bug Fixes
+
+* 🐛 Base response interface id cannot be number ([7860883](https://github.com/iwpnd/tile38-ts/commit/7860883436dbad65076bdc394b7e01bfdaebfb4b))
+
+
+### Other
+
+* 📦️ update typescript ([40a969b](https://github.com/iwpnd/tile38-ts/commit/40a969b6333f78d15e82b65a8f18afc3772779d7))
+* 🔧 fix dev dependencies ([8ba16b7](https://github.com/iwpnd/tile38-ts/commit/8ba16b76375f4f03feca0c4f83f8d5b6f826239a))
+* **deps-dev:** 🔧 .editorconfig ([05deef3](https://github.com/iwpnd/tile38-ts/commit/05deef357df19e06417a6c7baed79078a1560caa))
+* **deps-dev:** 🔧 bump tile38 container ([467e14b](https://github.com/iwpnd/tile38-ts/commit/467e14bce7a4c13a6f7f97d25604d71f2e88a375))
+* **deps-dev:** 🔧 update ([62334e0](https://github.com/iwpnd/tile38-ts/commit/62334e0f61eacb62740e1fe92e727b0effe4d300))
+* **deps-dev:** 🔧 update ([df110e3](https://github.com/iwpnd/tile38-ts/commit/df110e3719f9e083cd4422b2b4bb4ecbc5116c30))
+* **deps-dev:** 🔧 update ([c1a9895](https://github.com/iwpnd/tile38-ts/commit/c1a9895334fd1a804737051e6a403fbde20a05c9))
+* **deps-dev:** 🔧 update ([0dba492](https://github.com/iwpnd/tile38-ts/commit/0dba492f7af18d4c8b9cc93cf97f0f250e6a5815))
+* **deps-dev:** 🔧 update ([17d81a8](https://github.com/iwpnd/tile38-ts/commit/17d81a80625302884027dbb16488ab1685dbf8bd))
+* **deps-dev:** 🔧 update commitlint & lockfile maintenance ([95b56d4](https://github.com/iwpnd/tile38-ts/commit/95b56d4d53345d191a397d086e8bccbc7723a9d6))
+* **deps-dev:** bump husky from 9.0.10 to 9.0.11 ([53586f6](https://github.com/iwpnd/tile38-ts/commit/53586f6046fa1ddde6362ad61b6609e8a27815b2))
+
 ## [2.1.2](https://github.com/iwpnd/tile38-ts/compare/v2.1.1...v2.1.2) (2024-02-10)
 
 
