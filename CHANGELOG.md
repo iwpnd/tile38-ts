@@ -1,3 +1,19 @@
+## [2.1.4](https://github.com/iwpnd/tile38-ts/compare/v2.1.3...v2.1.4) (2024-05-04)
+
+
+### Other
+
+* 👷 dependabot add github-actions ([10c1d3c](https://github.com/iwpnd/tile38-ts/commit/10c1d3ce6f3da9d755dc10b6decc6720e1e52b48))
+* 👷 update dependabot schedule ([34d7b6c](https://github.com/iwpnd/tile38-ts/commit/34d7b6c13168a8975711c4cf5584199d228de28a))
+* 🔧 fix release config ([874fcb3](https://github.com/iwpnd/tile38-ts/commit/874fcb3f8883f736406e38b7b133da683873809d))
+* **deps-dev:** 🔧 downgrade conventional-changelog-conventionalcommits ([5e9ea7a](https://github.com/iwpnd/tile38-ts/commit/5e9ea7a653c94b2e6140ee6260fa9798b4472438))
+* **deps-dev:** 🔧 update ([cd70528](https://github.com/iwpnd/tile38-ts/commit/cd705281b2a6b6e65a81893bdfb53b3309d7e521))
+* **deps-dev:** 🔧 update ([391d100](https://github.com/iwpnd/tile38-ts/commit/391d100a5934350fb79f8b4a1eede07af75230c2))
+* **deps-dev:** 🔧 update ([e1888c7](https://github.com/iwpnd/tile38-ts/commit/e1888c7be4275c92fb76752fb848c40969abe8cf))
+* **deps-dev:** 🔧 update ([63342d8](https://github.com/iwpnd/tile38-ts/commit/63342d8c61acbfbf6fa2d3f015e842b4edac90d4))
+* **deps:** 📦️ update ([2d4d5ac](https://github.com/iwpnd/tile38-ts/commit/2d4d5ac84ae00aac40492e874eb9d07ddca411f0))
+* **deps:** 🔗 upgrade ioredis to v5.4.1 ([99fab78](https://github.com/iwpnd/tile38-ts/commit/99fab7860551088fc31c91cd1001245f943d3514))
+
 ## [2.1.3](https://github.com/iwpnd/tile38-ts/compare/v2.1.2...v2.1.3) (2024-03-11)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@iwpnd/tile38-ts",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "A Node.js Tile38 client written in TypeScript",
   "main": "dist/index.js",
   "files": [
