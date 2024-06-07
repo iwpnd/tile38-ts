@@ -311,6 +311,10 @@ export type JsonGetResponse = ExtendResponse<{
     value: string | number;
 }>;
 
+export type ExistsResponse = ExtendResponse<{
+    exists: boolean;
+}>;
+
 // HOOKS
 export type HooksResponse = ExtendResponse<{
     hooks: {
