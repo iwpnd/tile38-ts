@@ -219,6 +219,26 @@ Set the value for one or more fields of an object. Fields must be double precisi
 await tile38.fSet('fleet', 'truck1', { maxSpeed: 90, milage: 90000 });
 ```
 
+#### FEXISTS
+
+Validate if field exists on id.
+
+```typescript
+await tile38
+    .set('fleet', 'truck1')
+    .fields({ maxSpeed: 90, milage: 90000 })
+    .point(33.5123, -112.2693)
+    .exec();
+
+let response = await tile38.fexists('fleet', 'truck1', 'weight');
+console.log(response.exists);
+// > true
+
+response = await tile38.fexists('fleet', 'truck1', 'milage');
+console.log(response.exists);
+// > false
+```
+
 **Options**
 || |
 |--|--|
@@ -252,6 +272,22 @@ await tile38.get('fleet', 'truck1').asString();
 | `.asHash(precision)` | get as hash |
 | `.asPoint()` | get as point |
 | `.asString()` | get as string |
+
+#### EXISTS
+
+Validate id exists.
+
+```typescript
+await tile38.set('fleet', 'truck1').point(33.5123, -112.2693).exec();
+
+let response = await tile38.exists('fleet', 'truck1');
+console.log(response.exists);
+// > true
+
+response = await tile38.exists('fleet', 'truck1');
+console.log(response.exists);
+// > false
+```
 
 #### DEL
 
@@ -837,7 +873,7 @@ MIT
 ## Maintainer
 
 Vincent Priem - [@vpriem](https://github.com/vpriem)  
-Benjamin Ramser - [@iwpnd](https://github.com/iwpnd)  
+Benjamin Ramser - [@iwpnd](https://github.com/iwpnd)
 
 Project Link: [https://github.com/iwpnd/tile38-ts](https://github.com/iwpnd/tile38-ts)
 
