@@ -315,6 +315,10 @@ export type ExistsResponse = ExtendResponse<{
     exists: boolean;
 }>;
 
+export type FExistsResponse = ExtendResponse<{
+    exists: boolean;
+}>;
+
 // HOOKS
 export type HooksResponse = ExtendResponse<{
     hooks: {

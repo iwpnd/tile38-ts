@@ -8,6 +8,7 @@ import {
     ConfigGetResponse,
     ConfigKeys,
     ExistsResponse,
+    FExistsResponse,
     HooksResponse,
     InfoFollowerResponse,
     JSONResponse,
@@ -70,6 +71,10 @@ export class Follower extends EventEmitter implements FollowerInterface {
 
     exists(key: string, id: string): Promise<ExistsResponse> {
         return this.client.command(Command.EXISTS, [key, id]);
+    }
+
+    fexists(key: string, id: string, field: string): Promise<FExistsResponse> {
+        return this.client.command(Command.FEXISTS, [key, id, field]);
     }
 
     gc(): Promise<JSONResponse> {

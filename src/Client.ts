@@ -16,6 +16,7 @@ export enum Command {
     DROP = 'DROP',
     EXISTS = 'EXISTS',
     EXPIRE = 'EXPIRE',
+    FEXISTS = 'FEXISTS',
     FLUSHDB = 'FLUSHDB',
     FSET = 'FSET',
     GC = 'GC',
