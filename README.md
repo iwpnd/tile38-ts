@@ -226,7 +226,7 @@ Validate if field exists on id.
 ```typescript
 await tile38
     .set('fleet', 'truck1')
-    .fields({ maxSpeed: 90, milage: 90000 })
+    .fields({ weight: 9001 })
     .point(33.5123, -112.2693)
     .exec();
 
