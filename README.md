@@ -284,7 +284,7 @@ let response = await tile38.exists('fleet', 'truck1');
 console.log(response.exists);
 // > true
 
-response = await tile38.exists('fleet', 'truck1');
+response = await tile38.exists('fleet', 'truck2');
 console.log(response.exists);
 // > false
 ```
