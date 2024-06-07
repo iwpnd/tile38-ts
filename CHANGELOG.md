@@ -1,3 +1,22 @@
+## [2.2.0](https://github.com/iwpnd/tile38-ts/compare/v2.1.4...v2.2.0) (2024-06-07)
+
+### Features
+
+* ✨ add EXISTS command as of Tile38 v1.33.0 ([b52144c](https://github.com/iwpnd/tile38-ts/commit/b52144c1a19e04e7c1926da4a1ec17e2c8bf32f1))
+* ✨ add FEXISTS command as of Tile38 v1.33.0 ([9fa1719](https://github.com/iwpnd/tile38-ts/commit/9fa1719c91a4b363f9dfbf6a41e0ec7e245b1a32))
+
+### Other
+
+* 🔧 bump tile38 v1.33.0 ([dcd9063](https://github.com/iwpnd/tile38-ts/commit/dcd9063c60444456c1069f9028c7eb9af1d3be94))
+* **deps-dev:** 🔧 update ([b5f304e](https://github.com/iwpnd/tile38-ts/commit/b5f304e23533909147a850d8207cb0817d30f7ac))
+* **deps-dev:** 🔧 update ([59b578e](https://github.com/iwpnd/tile38-ts/commit/59b578e5d74ce658f03413f95672000580eae632))
+* **deps-dev:** 🔧 update ([76d257a](https://github.com/iwpnd/tile38-ts/commit/76d257a8861fdd11250282322af43f20d1f9b860))
+* **deps-dev:** bump rimraf from 5.0.5 to 5.0.7 ([2d63de1](https://github.com/iwpnd/tile38-ts/commit/2d63de1e62eca5c116c16d37e653303d5fd84afb))
+
+### Documentation
+
+* 📚️ update documentation with FEXISTS and EXISTS ([7c6c01c](https://github.com/iwpnd/tile38-ts/commit/7c6c01c96f247c3a89a3764472422e5b11825575))
+
 ## [2.1.4](https://github.com/iwpnd/tile38-ts/compare/v2.1.3...v2.1.4) (2024-05-04)
 
 
