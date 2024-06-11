@@ -1,3 +1,14 @@
+## [2.2.1](https://github.com/iwpnd/tile38-ts/compare/v2.2.0...v2.2.1) (2024-06-11)
+
+### Other
+
+* **deps-dev:** 🔧 update ([89b698a](https://github.com/iwpnd/tile38-ts/commit/89b698ac5351de848a10869d36e770c90f91a4fc))
+
+### Documentation
+
+* fix typo [skip ci] ([7e33f12](https://github.com/iwpnd/tile38-ts/commit/7e33f12afe45013762a1995fef8e82ac58054e8b))
+* typo [skip ci] ([e7ccbdb](https://github.com/iwpnd/tile38-ts/commit/e7ccbdb4659f2efd85cf7d658c57f714e234a81a))
+
 ## [2.2.0](https://github.com/iwpnd/tile38-ts/compare/v2.1.4...v2.2.0) (2024-06-07)
 
 ### Features
