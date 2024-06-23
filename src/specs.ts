@@ -1,5 +1,6 @@
 import { GeoJSON } from '@vpriem/geojson';
 import { RedisOptions } from 'ioredis';
+import { WhereInValues } from './commands/Whereable';
 import {
     BoundsNeSwResponse,
     BoundsNeSwResponses,
@@ -104,6 +105,7 @@ interface IntersectsBaseInterface {
     tile(x: number, y: number, z: number): this;
     object<O extends GeoJSON = GeoJSON>(value: O): this;
     where(field: string, min: number, max: number): this;
+    wherein(field: string, values: WhereInValues): this;
     whereExpr(expr: string): this;
 }
 
@@ -137,6 +139,7 @@ interface NearbyBaseInterface {
     distance(flag?: boolean): this;
     point(lat: number, lon: number, radius?: number): this;
     where(field: string, min: number, max: number): this;
+    wherein(field: string, values: WhereInValues): this;
     whereExpr(expr: string): this;
 }
 
@@ -178,6 +181,7 @@ export interface ScanInterface {
     asPoints(): Promise<PointsResponse>;
     exec<R extends JSONResponse = ObjectResponse>(): Promise<R>;
     where(field: string, min: number, max: number): this;
+    wherein(field: string, values: WhereInValues): this;
     whereExpr(expr: string): this;
 }
 
@@ -196,6 +200,7 @@ export interface SearchInterface {
     asStringObjects(): Promise<StringObjectsResponse>;
     exec<R extends JSONResponse = StringObjectsResponse>(): Promise<R>;
     where(field: string, min: number, max: number): this;
+    wherein(field: string, values: WhereInValues): this;
     whereExpr(expr: string): this;
 }
 
@@ -246,6 +251,7 @@ interface WithinBaseInterface {
     tile(x: number, y: number, z: number): this;
     object<O extends GeoJSON = GeoJSON>(value: O): this;
     where(field: string, min: number, max: number): this;
+    wherein(field: string, values: WhereInValues): this;
     whereExpr(expr: string): this;
 }
 

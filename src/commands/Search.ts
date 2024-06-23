@@ -150,6 +150,7 @@ export class Search extends Whereable implements SearchInterface {
                 this._key,
                 ...this.compileOptions(),
                 ...super.compileWhere(),
+                ...super.compileWherein(),
                 ...(this._output || []),
             ],
         ];

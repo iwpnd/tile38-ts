@@ -6,7 +6,7 @@ type WhereType = (
     | [SubCommand.WHERE, string]
 )[];
 
-type WhereInValues = (number | string)[];
+export type WhereInValues = (number | string)[];
 
 type WhereInType = [SubCommand.WHEREIN, string, ...Array<string | number>][];
 
@@ -53,7 +53,12 @@ export class Whereable extends Executable implements Where {
     }
 
     wherein(field: string, values: WhereInValues): this {
-        this._wherein.push([SubCommand.WHEREIN, field, ...values]);
+        this._wherein.push([
+            SubCommand.WHEREIN,
+            field,
+            values.length,
+            ...values,
+        ]);
         return this;
     }
 }

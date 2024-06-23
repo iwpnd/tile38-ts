@@ -162,4 +162,24 @@ describe('Intersects', () => {
             [key, 'NOFIELDS', 'LIMIT', 1, 'HASH', 'u33d'],
         ]);
     });
+
+    it('should compile query with where and wherein', () => {
+        const key = 'fleet';
+        let query = new Intersects(tile38.client, key);
+
+        expect(
+            query.noFields().hash('u33d').where('foo', 1, 1).compile()
+        ).toEqual([
+            'INTERSECTS',
+            [key, 'NOFIELDS', 'WHERE', 'foo', 1, 1, 'HASH', 'u33d'],
+        ]);
+
+        query = new Intersects(tile38.client, key);
+        expect(
+            query.noFields().hash('u33d').wherein('foo', [1, 2]).compile()
+        ).toEqual([
+            'INTERSECTS',
+            [key, 'NOFIELDS', 'WHEREIN', 'foo', 2, 1, 2, 'HASH', 'u33d'],
+        ]);
+    });
 });

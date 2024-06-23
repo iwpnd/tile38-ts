@@ -341,6 +341,7 @@ export class Intersects extends Whereable implements IntersectsInterface {
                 ...this.compileOptions(),
                 ...this.compileFence(),
                 ...super.compileWhere(),
+                ...super.compileWherein(),
                 ...(this._output || []),
                 ...(this._query || []),
             ],
