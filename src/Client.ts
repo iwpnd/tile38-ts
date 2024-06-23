@@ -82,6 +82,7 @@ export enum SubCommand {
     STRING = 'STRING',
     TILE = 'TILE',
     WHERE = 'WHERE',
+    WHEREIN = 'WHEREIN',
     WITHFIELDS = 'WITHFIELDS',
     XX = 'XX',
 }
