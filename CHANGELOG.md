@@ -1,3 +1,20 @@
+## [2.3.0](https://github.com/iwpnd/tile38-ts/compare/v2.2.1...v2.3.0) (2024-06-23)
+
+### Features
+
+* ✨ add WHEREIN subcommand ([f314df9](https://github.com/iwpnd/tile38-ts/commit/f314df9c94f6f2274f75dd727e3162dbce43792a))
+* ✨ add WHEREIN to intersects, within, nearby, scan and search ([251ff88](https://github.com/iwpnd/tile38-ts/commit/251ff883c22c44d1940b5103a1627fca67358cb2))
+
+### Other
+
+* 🚨 improve coverage ([06fa6a2](https://github.com/iwpnd/tile38-ts/commit/06fa6a25ec24edc67f7e352c8bd33ad6895feb5c))
+* **deps-dev:** 🔧 update ([0e26749](https://github.com/iwpnd/tile38-ts/commit/0e26749daa8d6117b33e471bae2cc03e7a515dda))
+
+### Documentation
+
+* 📚️ add extensive jsdocs to interfaces ([5386a7b](https://github.com/iwpnd/tile38-ts/commit/5386a7bfdb09cb74904a3fbf9639ba9b6fd68dc2))
+* 📚️ update readme ([755f4b1](https://github.com/iwpnd/tile38-ts/commit/755f4b15a5be018e1997fd87acd03784f9cf3d16))
+
 ## [2.2.1](https://github.com/iwpnd/tile38-ts/compare/v2.2.0...v2.2.1) (2024-06-11)
 
 ### Other
