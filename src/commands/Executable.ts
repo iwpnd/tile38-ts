@@ -7,6 +7,7 @@ export interface Compilable {
 }
 
 export class Executable extends WithClient implements Compilable {
+    // istanbul ignore next
     // eslint-disable-next-line class-methods-use-this
     compile(): [Command, CommandArgs] {
         // istanbul ignore next

@@ -55,13 +55,14 @@ describe('json', () => {
         };
 
         await expect(
-            tile38.jGet('fleet', 'truck1', 'coordinates.1')
+            tile38.jGet('fleet', 'truck1', 'coordinates.1', 'RAW')
         ).resolves.toEqual(expected);
 
         expect(command).toHaveBeenCalledWith('JGET', [
             'fleet',
             'truck1',
             'coordinates.1',
+            'RAW',
         ]);
 
         await expect(tile38.jGet('fleet', 'truck1')).resolves.toEqual({
