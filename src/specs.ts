@@ -1570,6 +1570,12 @@ export interface FollowerInterface extends Tile38BaseInterface {
      * @returns {Promise<InfoFollowerResponse>}
      */
     info(): Promise<InfoFollowerResponse>;
+
+    /**
+     * Get the channel interface
+     * @returns {ChannelInterface}
+     */
+    channel(): ChannelInterface;
 }
 
 /**

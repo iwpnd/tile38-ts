@@ -46,16 +46,16 @@ This is a Typescript client for Tile38 that allows for a type-safe interaction w
 
 ### Features
 
--   fully typed
--   lazy client
--   optional build-in leader/follower logic
--   easy to use and integrate
--   no external dependencies other than redis
--   build in auto-pagination
+- fully typed
+- lazy client
+- optional build-in leader/follower logic
+- easy to use and integrate
+- no external dependencies other than redis
+- build in auto-pagination
 
 ### Built With
 
--   [ioredis](https://www.npmjs.com/package/ioredis)
+- [ioredis](https://www.npmjs.com/package/ioredis)
 
 ## Getting Started
 
@@ -800,17 +800,17 @@ await tile38.info();
 
 Geofence events can be:
 
--   `inside` (object in specified area),
--   `outside` (object outside specified area),
--   `enter` (object enters specified area),
--   `exit` (object exits specified area),
--   `crosses` (object that was not in specified area, has enter/exit it).
+- `inside` (object in specified area),
+- `outside` (object outside specified area),
+- `enter` (object enters specified area),
+- `exit` (object exits specified area),
+- `crosses` (object that was not in specified area, has enter/exit it).
 
 Geofence events can be send on upon commands:
 
--   `set` which sends an event when an object is `.set()`
--   `del` which sends a last event when the object that resides in the geosearch is deleted via `.del()`
--   `drop`which sends a message when the entire collection is dropped
+- `set` which sends an event when an object is `.set()`
+- `del` which sends a last event when the object that resides in the geosearch is deleted via `.del()`
+- `drop`which sends a message when the entire collection is dropped
 
 #### SETHOOK
 
@@ -894,6 +894,10 @@ Now add a receiving channel and add an event handler.
 ```typescript
 const channel = await tile38.channel();
 channel.on('message', (message) => console.log(message));
+
+// also as of tile38 v1.33.1 followers can open a channel
+const followerChannel = await tile38.follower().channel();
+followerChannel.on('message', (message) => console.log(message));
 ```
 
 Now that channel can:
@@ -903,6 +907,11 @@ Now that channel can:
 await channel.subscribe('warehouse');
 // or pattern subscribed to
 await channel.pSubscribe('ware*');
+
+// also as of tile38 v1.33.1 followers can open a channel
+await followerChannel.subscribe('warehouse');
+// or pattern subscribed to
+await followerChannel.pSubscribe('ware*');
 ```
 
 Every set `.set()` results in:
@@ -954,7 +963,7 @@ await tile38.pDelChan('ware*');
 
 For more information, please refer to:
 
--   [Tile38](https://tile38.com)
+- [Tile38](https://tile38.com)
 
 ## Roadmap
 

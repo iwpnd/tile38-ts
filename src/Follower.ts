@@ -1,6 +1,14 @@
 import EventEmitter from 'events';
 import { Client, Command, ConstructorArgs, SubCommand } from './Client';
-import { Get, Intersects, Nearby, Scan, Search, Within } from './commands';
+import {
+    Channel,
+    Get,
+    Intersects,
+    Nearby,
+    Scan,
+    Search,
+    Within,
+} from './commands';
 import { forwardEvents } from './events';
 import {
     BoundsResponse,
@@ -20,6 +28,7 @@ import {
     StatsResponse,
 } from './responses';
 import {
+    ChannelInterface,
     FollowerInterface,
     GetInterface,
     IntersectsInterface,
@@ -55,6 +64,10 @@ export class Follower extends EventEmitter implements FollowerInterface {
 
     chans(pattern = '*'): Promise<ChansResponse> {
         return this.client.command(Command.CHANS, [pattern]);
+    }
+
+    channel(): ChannelInterface {
+        return new Channel(this.client);
     }
 
     configGet(name: ConfigKeys): Promise<ConfigGetResponse> {
