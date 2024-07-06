@@ -1,3 +1,14 @@
+## [2.4.0](https://github.com/iwpnd/tile38-ts/compare/v2.3.0...v2.4.0) (2024-07-06)
+
+### Features
+
+* ✨ add channels to followers ([d86bc58](https://github.com/iwpnd/tile38-ts/commit/d86bc58dd916907a92b99e8bb26f8095979fd588))
+
+### Other
+
+* 🔧 ignore .DS_Store ([5345df5](https://github.com/iwpnd/tile38-ts/commit/5345df52e73ba6a23df5769b11554b1b6b8953b7))
+* **deps-dev:** bump @types/node from 20.14.8 to 20.14.9 ([78fe797](https://github.com/iwpnd/tile38-ts/commit/78fe797e115ee41667f0b2248f259388282cfb14))
+
 ## [2.3.0](https://github.com/iwpnd/tile38-ts/compare/v2.2.1...v2.3.0) (2024-06-23)
 
 ### Features
