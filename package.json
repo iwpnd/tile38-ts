@@ -54,7 +54,7 @@
     "@commitlint/config-conventional": "19.4.1",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@semantic-release/github": "10.3.2",
+    "@semantic-release/github": "10.3.5",
     "@semantic-release/npm": "12.0.1",
     "@semantic-release/release-notes-generator": "14.0.1",
     "@types/jest": "29.5.12",
@@ -76,7 +76,7 @@
     "pinst": "3.0.0",
     "prettier": "3.3.3",
     "rimraf": "6.0.1",
-    "semantic-release": "24.1.0",
+    "semantic-release": "24.1.1",
     "ts-jest": "29.2.5",
     "typescript": "5.5.4"
   },
