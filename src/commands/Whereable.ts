@@ -23,7 +23,7 @@ export type WhereInValues = (number | string)[];
  * @typedef {Array} WhereInType
  * @property {Array} 0 - SubCommand.WHEREIN with field name and values
  */
-type WhereInType = [SubCommand.WHEREIN, string, ...Array<string | number>][];
+type WhereInType = [SubCommand.WHEREIN, string, ...(string | number)[]][];
 
 export interface Where {
     /**

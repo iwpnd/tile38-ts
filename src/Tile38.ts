@@ -7,11 +7,9 @@ import { FollowerInterface, Tile38Options } from './specs';
 export class Tile38 extends Leader {
     readonly _follower?: Follower;
 
-    constructor(port: number, options?: Tile38Options);
+    constructor(port: number | string, options?: Tile38Options);
 
     constructor(port: number, host: string, options?: Tile38Options);
-
-    constructor(path: string, options?: Tile38Options);
 
     constructor(path?: string, followerPath?: string, options?: Tile38Options);
 

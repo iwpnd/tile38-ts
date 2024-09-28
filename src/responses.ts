@@ -1,20 +1,19 @@
-/* eslint-disable camelcase */
 import { GeoJSON, Polygon } from '@vpriem/geojson';
 
-export type JSONResponse = {
+export interface JSONResponse {
     ok: boolean;
     elapsed: string;
     err?: string;
-};
+}
 
 type ExtendResponse<E extends object> = JSONResponse & E;
 
-export type LatLon = {
+export interface LatLon {
     lat: number;
     lon: number;
-};
+}
 
-export type Fields<O extends object = {}> = Record<
+export type Fields<O extends object = object> = Record<
     string,
     string | number | object | O
 >;
@@ -149,12 +148,12 @@ export type TTLResponse = ExtendResponse<{
 
 // STATS
 export type StatsResponse = ExtendResponse<{
-    stats: Array<{
+    stats: ({
         in_memory_size: number;
         num_objects: number;
         num_points: number;
         num_strings: number;
-    } | null>;
+    } | null)[];
 }>;
 
 // SERVER
@@ -291,7 +290,7 @@ export interface InfoFollowerResponse extends InfoResponse {
 export interface InfoLeaderResponse extends InfoResponse {
     info: InfoResponse['info'] & {
         role: 'master';
-    } & { [key: string]: string | number };
+    } & Record<string, string | number>;
 }
 
 // CONFIG
