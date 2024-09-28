@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-parameters */
+
 import { GeoJSON } from '@vpriem/geojson';
 import { Compilable } from './Executable';
 import { Whereable } from './Whereable';
@@ -213,7 +215,11 @@ export class Intersects extends Whereable implements IntersectsInterface {
         if (format === SubCommand.OBJECTS) {
             this._output = undefined;
         } else if (format === SubCommand.HASHES) {
-            this._output = [format, precision as number];
+            /* istanbul ignore if */
+            if (typeof precision == 'undefined') {
+                throw Error('HASHES output requires hash precision');
+            }
+            this._output = [format, precision];
         } else {
             this._output = [format];
         }
@@ -342,8 +348,8 @@ export class Intersects extends Whereable implements IntersectsInterface {
                 ...this.compileFence(),
                 ...super.compileWhere(),
                 ...super.compileWherein(),
-                ...(this._output || []),
-                ...(this._query || []),
+                ...(this._output ?? []),
+                ...(this._query ?? []),
             ],
         ];
 

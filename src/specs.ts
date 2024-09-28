@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-parameters */
+
 import { GeoJSON } from '@vpriem/geojson';
 import { RedisOptions } from 'ioredis';
 import { WhereInValues } from './commands/Whereable';
@@ -1337,6 +1339,15 @@ export interface SetHookInterface extends SetChanInterface {
  */
 export type Tile38Options = RedisOptions;
 
+enum ListenerEvent {
+    CONNECT = 'connect',
+    READY = 'ready',
+    ERROR = 'error',
+    CLOSE = 'close',
+    RECONNECTING = 'reconnecting',
+    WAIT = 'wait',
+}
+
 /**
  * Tile38BaseInterface provides methods for interacting with the Tile38 server
  */
@@ -1347,55 +1358,7 @@ interface Tile38BaseInterface {
      * @param {() => void} listener - The callback function
      * @returns {this}
      */
-    on(event: 'connect', listener: () => void): this;
-
-    /**
-     * Register an event listener for the 'ready' event
-     * @param {'ready'} event - The event type
-     * @param {() => void} listener - The callback function
-     * @returns {this}
-     */
-    on(event: 'ready', listener: () => void): this;
-
-    /**
-     * Register an event listener for the 'error' event
-     * @param {'error'} event - The event type
-     * @param {(error: Error) => void} listener - The callback function
-     * @returns {this}
-     */
-    on(event: 'error', listener: (error: Error) => void): this;
-
-    /**
-     * Register an event listener for the 'close' event
-     * @param {'close'} event - The event type
-     * @param {() => void} listener - The callback function
-     * @returns {this}
-     */
-    on(event: 'close', listener: () => void): this;
-
-    /**
-     * Register an event listener for the 'reconnecting' event
-     * @param {'reconnecting'} event - The event type
-     * @param {() => void} listener - The callback function
-     * @returns {this}
-     */
-    on(event: 'reconnecting', listener: () => void): this;
-
-    /**
-     * Register an event listener for the 'end' event
-     * @param {'end'} event - The event type
-     * @param {() => void} listener - The callback function
-     * @returns {this}
-     */
-    on(event: 'end', listener: () => void): this;
-
-    /**
-     * Register an event listener for the 'wait' event
-     * @param {'wait'} event - The event type
-     * @param {() => void} listener - The callback function
-     * @returns {this}
-     */
-    on(event: 'wait', listener: () => void): this;
+    on(event: `${ListenerEvent}`, listener: () => void): this;
 
     /**
      * Get the bounds for a specific key

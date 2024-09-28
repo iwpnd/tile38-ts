@@ -63,12 +63,11 @@ describe('channel', () => {
 
         it('should receive set geofence', async () => {
             const promise = new Promise((resolve) => {
-                channel.on(
-                    'message',
-                    (message, channelName) =>
-                        message.command === 'set' &&
-                        resolve({ message, channelName })
-                );
+                channel.on('message', (message, channelName) => {
+                    if (message.command === 'set') {
+                        resolve({ message, channelName });
+                    }
+                });
             });
 
             await tile38
@@ -104,12 +103,11 @@ describe('channel', () => {
 
         it('should receive set geofence on follower', async () => {
             const promise = new Promise((resolve) => {
-                followerChannel.on(
-                    'message',
-                    (message, channelName) =>
-                        message.command === 'set' &&
-                        resolve({ message, channelName })
-                );
+                followerChannel.on('message', (message, channelName) => {
+                    if (message.command === 'set') {
+                        resolve({ message, channelName });
+                    }
+                });
             });
 
             await tile38
@@ -145,12 +143,11 @@ describe('channel', () => {
 
         it('should receive del geofence', async () => {
             const promise = new Promise((resolve) => {
-                channel.on(
-                    'message',
-                    (message, channelName) =>
-                        message.command === 'del' &&
-                        resolve({ message, channelName })
-                );
+                channel.on('message', (message, channelName) => {
+                    if (message.command === 'del') {
+                        resolve({ message, channelName });
+                    }
+                });
             });
 
             await tile38
@@ -177,12 +174,11 @@ describe('channel', () => {
 
         it('should receive del geofence on follower', async () => {
             const promise = new Promise((resolve) => {
-                followerChannel.on(
-                    'message',
-                    (message, channelName) =>
-                        message.command === 'del' &&
-                        resolve({ message, channelName })
-                );
+                followerChannel.on('message', (message, channelName) => {
+                    if (message.command === 'del') {
+                        resolve({ message, channelName });
+                    }
+                });
             });
 
             await tile38
@@ -230,7 +226,9 @@ describe('channel', () => {
             const promise = new Promise((resolve) => {
                 channel.on<Point, CustomerFields, CustomMeta>(
                     'message',
-                    (message, channelName) => resolve({ message, channelName })
+                    (message, channelName) => {
+                        resolve({ message, channelName });
+                    }
                 );
             });
 
@@ -269,7 +267,9 @@ describe('channel', () => {
             const promise = new Promise((resolve) => {
                 followerChannel.on<Point, CustomerFields, CustomMeta>(
                     'message',
-                    (message, channelName) => resolve({ message, channelName })
+                    (message, channelName) => {
+                        resolve({ message, channelName });
+                    }
                 );
             });
 

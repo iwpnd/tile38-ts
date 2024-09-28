@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-parameters */
+
 import {
     Tile38Error,
     Tile38IdNotFoundError,
@@ -12,11 +14,11 @@ export const parseResponse = <R extends JSONResponse>(response: string): R => {
     try {
         obj = JSON.parse(response) as R;
     } catch (error) /* istanbul ignore next */ {
-        throw new Tile38Error((error as Error)?.message || 'unknown');
+        throw new Tile38Error((error as Error).message || 'unknown');
     }
 
     if (!obj.ok) {
-        const message = obj.err || /* istanbul ignore next */ 'unknown';
+        const message = obj.err ?? /* istanbul ignore next */ 'unknown';
 
         if (message.includes('key not found')) {
             throw new Tile38KeyNotFoundError(message);

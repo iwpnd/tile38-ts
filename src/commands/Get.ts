@@ -59,7 +59,11 @@ export class Get extends Executable implements GetInterface {
         if (format === SubCommand.OBJECT) {
             this._output = undefined;
         } else if (format === SubCommand.HASH) {
-            this._output = [format, precision as number];
+            /* istanbul ignore if */
+            if (typeof precision == 'undefined') {
+                throw Error('HASHES output requires hash precision');
+            }
+            this._output = [format, precision];
         } else {
             this._output = [format];
         }
@@ -103,7 +107,7 @@ export class Get extends Executable implements GetInterface {
                 this._key,
                 this._id,
                 ...(this._withFields ? [SubCommand.WITHFIELDS] : []),
-                ...(this._output || []),
+                ...(this._output ?? []),
             ],
         ];
     }

@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/use-unknown-in-catch-callback-variable */
+/* eslint-disable @typescript-eslint/no-confusing-void-expression */
+
 import EventEmitter from 'events';
 import { Redis, RedisOptions } from 'ioredis';
 import { forwardEvents } from './events';
@@ -89,7 +92,7 @@ export enum SubCommand {
 
 export type ConstructorArgs = (string | number | RedisOptions | undefined)[];
 
-export type CommandArgs = Array<SubCommand | string | number | object>;
+export type CommandArgs = (SubCommand | string | number | object)[];
 
 enum Format {
     RESP = 'resp',
@@ -97,7 +100,7 @@ enum Format {
 }
 
 const toString = (s: string | number): string =>
-    typeof s === 'string' ? s : `${s}`;
+    typeof s === 'string' ? s : s.toString();
 
 const applyDefaults = (args: ConstructorArgs) => {
     const options = args.find((arg) => typeof arg === 'object');
@@ -153,7 +156,7 @@ export class Client extends EventEmitter {
     ): Promise<string> {
         return this.redis.call(
             command,
-            ...(args || []).map(toString)
+            ...(args ?? []).map(toString)
         ) as Promise<string>;
     }
 

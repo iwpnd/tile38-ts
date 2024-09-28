@@ -10,9 +10,10 @@ const events = [
     'wait',
 ];
 
-export const forwardEvents = (from: EventEmitter, to: EventEmitter): void =>
-    events.forEach((event) =>
-        from.on(event, (...eventArgs) =>
+export const forwardEvents = (from: EventEmitter, to: EventEmitter): void => {
+    events.forEach((event) => {
+        return from.on(event, (...eventArgs) =>
             to.emit(event, ...(eventArgs as [Error]))
-        )
-    );
+        );
+    });
+};

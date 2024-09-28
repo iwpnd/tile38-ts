@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-parameters */
+
 import { GeoJSON } from '@vpriem/geojson';
 import { Executable } from './Executable';
 import { Client, Command, CommandArgs, SubCommand } from '../Client';
@@ -111,6 +113,7 @@ export class Set extends Executable implements SetInterface {
                     ? [SubCommand.EX, this._ex]
                     : []),
                 ...(this._nxOrXx ? [this._nxOrXx] : []),
+                /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition */
                 ...(this._input || []),
             ],
         ];

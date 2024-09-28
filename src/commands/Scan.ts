@@ -28,7 +28,11 @@ export class Scan extends Search implements ScanInterface {
         if (format === SubCommand.OBJECTS) {
             this._output = undefined;
         } else if (format === SubCommand.HASHES) {
-            this._output = [format, precision as number];
+            /* istanbul ignore if */
+            if (typeof precision == 'undefined') {
+                throw Error('HASHES output requires hash precision');
+            }
+            this._output = [format, precision];
         } else {
             this._output = [format];
         }
