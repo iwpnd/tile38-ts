@@ -6,17 +6,17 @@ import {
 } from './errors';
 import { JSONResponse } from './responses';
 
-export const parseResponse = (response: string): JSONResponse => {
-    let obj: JSONResponse;
+export const parseResponse = <R extends JSONResponse>(response: string): R => {
+    let obj: R;
 
     try {
-        obj = JSON.parse(response) as JSONResponse;
+        obj = JSON.parse(response) as R;
     } catch (error) /* istanbul ignore next */ {
-        throw new Tile38Error((error as Error).message || 'unknown');
+        throw new Tile38Error((error as Error)?.message || 'unknown');
     }
 
     if (!obj.ok) {
-        const message = obj.err ?? /* istanbul ignore next */ 'unknown';
+        const message = obj.err || /* istanbul ignore next */ 'unknown';
 
         if (message.includes('key not found')) {
             throw new Tile38KeyNotFoundError(message);

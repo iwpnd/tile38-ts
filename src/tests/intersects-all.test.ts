@@ -376,7 +376,7 @@ describe('intersects all', () => {
                 'truck1',
                 'truck2',
                 'truck3',
-            ]) as string[],
+            ]) as Array<string>,
             count: 3,
             cursor: 0,
         };

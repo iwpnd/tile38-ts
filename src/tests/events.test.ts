@@ -3,7 +3,7 @@ import { Tile38 } from '..';
 describe('events', () => {
     let tile38: Tile38;
 
-    afterEach(() => tile38.quit());
+    afterEach(() => tile38?.quit());
 
     it('should emit connect/ready/close/end', async () => {
         const connect = jest.fn();

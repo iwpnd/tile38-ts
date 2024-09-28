@@ -3,7 +3,7 @@ import { Tile38 } from '..';
 describe('leader', () => {
     let tile38: Tile38;
 
-    afterEach(() => tile38.quit());
+    afterEach(() => tile38?.quit());
 
     it('should create with no arguments', async () => {
         tile38 = new Tile38();

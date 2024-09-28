@@ -28,8 +28,7 @@ export class Scan extends Search implements ScanInterface {
         if (format === SubCommand.OBJECTS) {
             this._output = undefined;
         } else if (format === SubCommand.HASHES) {
-            /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
-            this._output = [format, precision!];
+            this._output = [format, precision as number];
         } else {
             this._output = [format];
         }

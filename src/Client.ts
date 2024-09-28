@@ -89,7 +89,7 @@ export enum SubCommand {
 
 export type ConstructorArgs = (string | number | RedisOptions | undefined)[];
 
-export type CommandArgs = (SubCommand | string | number | object)[];
+export type CommandArgs = Array<SubCommand | string | number | object>;
 
 enum Format {
     RESP = 'resp',
@@ -97,7 +97,7 @@ enum Format {
 }
 
 const toString = (s: string | number): string =>
-    typeof s === 'string' ? s : s.toString();
+    typeof s === 'string' ? s : `${s}`;
 
 const applyDefaults = (args: ConstructorArgs) => {
     const options = args.find((arg) => typeof arg === 'object');
@@ -153,7 +153,7 @@ export class Client extends EventEmitter {
     ): Promise<string> {
         return this.redis.call(
             command,
-            ...(args ?? []).map(toString)
+            ...(args || []).map(toString)
         ) as Promise<string>;
     }
 
@@ -199,12 +199,9 @@ export class Client extends EventEmitter {
     async quit(force = false): Promise<void> {
         await Promise.all(
             force
-                ? /* eslint-disable-next-line */
-                  [this.redis.disconnect(), this.subscriber.disconnect()]
+                ? [this.redis.disconnect(), this.subscriber.disconnect()]
                 : [
-                      /* eslint-disable-next-line */
                       this.redis.quit().catch(catchConnectionClosed),
-                      /* eslint-disable-next-line */
                       this.subscriber.quit().catch(catchConnectionClosed),
                   ]
         );

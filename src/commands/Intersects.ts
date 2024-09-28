@@ -185,7 +185,7 @@ export class Intersects extends Whereable implements IntersectsInterface {
         return this;
     }
 
-    object(value: GeoJSON): this {
+    object<O extends GeoJSON = GeoJSON>(value: O): this {
         this._query = [SubCommand.OBJECT, JSON.stringify(value)];
         return this;
     }
@@ -213,8 +213,7 @@ export class Intersects extends Whereable implements IntersectsInterface {
         if (format === SubCommand.OBJECTS) {
             this._output = undefined;
         } else if (format === SubCommand.HASHES) {
-            /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
-            this._output = [format, precision!];
+            this._output = [format, precision as number];
         } else {
             this._output = [format];
         }
@@ -343,8 +342,8 @@ export class Intersects extends Whereable implements IntersectsInterface {
                 ...this.compileFence(),
                 ...super.compileWhere(),
                 ...super.compileWherein(),
-                ...(this._output ?? []),
-                ...(this._query ?? []),
+                ...(this._output || []),
+                ...(this._query || []),
             ],
         ];
 

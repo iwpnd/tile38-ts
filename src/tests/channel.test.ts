@@ -23,7 +23,7 @@ describe('channel', () => {
         await expect(
             tile38
                 .setChan('parking1')
-                .meta({ m: 'p1' })
+                .meta<CustomMeta>({ m: 'p1' })
                 .nearby('fleet')
                 .detect('inside')
                 .point(52.5514366408197, 13.430185317993164, 100)
@@ -63,17 +63,18 @@ describe('channel', () => {
 
         it('should receive set geofence', async () => {
             const promise = new Promise((resolve) => {
-                channel.on('message', (message, channelName) => {
-                    if (message.command === 'set') {
-                        resolve({ message, channelName });
-                    }
-                });
+                channel.on(
+                    'message',
+                    (message, channelName) =>
+                        message.command === 'set' &&
+                        resolve({ message, channelName })
+                );
             });
 
             await tile38
                 .set('fleet', 'truck1')
                 .point(52.5514366408197, 13.43018531799316)
-                .fields({ f: 1 })
+                .fields<CustomerFields>({ f: 1 })
                 .exec();
 
             const expected: GeofenceSet<Point, CustomerFields, CustomMeta> = {
@@ -103,17 +104,18 @@ describe('channel', () => {
 
         it('should receive set geofence on follower', async () => {
             const promise = new Promise((resolve) => {
-                followerChannel.on('message', (message, channelName) => {
-                    if (message.command === 'set') {
-                        resolve({ message, channelName });
-                    }
-                });
+                followerChannel.on(
+                    'message',
+                    (message, channelName) =>
+                        message.command === 'set' &&
+                        resolve({ message, channelName })
+                );
             });
 
             await tile38
                 .set('fleet', 'truck1')
                 .point(52.5514366408197, 13.43018531799316)
-                .fields({ f: 1 })
+                .fields<CustomerFields>({ f: 1 })
                 .exec();
 
             const expected: GeofenceSet<Point, CustomerFields, CustomMeta> = {
@@ -143,17 +145,18 @@ describe('channel', () => {
 
         it('should receive del geofence', async () => {
             const promise = new Promise((resolve) => {
-                channel.on('message', (message, channelName) => {
-                    if (message.command === 'del') {
-                        resolve({ message, channelName });
-                    }
-                });
+                channel.on(
+                    'message',
+                    (message, channelName) =>
+                        message.command === 'del' &&
+                        resolve({ message, channelName })
+                );
             });
 
             await tile38
                 .set('fleet', 'truck1')
                 .point(52.5514366408197, 13.43018531799316)
-                .fields({ f: 1 })
+                .fields<CustomerFields>({ f: 1 })
                 .ex(1)
                 .exec();
 
@@ -174,17 +177,18 @@ describe('channel', () => {
 
         it('should receive del geofence on follower', async () => {
             const promise = new Promise((resolve) => {
-                followerChannel.on('message', (message, channelName) => {
-                    if (message.command === 'del') {
-                        resolve({ message, channelName });
-                    }
-                });
+                followerChannel.on(
+                    'message',
+                    (message, channelName) =>
+                        message.command === 'del' &&
+                        resolve({ message, channelName })
+                );
             });
 
             await tile38
                 .set('fleet', 'truck1')
                 .point(52.5514366408197, 13.43018531799316)
-                .fields({ f: 1 })
+                .fields<CustomerFields>({ f: 1 })
                 .ex(1)
                 .exec();
 
@@ -226,16 +230,14 @@ describe('channel', () => {
             const promise = new Promise((resolve) => {
                 channel.on<Point, CustomerFields, CustomMeta>(
                     'message',
-                    (message, channelName) => {
-                        resolve({ message, channelName });
-                    }
+                    (message, channelName) => resolve({ message, channelName })
                 );
             });
 
             await tile38
                 .set('fleet', 'truck1')
                 .point(52.54568565984199, 13.427749872207642)
-                .fields({ f: 2 })
+                .fields<CustomerFields>({ f: 2 })
                 .exec();
 
             const expected: GeofenceSet<Point, CustomerFields> = {
@@ -267,16 +269,14 @@ describe('channel', () => {
             const promise = new Promise((resolve) => {
                 followerChannel.on<Point, CustomerFields, CustomMeta>(
                     'message',
-                    (message, channelName) => {
-                        resolve({ message, channelName });
-                    }
+                    (message, channelName) => resolve({ message, channelName })
                 );
             });
 
             await tile38
                 .set('fleet', 'truck1')
                 .point(52.54568565984199, 13.427749872207642)
-                .fields({ f: 2 })
+                .fields<CustomerFields>({ f: 2 })
                 .exec();
 
             const expected: GeofenceSet<Point, CustomerFields> = {

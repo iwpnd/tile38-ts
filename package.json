@@ -28,7 +28,7 @@
     "build": "tsc -p tsconfig.build.json",
     "build:watch": "tsc --watch -p tsconfig.build.json",
     "clean": "rimraf {dist,tsconfig.tsbuildinfo,yarn-error.log,coverage}",
-    "lint": "eslint ./src",
+    "lint": "eslint --ext .ts ./src",
     "test": "jest --runInBand",
     "format": "prettier --write src/{*.ts,**/*.ts}",
     "u": "yarn upgrade-interactive --latest",
@@ -43,13 +43,11 @@
   "devDependencies": {
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
-    "@eslint/js": "9.11.1",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "11.0.0",
     "@semantic-release/npm": "12.0.1",
     "@semantic-release/release-notes-generator": "14.0.1",
-    "@types/eslint__js": "8.42.3",
     "@types/jest": "29.5.13",
     "@types/node": "22.7.4",
     "@typescript-eslint/eslint-plugin": "8.7.0",
@@ -57,7 +55,7 @@
     "conventional-changelog-conventionalcommits": "8.0.0",
     "coveralls": "3.1.1",
     "devmoji": "2.3.0",
-    "eslint": "9.11.1",
+    "eslint": "8.57.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-import-resolver-typescript": "3.6.3",
@@ -71,8 +69,7 @@
     "rimraf": "6.0.1",
     "semantic-release": "24.1.2",
     "ts-jest": "29.2.5",
-    "typescript": "5.6.2",
-    "typescript-eslint": "8.7.0"
+    "typescript": "5.6.2"
   },
   "lint-staged": {
     "*.ts": ["eslint --fix", "prettier --write"]

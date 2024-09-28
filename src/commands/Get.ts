@@ -59,8 +59,7 @@ export class Get extends Executable implements GetInterface {
         if (format === SubCommand.OBJECT) {
             this._output = undefined;
         } else if (format === SubCommand.HASH) {
-            /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
-            this._output = [format, precision!];
+            this._output = [format, precision as number];
         } else {
             this._output = [format];
         }
@@ -104,7 +103,7 @@ export class Get extends Executable implements GetInterface {
                 this._key,
                 this._id,
                 ...(this._withFields ? [SubCommand.WITHFIELDS] : []),
-                ...(this._output ?? []),
+                ...(this._output || []),
             ],
         ];
     }

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/unified-signatures */
-
 import { GeoJSON } from '@vpriem/geojson';
 import { RedisOptions } from 'ioredis';
 import { WhereInValues } from './commands/Whereable';
@@ -336,7 +334,7 @@ interface IntersectsBaseInterface {
      * @template O
      * @returns {this}
      */
-    object(value: GeoJSON): this;
+    object<O extends GeoJSON = GeoJSON>(value: O): this;
 
     /**
      * Filter by values of a specific field
@@ -941,7 +939,7 @@ export interface SetInterface {
      * @param {F} [fields] - The fields to set
      * @returns {this}
      */
-    fields(fields?: Fields): this;
+    fields<F extends Fields = Fields>(fields?: F): this;
 
     /**
      * Set the expiration time for the object in seconds
@@ -970,7 +968,7 @@ export interface SetInterface {
      * @param {O} geoJSON - The GeoJSON object
      * @returns {this}
      */
-    object(geoJSON: GeoJSON): this;
+    object<O extends GeoJSON = GeoJSON>(geoJSON: O): this;
 
     /**
      * Set the point coordinates for the object
@@ -1139,7 +1137,7 @@ interface WithinBaseInterface {
      * @param {O} value - The GeoJSON object
      * @returns {this}
      */
-    object(value: GeoJSON): this;
+    object<O extends GeoJSON = GeoJSON>(value: O): this;
 
     /**
      * Filter by values of a specific field
@@ -1290,7 +1288,7 @@ export interface SetChanInterface {
      * @param {M} [meta] - The metadata to set
      * @returns {this}
      */
-    meta(meta?: Meta): this;
+    meta<M extends Meta = Meta>(meta?: M): this;
 
     /**
      * Set the expiration time for the channel in seconds

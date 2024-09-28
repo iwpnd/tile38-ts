@@ -42,9 +42,11 @@ import {
 export class Follower extends EventEmitter implements FollowerInterface {
     readonly client: Client;
 
-    constructor(port: number | string, options?: Tile38Options);
+    constructor(port: number, options?: Tile38Options);
 
     constructor(port: number, host: string, options?: Tile38Options);
+
+    constructor(path: string, options?: Tile38Options);
 
     constructor(options?: Tile38Options);
 

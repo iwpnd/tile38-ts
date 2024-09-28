@@ -58,7 +58,7 @@ export class Set extends Executable implements SetInterface {
         return this;
     }
 
-    object(value: GeoJSON): this {
+    object<O extends GeoJSON = GeoJSON>(value: O): this {
         this._input = [SubCommand.OBJECT, JSON.stringify(value)];
         return this;
     }
@@ -111,7 +111,7 @@ export class Set extends Executable implements SetInterface {
                     ? [SubCommand.EX, this._ex]
                     : []),
                 ...(this._nxOrXx ? [this._nxOrXx] : []),
-                ...this._input,
+                ...(this._input || []),
             ],
         ];
     }
