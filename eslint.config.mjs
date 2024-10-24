@@ -12,7 +12,7 @@ export default tseslint.config(
                 warnOnUnsupportedTypeScriptVersion: false,
                 projectService: true,
                 tsconfigRootDir: import.meta.dirname,
-                project: ['./tsconfig.eslint.json'],
+                project: ['./tsconfig.json'],
             },
         },
     },
