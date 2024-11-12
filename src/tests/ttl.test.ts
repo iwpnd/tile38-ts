@@ -1,4 +1,4 @@
-import { TTLResponse, Tile38 } from '..';
+import { Tile38, TTLResponse } from '..';
 
 describe('ttl', () => {
     const tile38 = new Tile38();

@@ -2,6 +2,7 @@
 
 import { GeoJSON } from '@vpriem/geojson';
 import { RedisOptions } from 'ioredis';
+
 import { WhereInValues } from './commands/Whereable';
 import {
     BoundsNeSwResponse,
@@ -15,14 +16,14 @@ import {
     Detect,
     Fields,
     Geofence,
-    HashResponse,
     HashesResponse,
+    HashResponse,
     HooksResponse,
     IdsResponse,
     InfoFollowerResponse,
     InfoResponse,
-    JSONResponse,
     JsonGetResponse,
+    JSONResponse,
     KeysResponse,
     Meta,
     ObjectResponse,

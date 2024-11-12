@@ -1,4 +1,5 @@
 import EventEmitter from 'events';
+
 import { Client, Command, ConstructorArgs, SubCommand } from './Client';
 import {
     Channel,
@@ -19,8 +20,8 @@ import {
     FExistsResponse,
     HooksResponse,
     InfoFollowerResponse,
-    JSONResponse,
     JsonGetResponse,
+    JSONResponse,
     KeysResponse,
     PingResponse,
     ServerExtendedResponse,

@@ -3,6 +3,7 @@
 
 import EventEmitter from 'events';
 import { Redis, RedisOptions } from 'ioredis';
+
 import { forwardEvents } from './events';
 import { parseResponse } from './parseResponse';
 import { JSONResponse } from './responses';

@@ -1,5 +1,5 @@
-import { Search } from './Search';
 import { Tile38 } from '..';
+import { Search } from './Search';
 
 describe('Search', () => {
     const tile38 = new Tile38();

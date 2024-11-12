@@ -1,5 +1,5 @@
-import { SetHook } from './SetHook';
 import { Tile38 } from '..';
+import { SetHook } from './SetHook';
 
 describe('SetHook', () => {
     const tile38 = new Tile38();

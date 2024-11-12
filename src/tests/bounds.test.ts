@@ -1,4 +1,5 @@
 import { Position } from '@vpriem/geojson';
+
 import { BoundsResponse, Tile38 } from '..';
 
 describe('bounds', () => {

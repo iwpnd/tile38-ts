@@ -1,4 +1,5 @@
 import { Feature } from '@vpriem/geojson';
+
 import {
     Bounds,
     BoundsNeSwResponses,

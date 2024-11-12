@@ -1,4 +1,5 @@
 import { Point } from '@vpriem/geojson';
+
 import {
     BoundsNeSwResponse,
     HashResponse,

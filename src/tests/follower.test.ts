@@ -1,4 +1,5 @@
 import { Position } from '@vpriem/geojson';
+
 import { ServerExtendedResponse, Tile38 } from '..';
 
 describe('follower', () => {

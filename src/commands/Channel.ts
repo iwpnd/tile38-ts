@@ -1,4 +1,5 @@
 import EventEmitter from 'events';
+
 import { Client } from '../Client';
 import { ChannelInterface } from '../specs';
 

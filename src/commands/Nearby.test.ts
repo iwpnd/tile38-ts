@@ -1,5 +1,5 @@
-import { Nearby } from './Nearby';
 import { Tile38 } from '..';
+import { Nearby } from './Nearby';
 
 describe('Nearby', () => {
     const tile38 = new Tile38();

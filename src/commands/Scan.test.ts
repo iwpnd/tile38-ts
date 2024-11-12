@@ -1,5 +1,5 @@
-import { Scan } from './Scan';
 import { Tile38 } from '..';
+import { Scan } from './Scan';
 
 describe('Scan', () => {
     const tile38 = new Tile38();

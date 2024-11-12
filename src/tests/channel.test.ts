@@ -1,4 +1,5 @@
 import { Point } from '@vpriem/geojson';
+
 import { Fields, GeofenceDel, GeofenceSet, Meta, Tile38 } from '..';
 
 interface CustomMeta extends Meta {

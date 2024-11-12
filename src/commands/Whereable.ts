@@ -1,5 +1,5 @@
-import { Executable } from './Executable';
 import { CommandArgs, SubCommand } from '../Client';
+import { Executable } from './Executable';
 
 /**
  * Represents the different types of WHERE clauses

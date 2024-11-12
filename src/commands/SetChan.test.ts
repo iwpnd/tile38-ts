@@ -1,5 +1,5 @@
-import { SetChan } from './SetChan';
 import { Tile38 } from '..';
+import { SetChan } from './SetChan';
 
 describe('SetChan', () => {
     const tile38 = new Tile38();
