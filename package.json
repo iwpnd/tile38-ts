@@ -3,9 +3,7 @@
   "version": "2.4.0",
   "description": "A Node.js Tile38 client written in TypeScript",
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
@@ -15,23 +13,16 @@
     "access": "public"
   },
   "author": "B. Ramser <iwpnd@posteo.de>",
-  "contributors": [
-    "V. Priem <vinzent.priem@gmail.com>"
-  ],
+  "contributors": ["V. Priem <vinzent.priem@gmail.com>"],
   "license": "MIT",
-  "keywords": [
-    "tile38",
-    "geofence",
-    "geo-spatial",
-    "database"
-  ],
+  "keywords": ["tile38", "geofence", "geo-spatial", "database"],
   "engines": {
     "node": ">=20.x",
     "yarn": "^1.22.x"
   },
   "private": false,
   "scripts": {
-    "postinstall": "yarn husky install",
+    "postinstall": "yarn husky",
     "prepublishOnly": "pinst --disable && yarn run build",
     "postpublish": "pinst --enable",
     "build": "tsc -p tsconfig.build.json",
@@ -85,9 +76,6 @@
     "typescript-eslint": "8.7.0"
   },
   "lint-staged": {
-    "*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ]
+    "*.ts": ["eslint --fix", "prettier --write"]
   }
 }
