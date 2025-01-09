@@ -1,3 +1,27 @@
+## [2.4.1](https://github.com/iwpnd/tile38-ts/compare/v2.4.0...v2.4.1) (2025-01-09)
+
+### Other
+
+* 🎨 import sorting ([3ed92f6](https://github.com/iwpnd/tile38-ts/commit/3ed92f697e1cbea4a0333e3d6e5a72057d6b84e1))
+* 🔧 bump nodejs ([6080c07](https://github.com/iwpnd/tile38-ts/commit/6080c07b490873d9cb1a90d2024a4bae92668656))
+* 🔧 husky deprecations ([1722ba9](https://github.com/iwpnd/tile38-ts/commit/1722ba9bd468d7b991aa1213e250241a5515ebb0))
+* 🔧 lockfile maintenance ([5045b13](https://github.com/iwpnd/tile38-ts/commit/5045b13496d9ace33af10a74eecbe688079e84e4))
+* **deps-dev:** 🔧 bump node version ([f5c5cc1](https://github.com/iwpnd/tile38-ts/commit/f5c5cc1346825688901ed9a22fbeb01874011124))
+* **deps-dev:** 🔧 bump tile38 ([2f129d3](https://github.com/iwpnd/tile38-ts/commit/2f129d3d2303389b03f5b29866cc3f5cfef48ec4))
+* **deps-dev:** 🔧 bump tile38 dev dep ([54b1aa3](https://github.com/iwpnd/tile38-ts/commit/54b1aa381048d127a0b753856dfb6388788185a6))
+* **deps-dev:** 🔧 fix linting ([a1181c3](https://github.com/iwpnd/tile38-ts/commit/a1181c3f83851911a512cbdde94dde62528932d2))
+* **deps-dev:** 🔧 fix linting ([df240b8](https://github.com/iwpnd/tile38-ts/commit/df240b8724fbd6ec223d3c27fa7704201a71b6a3))
+* **deps-dev:** 🔧 husky deprecation warning ([edece1d](https://github.com/iwpnd/tile38-ts/commit/edece1d1ede2d1854029bf355a0b9e7d2bcf4e81))
+* **deps-dev:** 🔧 separate tsconfigs ([9ab8aa1](https://github.com/iwpnd/tile38-ts/commit/9ab8aa1166af6138229f670c2b3c2a15e8142dd2))
+* **deps-dev:** 🔧 update ([400c5b7](https://github.com/iwpnd/tile38-ts/commit/400c5b73e7bac4a021ddd3682fb2ed9de690178f))
+* **deps-dev:** 🔧 update ([81f8754](https://github.com/iwpnd/tile38-ts/commit/81f8754ae2688953f6d07996fb69a710123f10c5))
+* **deps-dev:** 🔧 update ([1854be2](https://github.com/iwpnd/tile38-ts/commit/1854be2cac89afa740347085a008aa6dd1596982))
+* **deps-dev:** 🔧 update ([6a3bb49](https://github.com/iwpnd/tile38-ts/commit/6a3bb498f9862f5a68853300feddfff7121bfef5))
+* **deps-dev:** 🔧 update ([b7aa60f](https://github.com/iwpnd/tile38-ts/commit/b7aa60f525edc9a0af9d6b533f24f8f06f8f842d))
+* **deps-dev:** 🔧 update ([1d7a824](https://github.com/iwpnd/tile38-ts/commit/1d7a824a46636901e0a551cac6d5300093378ca9))
+* **deps-dev:** 🔧 update docker-compose ([64ed492](https://github.com/iwpnd/tile38-ts/commit/64ed4921397d07d51691eed628057b03b33ec729))
+* **deps:** 🔗 update ioredis ([68b89e0](https://github.com/iwpnd/tile38-ts/commit/68b89e06455c0049aac21cc23ba7cdc5865c0235))
+
 ## [2.4.0](https://github.com/iwpnd/tile38-ts/compare/v2.3.0...v2.4.0) (2024-07-06)
 
 ### Features
