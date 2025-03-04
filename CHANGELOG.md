@@ -1,3 +1,13 @@
+## [2.4.2](https://github.com/iwpnd/tile38-ts/compare/v2.4.1...v2.4.2) (2025-03-04)
+
+### Other
+
+* 🔧 bump dev container to latest tile38 v1.34.1 ([734fd28](https://github.com/iwpnd/tile38-ts/commit/734fd2856347d2a44f101a159392154cdf82befc))
+* 🔧 fix lint ([211ef56](https://github.com/iwpnd/tile38-ts/commit/211ef56abd0be2103b1dd4bc15eed375a39de733))
+* **deps-dev:** 🔧 update ([c12e6d1](https://github.com/iwpnd/tile38-ts/commit/c12e6d141edc2682b9a8389a631b81b70ceeb846))
+* **deps-dev:** 🔧 update ([23e69b7](https://github.com/iwpnd/tile38-ts/commit/23e69b7f9c7c5f32917147d468c77a8d9959cd27))
+* **deps:** 🔗 bump ioredis to v5.5.0 ([e37b411](https://github.com/iwpnd/tile38-ts/commit/e37b41169a82bc317f9b669f4adecc37fba9be3e))
+
 ## [2.4.1](https://github.com/iwpnd/tile38-ts/compare/v2.4.0...v2.4.1) (2025-01-09)
 
 ### Other
