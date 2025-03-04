@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/use-unknown-in-catch-callback-variable */
 /* eslint-disable @typescript-eslint/no-confusing-void-expression */
 
 import EventEmitter from 'events';
@@ -185,10 +184,12 @@ export class Client extends EventEmitter {
     }
 
     async subscribe(channels: string | string[]): Promise<void> {
+        // eslint-disable-next-line @typescript-eslint/no-misused-spread
         await this.subscriber.subscribe(...channels);
     }
 
     async pSubscribe(patterns: string | string[]): Promise<void> {
+        // eslint-disable-next-line @typescript-eslint/no-misused-spread
         await this.subscriber.psubscribe(...patterns);
     }
 
