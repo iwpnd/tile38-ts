@@ -7,3 +7,9 @@ coverage
 lerna-debug.log
 .env
 .DS_Store
+
+.yarn/cache/*
+.yarn/install-state.gz
+!.yarn/releases
+!.keep
+
