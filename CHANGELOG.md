@@ -1,3 +1,12 @@
+## [2.4.3](https://github.com/iwpnd/tile38-ts/compare/v2.4.2...v2.4.3) (2025-04-05)
+
+### Other
+
+* 📦️ move to yarn berry ([c4b65c0](https://github.com/iwpnd/tile38-ts/commit/c4b65c0d0ed635d46c41b907c1180add7f683b8d))
+* 🔧 bump .nvmrc ([3b8a5aa](https://github.com/iwpnd/tile38-ts/commit/3b8a5aa158d7f5d015866087d2c27fb4feba3f44))
+* **deps-dev:** 🔧 update ([ee5869b](https://github.com/iwpnd/tile38-ts/commit/ee5869bb3e1190fc17949ba88e88c67fcd814b34))
+* **deps:** 🔗 update ioredis ([fa2dd4d](https://github.com/iwpnd/tile38-ts/commit/fa2dd4dd3b39c7e96ed0661b763069b5604f37bf))
+
 ## [2.4.2](https://github.com/iwpnd/tile38-ts/compare/v2.4.1...v2.4.2) (2025-03-04)
 
 ### Other
