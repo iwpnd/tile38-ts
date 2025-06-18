@@ -1,3 +1,10 @@
+## [2.4.4](https://github.com/iwpnd/tile38-ts/compare/v2.4.3...v2.4.4) (2025-06-18)
+
+### Other
+
+* **deps-dev:** 🔧 update ([8bf6989](https://github.com/iwpnd/tile38-ts/commit/8bf69897485bcc0dace64fc6bdc6b322b15b02f3))
+* **deps:** 🔗 bump ioredis ([c792d59](https://github.com/iwpnd/tile38-ts/commit/c792d597a6f4e59db6c0ffd480d4b387286a7b89))
+
 ## [2.4.3](https://github.com/iwpnd/tile38-ts/compare/v2.4.2...v2.4.3) (2025-04-05)
 
 ### Other
