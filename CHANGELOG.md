@@ -1,3 +1,13 @@
+## [2.4.5](https://github.com/iwpnd/tile38-ts/compare/v2.4.4...v2.4.5) (2025-09-09)
+
+### Other
+
+* 🔧 bump tile38 test dependency ([ea6004e](https://github.com/iwpnd/tile38-ts/commit/ea6004ef4e3222083af4363f5c77241179fcc064))
+* 🔧 remove coveralls dep ([cb028c8](https://github.com/iwpnd/tile38-ts/commit/cb028c8ae5901e9e49a93d5b865cf9ce9ba4e23f))
+* **deps-dev:** 🔧 update ([04e85e3](https://github.com/iwpnd/tile38-ts/commit/04e85e37686b7225ac364bd29016c0314717d1d2))
+* **deps-dev:** 🔧 update ([1215b8f](https://github.com/iwpnd/tile38-ts/commit/1215b8f775975a586c17702ef59b7672eb3f4ede))
+* **deps:** 🔗 update ([103e774](https://github.com/iwpnd/tile38-ts/commit/103e7747cdf63f7a053a7c909958cfbec05195a1))
+
 ## [2.4.4](https://github.com/iwpnd/tile38-ts/compare/v2.4.3...v2.4.4) (2025-06-18)
 
 ### Other
