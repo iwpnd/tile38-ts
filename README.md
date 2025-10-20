@@ -74,6 +74,12 @@ yarn add @iwpnd/tile38-ts
 
 ### Import
 
+> [!IMPORTANT]  
+> As of 1.36.5 Tile38 supports the `-o json` start up flag on the tile38-server.
+> This flag defaults the output from `RESP` to `JSON`. As `tile38-ts` is expecting
+> to manage the `OUTPUT` of tile38, this will break compatibility. 
+> If you're using `tile38-ts`, to not change the default output.
+
 ```typescript
 import { Tile38 } from '@iwpnd/tile38-ts';
 
