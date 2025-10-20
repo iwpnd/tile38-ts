@@ -55,6 +55,8 @@ jobs:
         uses: actions/checkout@v4
       - name: setup node.js
         uses: actions/setup-node@v4
+        with:
+          node-version: latest
       - name: Enable Corepack
         run: corepack enable
       - name: yarn cache
