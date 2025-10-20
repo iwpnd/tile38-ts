@@ -1,3 +1,25 @@
+## [2.4.6](https://github.com/iwpnd/tile38-ts/compare/v2.4.5...v2.4.6) (2025-10-20)
+
+### Bug Fixes
+
+* 🐛 pin ioredis to 5.7.0 for now ([ce32278](https://github.com/iwpnd/tile38-ts/commit/ce3227875197cd468f027dde946ab31981a4737e))
+* 🐛 release pipeline ([69a665e](https://github.com/iwpnd/tile38-ts/commit/69a665eef545c8da9df757c32fd17d0aaf5d9be6))
+
+### Other
+
+* 👷 use latest node version for release step ([46e099a](https://github.com/iwpnd/tile38-ts/commit/46e099afd858ce8521cc7a3286859c9b905284fa))
+* 🔧 fix linter issue ([5a6f7d4](https://github.com/iwpnd/tile38-ts/commit/5a6f7d48677ce23a1556a0dfd752cd772f148c4f))
+* 🔧 local tile38 test dep bump ([949fb90](https://github.com/iwpnd/tile38-ts/commit/949fb9005fcf6a76ac9b0adf9751f4f409fb2aa6))
+* 🔧 start/stop for local test deps ([5c5896e](https://github.com/iwpnd/tile38-ts/commit/5c5896ef92cd8a2b867caeeac41d56c89103a763))
+* **deps-dev:** 🔧 update ([ebd9f79](https://github.com/iwpnd/tile38-ts/commit/ebd9f79b664938faed7c1dc2bdd15ef95e0c6a08))
+* **deps-dev:** 🔧 update ([1dd415c](https://github.com/iwpnd/tile38-ts/commit/1dd415cb99fb80325f7ab798bdba05584903f080))
+* **deps-dev:** 🔧 update test container ([1f4efd9](https://github.com/iwpnd/tile38-ts/commit/1f4efd9ebd350ae3cf53b125ee44e981009427c9))
+* **deps:** 🔗 update ([6694edb](https://github.com/iwpnd/tile38-ts/commit/6694edb50e8e1f1bfadcf472349c4709dc16b8c1))
+
+### Documentation
+
+* 📚️ update with remarks to output json tile38 server flag ([63e7335](https://github.com/iwpnd/tile38-ts/commit/63e73358b5a42b2da8901dc0517c4d10fc8326f4))
+
 ## [2.4.5](https://github.com/iwpnd/tile38-ts/compare/v2.4.4...v2.4.5) (2025-09-09)
 
 ### Other
