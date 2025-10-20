@@ -1,3 +1,9 @@
+## [2.4.8](https://github.com/iwpnd/tile38-ts/compare/v2.4.7...v2.4.8) (2025-10-20)
+
+### Other
+
+* **deps:** bump actions/setup-node from 4 to 6 ([a272dfd](https://github.com/iwpnd/tile38-ts/commit/a272dfd61b8bae4c2c28f5356d7abe39bb8c8d9e))
+
 ## [2.4.7](https://github.com/iwpnd/tile38-ts/compare/v2.4.6...v2.4.7) (2025-10-20)
 
 ### Other
