@@ -203,6 +203,7 @@ export class Client extends EventEmitter {
 
     async quit(force = false): Promise<void> {
         await Promise.all(
+            // eslint-disable-next-line @typescript-eslint/await-thenable
             force
                 ? [this.redis.disconnect(), this.subscriber.disconnect()]
                 : [
