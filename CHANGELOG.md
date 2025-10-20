@@ -1,3 +1,9 @@
+## [2.4.7](https://github.com/iwpnd/tile38-ts/compare/v2.4.6...v2.4.7) (2025-10-20)
+
+### Other
+
+* **deps:** bump actions/checkout from 4 to 5 ([650e245](https://github.com/iwpnd/tile38-ts/commit/650e245835d51dfb605cf9efe40bbe1784a4b0ff))
+
 ## [2.4.6](https://github.com/iwpnd/tile38-ts/compare/v2.4.5...v2.4.6) (2025-10-20)
 
 ### Bug Fixes
