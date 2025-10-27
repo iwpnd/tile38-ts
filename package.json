@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@vpriem/geojson": "1.3.0",
-    "ioredis": "5.7.0"
+    "ioredis": "5.8.2"
   },
   "devDependencies": {
     "@commitlint/cli": "20.1.0",
