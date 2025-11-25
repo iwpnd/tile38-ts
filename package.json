@@ -59,8 +59,8 @@
     "@semantic-release/release-notes-generator": "14.1.0",
     "@types/jest": "30.0.0",
     "@types/node": "24.10.1",
-    "@typescript-eslint/eslint-plugin": "8.47.0",
-    "@typescript-eslint/parser": "8.47.0",
+    "@typescript-eslint/eslint-plugin": "8.48.0",
+    "@typescript-eslint/parser": "8.48.0",
     "conventional-changelog-conventionalcommits": "9.1.0",
     "devmoji": "2.3.0",
     "eslint": "9.39.1",
@@ -75,7 +75,7 @@
     "semantic-release": "25.0.2",
     "ts-jest": "29.4.5",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.47.0"
+    "typescript-eslint": "8.48.0"
   },
   "lint-staged": {
     "*.ts": [
