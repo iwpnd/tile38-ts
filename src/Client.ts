@@ -92,6 +92,7 @@ export enum SubCommand {
 
 export type ConstructorArgs = (string | number | RedisOptions | undefined)[];
 
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type CommandArgs = (SubCommand | string | number | object)[];
 
 enum Format {
