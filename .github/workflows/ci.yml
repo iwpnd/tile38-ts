@@ -4,7 +4,11 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+
 jobs:
   build-lint-test:
     env:
@@ -41,6 +45,7 @@ jobs:
         run: yarn build
       - name: stop tile38
         run: docker compose down
+
   release:
     needs: build-lint-test
     name: release
