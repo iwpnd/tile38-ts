@@ -1,3 +1,11 @@
+## [2.4.10](https://github.com/iwpnd/tile38-ts/compare/v2.4.9...v2.4.10) (2026-02-20)
+
+### Other
+
+* 👷 fix semantic release with oicd ([fac4862](https://github.com/iwpnd/tile38-ts/commit/fac48625661ddb384c5049cb44336d3e6eaced8e))
+* **deps-dev:** 🔧 update ([dbb32a7](https://github.com/iwpnd/tile38-ts/commit/dbb32a740e4181903dee8092f943f03e00b912c8))
+* **deps:** bump actions/cache from 4 to 5 ([620a0a5](https://github.com/iwpnd/tile38-ts/commit/620a0a54b210f4ce5c0f087de6facef8e3f43b51))
+
 ## [2.4.9](https://github.com/iwpnd/tile38-ts/compare/v2.4.8...v2.4.9) (2025-11-25)
 
 ### Other
