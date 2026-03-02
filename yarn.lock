@@ -1066,14 +1066,14 @@ __metadata:
     "@semantic-release/changelog": "npm:6.0.3"
     "@semantic-release/git": "npm:10.0.1"
     "@semantic-release/github": "npm:12.0.6"
-    "@semantic-release/npm": "npm:13.1.4"
+    "@semantic-release/npm": "npm:13.1.5"
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
     "@types/node": "npm:25.0.2"
     "@typescript-eslint/eslint-plugin": "npm:8.56.1"
     "@typescript-eslint/parser": "npm:8.56.1"
     "@vpriem/geojson": "npm:1.3.0"
-    conventional-changelog-conventionalcommits: "npm:9.1.0"
+    conventional-changelog-conventionalcommits: "npm:9.2.0"
     devmoji: "npm:2.3.0"
     eslint: "npm:10.0.2"
     eslint-import-resolver-typescript: "npm:4.4.4"
@@ -2008,9 +2008,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/npm@npm:13.1.4":
-  version: 13.1.4
-  resolution: "@semantic-release/npm@npm:13.1.4"
+"@semantic-release/npm@npm:13.1.5":
+  version: 13.1.5
+  resolution: "@semantic-release/npm@npm:13.1.5"
   dependencies:
     "@actions/core": "npm:^3.0.0"
     "@semantic-release/error": "npm:^4.0.0"
@@ -2020,7 +2020,7 @@ __metadata:
     fs-extra: "npm:^11.0.0"
     lodash-es: "npm:^4.17.21"
     nerf-dart: "npm:^1.0.0"
-    normalize-url: "npm:^8.0.0"
+    normalize-url: "npm:^9.0.0"
     npm: "npm:^11.6.2"
     rc: "npm:^1.2.8"
     read-pkg: "npm:^10.0.0"
@@ -2029,7 +2029,7 @@ __metadata:
     tempy: "npm:^3.0.0"
   peerDependencies:
     semantic-release: ">=20.1.0"
-  checksum: 10/9265f10f03e794a3b02e764defbe7371b06bb4535bddaa3fcfa62e6420b0622c4dd530bd0629b9e6a97047d9bf57955760551f09456f0b0fd25786552fbacefd
+  checksum: 10/3137cadef37348b8dff8aeae879fcd2fb01ac7472e9048ad4e08971721c601424575800ab48459823ad5fa84f5c8d59e8680a980d0c79a96527fd2f230b8e7db
   languageName: node
   linkType: hard
 
@@ -3463,7 +3463,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-conventionalcommits@npm:9.1.0, conventional-changelog-conventionalcommits@npm:^9.1.0":
+"conventional-changelog-conventionalcommits@npm:9.2.0":
+  version: 9.2.0
+  resolution: "conventional-changelog-conventionalcommits@npm:9.2.0"
+  dependencies:
+    compare-func: "npm:^2.0.0"
+  checksum: 10/957c841ba9f1ed0ddc7601ca7d6a71cc13d90a9b6d4c347af8f0718febdade75d6cb693a674964a080213ede9b789773c1d225cad13dc6a553feeebe37d02e78
+  languageName: node
+  linkType: hard
+
+"conventional-changelog-conventionalcommits@npm:^9.1.0":
   version: 9.1.0
   resolution: "conventional-changelog-conventionalcommits@npm:9.1.0"
   dependencies:
@@ -6729,6 +6738,13 @@ __metadata:
   version: 8.0.1
   resolution: "normalize-url@npm:8.0.1"
   checksum: 10/ae392037584fc5935b663ae4af475351930a1fc39e107956cfac44f42d5127eec2d77d9b7b12ded4696ca78103bafac5b6206a0ea8673c7bffecbe13544fcc5a
+  languageName: node
+  linkType: hard
+
+"normalize-url@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "normalize-url@npm:9.0.0"
+  checksum: 10/66944674e5d4c8995bbaa045ebcd369ce2380aae78ba2a18f4c978cf6a3f4c286cd534b8301d483cbed3cdc7ecc0aa3661ee9f1c7c2f5b9a1262b88f4ae7b3b0
   languageName: node
   linkType: hard
 
