@@ -68,7 +68,7 @@
     "eslint-plugin-simple-import-sort": "12.1.1",
     "husky": "9.1.7",
     "jest": "30.2.0",
-    "lint-staged": "16.2.7",
+    "lint-staged": "16.3.1",
     "pinst": "3.0.0",
     "prettier": "3.8.1",
     "rimraf": "6.1.2",
