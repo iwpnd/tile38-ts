@@ -15,7 +15,6 @@ export interface LatLon {
 
 export type Fields<O extends object = object> = Record<
     string,
-    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     string | number | object | O
 >;
 
