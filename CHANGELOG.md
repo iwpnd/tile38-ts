@@ -1,3 +1,23 @@
+## [2.5.0](https://github.com/iwpnd/tile38-ts/compare/v2.4.11...v2.5.0) (2026-03-22)
+
+### Features
+
+* ✨ use node 24 ([ee7142d](https://github.com/iwpnd/tile38-ts/commit/ee7142d3c04b844177df371d4c4477a1faa39ed6))
+
+### Other
+
+* **deps-dev:** bump @types/node from 25.0.2 to 25.3.3 ([3b06993](https://github.com/iwpnd/tile38-ts/commit/3b069936c517be103faa0dab4224a3fba8a643e1))
+* **deps-dev:** bump lint-staged from 16.2.7 to 16.4.0 ([1995eaa](https://github.com/iwpnd/tile38-ts/commit/1995eaaf4192f941abc49894cf4fd92ec5b3842b))
+* **deps-dev:** bump prettier from 3.7.4 to 3.8.1 ([14dc90c](https://github.com/iwpnd/tile38-ts/commit/14dc90c79158dad05b1b327c645097b98db6882a))
+* **deps-dev:** bump the commitlint group with 2 updates ([e826dea](https://github.com/iwpnd/tile38-ts/commit/e826dea6fc64ae019ea65932ba19ac51b6ed2806))
+* **deps-dev:** bump the commitlint group with 2 updates ([de74c46](https://github.com/iwpnd/tile38-ts/commit/de74c46540fc886936cfdad93e02f296d50cdde0))
+* **deps-dev:** bump the eslint group with 3 updates ([90fd6a9](https://github.com/iwpnd/tile38-ts/commit/90fd6a96ae7e75c6f765dfd0ae1c92a527721665))
+* **deps-dev:** bump the eslint group with 3 updates ([c944c20](https://github.com/iwpnd/tile38-ts/commit/c944c20bf6d53dc28e2dc16df9a34af02b51e9d9))
+* **deps-dev:** bump the semantic-release group with 2 updates ([f00dd4a](https://github.com/iwpnd/tile38-ts/commit/f00dd4aaaa54db8d1f0cff7861e6ee9bf4e99531))
+* **deps-dev:** bump the semantic-release group with 3 updates ([fe7623d](https://github.com/iwpnd/tile38-ts/commit/fe7623df8b6e337ae69fc0d28653a9846f2e94aa))
+* **deps-dev:** bump typescript-eslint from 8.50.0 to 8.56.0 ([3f7558c](https://github.com/iwpnd/tile38-ts/commit/3f7558ced57a715a88c03a9587d1bfb0af94f219))
+* **deps:** 🔗 bump ioredis to >5.10 ([fe84af9](https://github.com/iwpnd/tile38-ts/commit/fe84af990fac0a1d2a04dc27bb747ccaba987e21))
+
 ## [2.4.11](https://github.com/iwpnd/tile38-ts/compare/v2.4.10...v2.4.11) (2026-02-20)
 
 ### Other
