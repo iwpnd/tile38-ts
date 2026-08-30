@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/iwpnd/tile38-ts/compare/v2.5.0...v2.6.0) (2026-08-30)
+
+
+### Features
+
+* ✨ set with optional return value ([1e93611](https://github.com/iwpnd/tile38-ts/commit/1e936117a0bd0666e8e05c4be834b844d10c49e0))
+
 ## [2.5.0](https://github.com/iwpnd/tile38-ts/compare/v2.4.11...v2.5.0) (2026-03-22)
 
 ### Features
