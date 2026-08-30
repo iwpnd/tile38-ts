@@ -3,9 +3,22 @@
 import { GeoJSON } from '@vpriem/geojson';
 
 import { Client, Command, CommandArgs, SubCommand } from '../Client';
-import { Fields } from '../responses';
+import {
+    BoundsNeSwResponse,
+    Fields,
+    HashResponse,
+    ObjectResponse,
+    PointResponse,
+    StringObjectResponse,
+} from '../responses';
 import { SetInterface } from '../specs';
 import { Executable } from './Executable';
+
+type Output =
+    | SubCommand.BOUNDS
+    | SubCommand.HASH
+    | SubCommand.OBJECT
+    | SubCommand.POINT;
 
 export class Set extends Executable implements SetInterface {
     private _key: string;
@@ -17,6 +30,14 @@ export class Set extends Executable implements SetInterface {
     private _ex?: number;
 
     private _nxOrXx?: SubCommand.NX | SubCommand.XX;
+
+    private _returns = false;
+
+    private _output?:
+        | [SubCommand.BOUNDS]
+        | [SubCommand.HASH, number]
+        | [SubCommand.OBJECT]
+        | [SubCommand.POINT];
 
     private _input:
         | [SubCommand.OBJECT, string]
@@ -91,6 +112,58 @@ export class Set extends Executable implements SetInterface {
         return this;
     }
 
+    returns(): this {
+        this._returns = true;
+        return this;
+    }
+
+    output(format: Exclude<Output, SubCommand.HASH>): this;
+
+    output(format: SubCommand.HASH, precision: number): this;
+
+    output(format: Output, precision?: number): this {
+        if (format === SubCommand.HASH) {
+            /* istanbul ignore if */
+            if (typeof precision == 'undefined') {
+                throw Error('HASHES output requires hash precision');
+            }
+            this._output = [format, precision];
+        } else {
+            this._output = [format];
+        }
+
+        return this;
+    }
+
+    asObject<O extends GeoJSON = GeoJSON, F extends Fields = Fields>(): Promise<
+        ObjectResponse<O, F>
+    > {
+        this.output(SubCommand.OBJECT);
+        return this.exec();
+    }
+
+    asPoint<F extends Fields = Fields>(): Promise<PointResponse<F>> {
+        this.output(SubCommand.POINT);
+        return this.exec();
+    }
+
+    asHash<F extends Fields = Fields>(
+        precision: number
+    ): Promise<HashResponse<F>> {
+        this.output(SubCommand.HASH, precision);
+        return this.exec();
+    }
+
+    asBounds<F extends Fields = Fields>(): Promise<BoundsNeSwResponse<F>> {
+        this.output(SubCommand.BOUNDS);
+        return this.exec();
+    }
+
+    asString<F extends Fields = Fields>(): Promise<StringObjectResponse<F>> {
+        this.output(SubCommand.OBJECT);
+        return this.exec();
+    }
+
     compile(): [Command, CommandArgs] {
         return [
             Command.SET,
@@ -116,6 +189,8 @@ export class Set extends Executable implements SetInterface {
                 ...(this._nxOrXx ? [this._nxOrXx] : []),
                 /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition */
                 ...(this._input || []),
+                ...(this._returns ? [SubCommand.RETURN] : []),
+                ...(this._returns && this._output ? this._output : []),
             ],
         ];
     }

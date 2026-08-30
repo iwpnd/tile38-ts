@@ -1011,6 +1011,67 @@ export interface SetInterface {
     string(value: string): this;
 
     /**
+     * Returns, if set returns the set item
+     * @returns {this}
+     */
+    returns(): this;
+
+    /**
+     * Set the output format for the response
+     * @param {'BOUNDS' | 'OBJECT' | 'POINT' | 'STRING'} format - The output format
+     * @returns {this}
+     */
+    output(format: 'BOUNDS' | 'OBJECT' | 'POINT' | 'STRING'): this;
+
+    /**
+     * Set the output format to 'HASH' with specified precision
+     * @param {'HASH'} format - The output format
+     * @param {number} precision - The precision for the hash
+     * @returns {this}
+     */
+    output(format: 'HASH', precision: number): this;
+
+    /**
+     * Retrieve the data as a string
+     * @template F
+     * @returns {Promise<StringObjectResponse<F>>}
+     */
+    asString<F extends Fields = Fields>(): Promise<StringObjectResponse<F>>;
+
+    /**
+     * Retrieve the data as bounds
+     * @template F
+     * @returns {Promise<BoundsNeSwResponse<F>>}
+     */
+    asBounds<F extends Fields = Fields>(): Promise<BoundsNeSwResponse<F>>;
+
+    /**
+     * Retrieve the data as a hash
+     * @template F
+     * @param {number} precision - The precision for the hash
+     * @returns {Promise<HashResponse<F>>}
+     */
+    asHash<F extends Fields = Fields>(
+        precision: number
+    ): Promise<HashResponse<F>>;
+
+    /**
+     * Retrieve the data as a GeoJSON object
+     * @template O, F
+     * @returns {Promise<ObjectResponse<O, F>>}
+     */
+    asObject<O extends GeoJSON = GeoJSON, F extends Fields = Fields>(): Promise<
+        ObjectResponse<O, F>
+    >;
+
+    /**
+     * Retrieve the data as a point
+     * @template F
+     * @returns {Promise<PointResponse<F>>}
+     */
+    asPoint<F extends Fields = Fields>(): Promise<PointResponse<F>>;
+
+    /**
      * Execute the Set command
      * @returns {Promise<JSONResponse>}
      */

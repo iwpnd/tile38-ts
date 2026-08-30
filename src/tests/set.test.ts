@@ -100,6 +100,38 @@ describe('set', () => {
         ]);
     });
 
+    it('should set object and return object', async () => {
+        await expect(
+            tile38
+                .set('fleet', 'truck1')
+                .object({
+                    type: 'Point',
+                    coordinates: [-112.2693, 33.5123],
+                })
+                .returns()
+                .asObject()
+        ).resolves.toEqual({
+            elapsed: expect.any(String) as string,
+            ok: true,
+            object: {
+                type: 'Point',
+                coordinates: [
+                    expect.any(Number) as number,
+                    expect.any(Number) as number,
+                ],
+            },
+        });
+
+        expect(command).toHaveBeenCalledWith('SET', [
+            'fleet',
+            'truck1',
+            'OBJECT',
+            '{"type":"Point","coordinates":[-112.2693,33.5123]}',
+            'RETURN',
+            'OBJECT',
+        ]);
+    });
+
     it('should set bounds', async () => {
         await expect(
             tile38

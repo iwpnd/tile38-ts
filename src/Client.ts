@@ -80,6 +80,7 @@ export enum SubCommand {
     POINT = 'POINT',
     POINTS = 'POINTS',
     QUADKEY = 'QUADKEY',
+    RETURN = 'RETURN',
     REWRITE = 'REWRITE',
     SECTOR = 'SECTOR',
     STRING = 'STRING',

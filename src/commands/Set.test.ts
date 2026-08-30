@@ -90,5 +90,9 @@ describe('Set', () => {
             'SET',
             [key, id, 'HASH', '9tbnt'],
         ]);
+        expect(query.returns().compile()).toEqual([
+            'SET',
+            [key, id, 'HASH', '9tbnt', 'RETURN'],
+        ]);
     });
 });
