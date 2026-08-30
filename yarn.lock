@@ -855,7 +855,7 @@ __metadata:
     "@semantic-release/git": "npm:11.0.1"
     "@semantic-release/github": "npm:12.0.9"
     "@semantic-release/npm": "npm:13.1.5"
-    "@semantic-release/release-notes-generator": "npm:14.1.1"
+    "@semantic-release/release-notes-generator": "npm:15.0.0-beta.2"
     "@types/jest": "npm:30.0.0"
     "@types/node": "npm:26.4.0"
     "@typescript-eslint/eslint-plugin": "npm:8.68.0"
@@ -1844,7 +1844,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/release-notes-generator@npm:14.1.1, @semantic-release/release-notes-generator@npm:^14.1.0":
+"@semantic-release/release-notes-generator@npm:15.0.0-beta.2":
+  version: 15.0.0-beta.2
+  resolution: "@semantic-release/release-notes-generator@npm:15.0.0-beta.2"
+  dependencies:
+    conventional-changelog-angular: "npm:^9.0.0"
+    conventional-changelog-writer: "npm:^9.0.0"
+    conventional-commits-filter: "npm:^6.0.0"
+    conventional-commits-parser: "npm:^7.0.0"
+    debug: "npm:^4.0.0"
+    import-from-esm: "npm:^2.0.0"
+    lodash-es: "npm:^4.17.21"
+    read-package-up: "npm:^11.0.0"
+  peerDependencies:
+    semantic-release: ">=20.1.0"
+  checksum: 10/f6c428027a336e339f75d94d9da6737183e2c7322d671b4748cb0e7de2d347d65aae41a1f7a991a4eb8c651b9d655b4ae0303d43a18f80bae52c43b29677e6a0
+  languageName: node
+  linkType: hard
+
+"@semantic-release/release-notes-generator@npm:^14.1.0":
   version: 14.1.1
   resolution: "@semantic-release/release-notes-generator@npm:14.1.1"
   dependencies:
@@ -3204,7 +3222,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-writer@npm:9.2.1, conventional-changelog-writer@npm:^9.2.1":
+"conventional-changelog-writer@npm:9.2.1, conventional-changelog-writer@npm:^9.0.0, conventional-changelog-writer@npm:^9.2.1":
   version: 9.2.1
   resolution: "conventional-changelog-writer@npm:9.2.1"
   dependencies:
@@ -3260,7 +3278,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-commits-filter@npm:^6.0.1":
+"conventional-commits-filter@npm:^6.0.0, conventional-commits-filter@npm:^6.0.1":
   version: 6.0.1
   resolution: "conventional-commits-filter@npm:6.0.1"
   checksum: 10/3d668c4428a67eb02267d6fc59f0830b2ec71b78e728062ef7b7698e8d510b2c379a549a9101844d0f2bb7b06b4add91e8c26258e55e29a9d8b9060ac2c83500
