@@ -63,9 +63,9 @@
     "@typescript-eslint/parser": "8.68.0",
     "conventional-changelog-conventionalcommits": "10.4.0",
     "devmoji": "2.3.0",
-    "eslint": "10.6.0",
+    "eslint": "10.9.1",
     "eslint-import-resolver-typescript": "4.4.5",
-    "eslint-plugin-simple-import-sort": "13.0.0",
+    "eslint-plugin-simple-import-sort": "14.0.0",
     "husky": "9.1.7",
     "jest": "30.5.0",
     "lint-staged": "17.4.1",
@@ -75,7 +75,7 @@
     "semantic-release": "25.0.9",
     "ts-jest": "29.4.12",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.62.1"
+    "typescript-eslint": "8.68.0"
   },
   "lint-staged": {
     "*.ts": [
