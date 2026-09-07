@@ -68,7 +68,7 @@
     "eslint-import-resolver-typescript": "4.4.5",
     "eslint-plugin-simple-import-sort": "14.0.0",
     "husky": "9.1.7",
-    "jest": "30.5.0",
+    "jest": "30.5.1",
     "lint-staged": "17.4.1",
     "pinst": "3.0.0",
     "prettier": "3.9.6",
